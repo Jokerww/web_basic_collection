@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>浮动布局</title>
+		<style type="text/css">
+			.box{
+				width: 1200px;
+				height: 460px;
+				background-color: lightgrey;
+				margin: 0 auto;
+			}
+			.box .left{
+				float: left;
+				height: 460px;
+				width: 230px;
+				background-color: #979ba0; /* 用PS取色 */
+			}
+			.box .right{
+				float: left;
+				height: 460px;
+				width: 970px;
+				background-color: #ddedfa; 
+			}
+		</style>
+	</head>
+	<body>
+		<!--布局工具：div布局、table布局、list布局(ul>li) 
+			网页布局：
+				本质：用CSS来摆放盒子 把盒子放在相应的位置
+			布局方式：
+				普通流(标准流)：按照元素特性按顺序摆放盒子(块元素占一行 行内元素一行多个)
+				浮动：利用浮动拜访盒子 放到不同的位置
+				定位：给盒子添加定位 进一步精准的拜访盒子
+			实际开发中 一个页面基本包含了这三种布局方式
+				-->
+			
+		<!-- 1，浮动元素的布局经常和标准流父级搭配使用：
+				先用标准流的父元素排列上下位置，之后内部的子元素采取浮动排列左右位置
+				符合网页布局第一准则
+				-->
+		<div class="box">
+			<!-- 父元素 大框框把里边的子元素包起来 -->
+			<div class="left"></div>
+			<div class="right"></div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Date对象</title>
+	</head>
+	<body>
+		
+		<!-- Date对象：用于返回时间
+			1，是一个构造函数 需要实例化 创建一个Date对象需要new操作符
+				如：var date1 = new Date();
+				new Date();
+				new Date(value);
+				new Date(dateString);
+				new Date(year, monthIndex [, day [, hours [, minutes
+											[, seconds [, milliseconds]]]]]);
+				
+			2，注意：参数monthIndex 是从“0”开始计算的这就意味着一月份为“0”，十二月份为“11”。
+			
+				  
+		 -->
+		 <script type="text/javascript">
+			 // Date()不跟参数 则返回当前时间
+		 	var date1 = new Date();
+			console.log(date1);
+			
+			// 参数能用的写法:数字型2019,5,01  或者字符串型'2019-11-7 20:14:20'
+			var date2=new Date('2019-11-7 20:14:20');
+			var date3 = new Date(2019,5,01);
+			console.log(date2); //返回给定的时间
+			console.log(date3);//由于月份0-11,则给的数字5 输出会是6月 会加1(数值5对应索引6)
+		 </script>
+		 
+		 <!-- 格式化年月日  2019年11月7日 -->
+		 <script type="text/javascript">
+		 	var date5 = new Date();
+			console.log(date5);
+			console.log(date5.getFullYear()); //当前年 
+			console.log(date5.getMonth()+1); //当前月
+			console.log(date5.getDate()); //当前日
+			console.log(date5.getDay()); //当前周 0-6 0代表周日 6为周六
+			
+			// 封装函数 格式化显示2019年11月7日 周四
+			function getDate1() {
+				var date = new Date();
+				var str = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六']
+				var year = date.getFullYear();
+				var month = date.getMonth()+1;
+				var date1 = date.getDate();
+				var day = date.getDay();
+				return year+'年'+month+'月'+date1+'日 '+str[day];
+			}
+			console.log(getDate1());
+		 </script>
+		 
+		 
+		 <!-- 格式化日期 时分秒 -->
+		 <script type="text/javascript">
+		 	var date4 = new Date();
+			console.log(date4);
+			console.log(date4.getHours());//当前的小时 正常显示
+			console.log(date4.getMinutes()); //当前分钟 正常显示
+			console.log(date4.getSeconds());//当前秒 正常显示
+			
+			// 要求封装一个函数返回当前的时分秒 08:08:08格式
+			function getTimer() {
+				var date = new Date();
+				var hour = date.getHours();
+				// 三元表达式进行简单两分支判断 且有返回值 要给一个变量才能取得到值
+				hour = hour<10 ? '0'+hour : hour; //三元表达式有返回值 赋给hour 给出08的效果
+				var min = date.getMinutes();
+				min = min<10 ? '0'+min : min;
+				var sec = date.getSeconds();
+				sec = sec<10 ? '0'+sec : sec;
+				return hour+':'+min+':'+sec;
+			}
+			console.log(getTimer());
+		 </script>
+		 
+		 <!-- 获取时间戳：当前时间距离1970年1月1日 00：00：00 的总的毫秒数 
+						时间在流逝 所以时间戳不会重复
+			获取方式：ValueOf() getTime()  +new Date()  Date.now()
+		  -->
+		  
+		  <!-- 获取时间戳  总的毫秒数-->
+		<script type="text/javascript">
+			var date7 = new Date();
+			var timestamp1 = date7.valueOf();//先创建实例 再调用
+			var timestamp3 = date7.getTime();//先创建实例 再调用
+			console.log(timestamp1);
+			console.log(timestamp3);
+			
+			var timestamp2 = +new Date(); //直接+new 用的较多
+			console.log(timestamp2);
+			
+			// H5新增的方法 方法很简单 但是很多浏览器不支持 慎用
+			vartimestamp4 = Date.now();
+			console.log(timestamp3);
+		</script>
+		
+		<!-- 案例：制作倒计时的效果 -->
+		<!-- 思路：直接用时间减去时间并不合理 03-14
+				   比较准确的做法是利用总的毫秒数 计算出当前时间与截止时间的时间差
+				   然后将毫秒数差值转换成相应的时分秒 输出 先转换成总的秒数差1s=1000ms
+				   剩余天数 = parseInt(总的秒数差/60/60/24)；总小时数/24 得天数取整
+				   剩余小时 = parseInt(总的秒差/60/60%24); 总小时数%24 不够一天的小时数 取整
+				   剩余分钟 = parseInt(总的秒差/60%60); 小时能被分/60整除 而不能整除的余数就是剩余的分钟
+				   剩余秒数 = parseInt(总的秒数%60)；分能被60整除 不能整除的余数就是不够一分钟的秒数
+		 -->
+		 
+		 <script type="text/javascript">
+		 	function countDown(Time){
+				var now_time = +new Date();//现在的毫秒数
+				var target_time = +new Date(Time);//目标时间对应的毫秒数
+				var diff_time = (target_time-now_time)/1000;
+				var day = parseInt(diff_time/60/60/24);//取整得小时
+				day = day<10? '0'+day :day;
+				var hour = parseInt(diff_time/60/60%24);//不够一天就是剩余的小时
+				hour = hour<10? '0'+hour :hour;
+				var min = parseInt(diff_time/60%60);//不够一个小时就是剩余的分
+				min = min<10? '0'+min :min;
+				var sec = parseInt(diff_time%60);//不够一分钟就是剩余的秒
+				sec = sec<10? '0'+sec : sec;
+				return day+'天'+hour+'时'+min+'分'+sec+'秒';
+			}
+			console.log(countDown('2019-11-11 01:00:00'));
+		 </script>
+	</body>
+</html>

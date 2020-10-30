@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>元素操作</title>
+		<script type="text/javascript" src="JQuery_min.js"></script>
+
+	</head>
+	<body>
+		<!-- JQuery元素操作
+		1，遍历元素 $.each()
+			JQ对取得的一元素有隐式迭代的操作 但隐式迭代仅限于对同一类元素执行相同操作 如绑定同样的点击事件
+			如果想要对JQ获取的元素执行不同的操作 就需要对元素进行遍历 $.each()方法
+				用法： $('div').each(function(index,domEle){});
+						function(){}为对取得的元素进行的操作 
+						index事当前遍历元素的索引 domEle是当前遍历元素的dom对象
+						对元素进行不同的操作只需要对当前遍历元素的donEle和index操作即可
+			区别于原生JS里边的forEach()方法：
+					array.forEach(function(currentValue, index, arr), thisValue)
+						function(currentValue, index, arr)	必需。 数组中每个元素需要调用的函数。
+						currentValue	必需。当前元素
+						index	可选。当前元素的索引值。
+						arr	可选。当前元素所属的数组对象
+						thisValue	可选。传递给函数的值一般用 "this" 值。
+									如果这个参数为空， "undefined" 会传递给 "this" 值
+		2，创建元素：var li_creat = $('<li></li>');将要创建的元素标签用$包装起来就可以创建元素了
+		3，添加元素：元素创建之后需要添加到DOM中才能显示
+			元素内部的后面添加元素: $('div').append(li_creat); 新建的li标签是div标签的子元素 且在最后面 类似于JS appendChild
+			元素内部的前面添加元素： $('div').prepend(li_creat); 新建的li标签是div标签的子元素 且在最前面
+			外部的前面添加：  $('div').befor(li_creat); 新建的li标签在div标签的前面 与div标签是兄弟关系
+			外部的后面添加：  $('div').after(li_creat); 新建的li标签在div标签的后面 与div标签是兄弟关系
+		4，删除元素：
+				删掉当前元素(自杀)：$('div').remove();删除div元素 div元素没了
+				清空当前元素的内容：$('div').empty();清空div元素里边的饿所有内容 div还在
+								  $('div').html('');给html()赋一个空字符串 就是清空当前的div元素 但是div还在
+		 -->
+		 
+		<ul class="ul1">
+			<li>11</li>
+			<li>22</li>
+			<li>33</li>
+			<li>44</li>
+		</ul>
+		
+		<ul class="ul2">
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+		</ul>
+		<div class="div1">
+			<p>hhhhh</p>
+		</div>
+		<div class="div2">
+			hahaah
+		</div>
+		<script type="text/javascript">
+			// 遍历元素each()
+			$('.ul1 li').each(function(i,ele){
+				var color = ['red','blue','pink','green']
+				console.log(i);//打印当前元素的索引
+				console.log(ele);//打印当前元素的DOM对象
+				$(this).css('color',color[i]);// 给li添加不同的颜色
+			});
+			
+			//添加元素
+			var li_create1 = $('<li>新加的元素1</li>');
+			var li_create2 = $('<li>新加的元素2</li>');
+			var li_create3 = $('<li>新加的元素3</li>');
+			var li_create4 = $('<li>新加的元素4</li>');
+			//添加元素
+			$('.ul2').append(li_create1);
+			$('.ul2').prepend(li_create2);
+			$('.ul2').before(li_create3);
+			$('.ul2').after(li_create4);
+			//删除元素
+			$('.div1').remove(); //div1元素没了
+			$('.div2').empyt();
+		</script>
+	</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			button{
+				background-color: lightgrey;
+				outline: none;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 类似于tab栏 每点一个按钮 都会出现一种样式 注册一个事件
+		 可适当按钮很多很多的时候 给每一个按钮注册事件就很麻烦
+		 
+		 排他算法：给按钮们利用for循环遍历 只有当某个按钮有操作时 才显示其样式
+			1，所有元素的样式全部清除 (排他 干掉别人)
+			2，给当前元素留下样式
+			3，顺序不能颠倒 先干掉别人 在留下自己
+		 -->
+		 
+		 <button>按钮1</button>
+		 <button>按钮2</button>
+		 <button>按钮3</button>
+		 <button>按钮4</button>
+		 <button>按钮5</button>
+		 <script type="text/javascript">
+		 	// 先获取所有的按钮
+			var btn_list = document.querySelectorAll('button');
+			var flag = 1;
+			// 遍历每个按钮 看看谁获得了点击事件
+			for (var i=0;i<btn_list.length;i++) {
+				// 给获得点击事件的按钮进行操作 绑定该事件
+				btn_list[i].onmouseover = function(){
+					// 先利用循环把别的颜色都改成默认值 排他 然后再改变当前按钮的颜色
+					// 感觉有点多余
+					for (var j=0; j<btn_list.length;j++) {
+						btn_list[j].style.backgroundColor = 'lightgray';
+					}
+					this.style.backgroundColor = 'pink';
+					// console.log(this.innerHTML);
+				}
+				btn_list[i].onmouseleave = function(){
+					this.style.backgroundColor = 'lightgray';
+				}
+			}
+		 </script>
+	</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="vue.js"></script>
+		<style type="text/css">
+			[v-cloak]{
+				/* vue没渲染之前 利用v-cloak属性操作样式 让其隐藏 */
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<!-- 插值操作的基本语法：
+			v-once： 只渲染元素和组件一次，随后的渲染，使用了此指令的元素/组件及其所有的子节点，都会当作静态内容并跳过，这可以用于优化更新性能。
+			v-html: 渲染元素内容时 会解析其中的html代码 并覆盖元素原来的内容
+			v-text：渲染元素内容 并覆盖元素中原来的代码
+			v-pre：元素的内容正常显示 不会被渲染 常用于显示{{}}这个东西
+			v-cloak:vue在渲染元素时 会先显示原来的HTML里边写的东西 等到vue加载的时候才会用vue的语法渲染到该元素
+					因此在遇到网页卡顿 或者代码量较大时 页面的内容会跳变 （先显示{{message}}再显示你好啊）
+					v-clock当作属性添加在元素中 vue没有渲染时 v-cloak存在于元素中 并可当作属性操作样式让元素之前的内容隐藏
+					当vue渲染到该元素时 vue会主动删除元素中的该指令 进行渲染  便不会跳变
+		 -->
+		 
+		 <div id="app">
+			<h1>{{message}}</h1>
+			<!-- 不能动态更改 -->
+			<h1 v-once>{{message}}</h1>
+			<!-- 显示{{message}} -->
+			<h1 v-pre>{{message}}</h1>
+			<h1 v-cloak>{{message}}</h1>
+			<p v-text="a1">哈哈</p>
+			<p v-html="a1">哈哈</p>
+			
+		 </div>
+		 
+		 <script type="text/javascript">
+		 	var app = new Vue({
+				el:'#app',
+				data:{
+					message:'你好啊~',
+					a1:'<a href="http://www.baidu.com">百度一下</a>'
+				}
+			})
+		 </script>
+	</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>JS运算符</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			console.log(1+2);
+			console.log(2*3);
+			console.log(1/2);
+			console.log(5%3);//取余
+			console.log(4%2);
+			//浮点数的运算有时候会有问题
+			console.log(0.1+0.3);
+			var num = 0.4;
+			console.log(num==0.1+0.3);//怎么不出问题？不是false么
+			console.log(0.07*100);//问题来了 精度非常高 
+			var num1 = 7;
+			console.log(num1==0.07*100);//结果是false 不要直接判断两个浮点数是否相等
+		</script>
+		
+		<!-- 表达式与返回值 -->
+		<script type="text/javascript">
+			var age = 18;
+			var age1 = 18;
+			// 表达式 数字 变量和运算符组成的式子成为表达式 每个表达式都有返回值
+			console.log(1+1);//返回2
+			console.log(age+2);//返回20
+			
+			//前置递增和后置递增单独使用时 二者相同 都是自加1  和别的数字一起用时就有区别了
+			// 前置递增 ++age  先自增 再返回值 
+			// 后置递增 age++  先返回原值 后自增
+			//注意:自加运算后 变量的值都变了 都会加1
+			
+			// （表达式与2相加 先计算表达式的返回值）
+			console.log(++age + 2); //先自加返回19  再与2相加  19+2=21
+			console.log(age); 19  
+			console.log(age1++ + 2);//先返回原值18 再与2相加 再自加 18+2=20
+			console.log(age1);19
+		</script>
+	</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.fa{
+				display: flex; /* 子元素会有inline-block相关的特性 */
+				flex-flow: row nowrap;
+				justify-content: space-between; /* 两边贴边 中间的元素平分剩余空间 子元素的margin生效 */
+				/* align-items: flex-start; 侧轴方向上 对齐顶端 */
+				/* align-items: center; 侧轴方向上居中 */
+				align-items: stretch; /* 没有设置元素在该方向上的尺寸时 会自动拉伸与容器相同 设置了尺寸则无效*/
+				height: 300px;
+				width: 600px;
+				background-color: pink;
+			}
+			span{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				margin: 0 5px;
+			}
+			.fa span:nth-child(1){
+				/* height: 200px; */
+			}
+		</style>
+	</head>
+	<body>
+		
+		<!-- 
+		 align-items：子元素沿着侧轴方向的排列方式 与主轴垂直的方向 只能设置单行元素 即flex-wrap:nowrap;
+		 		flex-start：交叉轴的起点对齐。
+		 		flex-end：交叉轴的终点对齐。
+		 		center：交叉轴的中点对齐。
+		 		baseline: 项目的第一行文字的基线对齐。
+		 		stretch（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度
+		 -->
+		  <div class="fa">
+		 	<span>1</span>
+		 	<span>2</span>
+		 	<span>3</span>
+		 	<span>4</span>
+		 	<span>5</span>
+		 </div>
+	</body>
+</html>

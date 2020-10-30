@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="vue.js"></script>
+	</head>
+	<body>
+		<!-- 
+		 v-model用于表单的数据value双向绑定 v-model = 'message'
+			当表单数据变化时 message会跟着变化 当message变化时 表单内容value也会跟着变化
+		 基本原理：v-bind和v-on的结合
+			JS数据绑定到dom：用v-bind动态绑定value属性
+			dom数据绑定到JS：用事件监听 监听表单的变化input事件 然后再JS中处理事件 获取表单的值 然后更改数据
+		 -->
+		 <div id="app">
+			 用户名：<input type="text"  :value="input_data" @input="changeData"/>{{input_data}}
+			 <br/>
+			 <p>下面是v-model的效果：</p>
+			 <input type="text" v-model="message">{{message}}
+			 
+		 </div>
+		 
+		 <script type="text/javascript">
+		 	const app = new Vue({
+				el:'#app',
+				data:{
+					input_data: '请输入用恒嘎嘎嘎',
+					message:1212344
+				},
+				methods:{
+					changeData(e){
+						// console.log(e);
+						// 可直接写道@input后面
+						this.input_data = e.target.value;
+					}
+				}
+			})
+		 </script>
+	</body>
+</html>

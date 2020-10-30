@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>教材表单输入组件</title>
+	</head>
+	<body>
+		<!--表单组件分为四大类：文字组件、列表组件、选择组件、按钮组件-->
+		<form action="" method="">
+			<!--文本框 text：
+					type：方式为text，产生一个单行文本框，上限为255字符
+					name：文本框的名称，方便表单处理程序辨认表单组件，可自行设置 区分大小写
+					value：文本框默认值，若省略则会生成空白文本框
+					readonly：只读文本框 不可编辑
+					size：文本框最大长度，默认为20
+					maxlength：限制文本框字数，为避免用户输入错误
+					autofocus：自动获得焦点，加载网页后，自动将光标移入此文本框内
+					-->
+			用户名：<input type="text" name="text1" id="" value="请输入用户名" />
+			<br/>
+			<!--密码域password：
+					输入的内容会被加密（以另一种形式显示）
+					-->
+			密码：<input type="password" name="" id="" value="" /><br/>
+			
+			<!--日期域date：
+					单击日期域是会弹出日起菜单 让用户选择
+					-->
+			选择日期：<input type="date" name="" id="" value="" /><br/>
+			
+			<!--数字域number：
+					让用户以上下键选择数字
+					min:提供的最小数字
+					max:提供的最大数字
+					-->
+			选择数字：<input type="number" min="3" max="10"/><br/>
+			
+			<!--范围域range：
+					让用户以水平滚动条选择数字
+					min:提供的最小数字
+					max:提供的最大数字
+					-->
+			选择数字：<input type="range" min="2" max="20"  /><br/>
+			
+			<!--颜色域color：
+					让用户选择颜色
+					-->
+			选择颜色：<input type="color" name="" id="" value="" /><br/>
+			
+			<!--搜索域search：
+					外观与文本框相同 输入内容后会多出清除内容按钮
+					-->
+			搜索：<input type="search" class="mui-input-clear" placeholder="">
+			
+			
+
+		</form>
+		<br/>
+		
+		<form action="" method="">
+		<!--文本框 textarea：
+				type：方式为textarea，产生一个文本域
+				name：文本框的名称，方便表单处理程序辨认表单组件，可自行设置 区分大小写
+				value：文本框默认值，若省略则会生成空白文本框
+				readonly：只读文本框 不可编辑
+				cols：文本框的宽度
+				rows：文本框的行数
+				autofocus：自动获得焦点，加载网页后，自动将光标移入此文本框内
+				-->
+			<textarea rows="4" cols="20" value="写文字">
+				
+			</textarea>
+		</form>
+	</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+			<style type="text/css">
+			.fa{
+				display: flex; /* 子元素会有inline-block相关的特性 */
+				flex-direction:row; /* 子元素不换行 宽度收缩 */
+				/* 设置沿着主轴方向的排列方式 此时的主轴设置的是row; */
+				/* justify-content:flex-start; 默认 */
+				/* justify-content: flex-end; 靠着主轴方向的尾部 */
+				/* justify-content: center; 主轴方向上居中显示 */
+				/* justify-content: space-around; 平分剩余的空间 */
+				justify-content: space-between; /* 每一行上两边贴边 中间的元素平分剩余空间 子元素的margin生效 */
+				height: 400px;
+				width: 400px;
+				background-color: pink;
+			}
+			span{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				margin: 0 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 
+		justify-content：子元素沿着 主轴 的排列方式 依附于flex-direction的值
+				flex-start 和主轴的起始线对齐
+				flex-end 和主轴的尾部对齐
+				center 沿主轴方向 居中显示
+				space-around 沿主轴方向 每个元素平分剩余空间
+				space-between 两边的元素贴线 中间的元素平分本行的剩余空间
+				strecth 拉伸 默认值 当子元素高度不一样时 会默认拉伸元素至最高高度
+						没设置高度时 会拉伸与容器等高 
+		 -->
+		 
+		  <div class="fa">
+		 	<span>1</span>
+		 	<span>2</span>
+		 	<span>3</span>
+		 </div>
+	</body>
+</html>

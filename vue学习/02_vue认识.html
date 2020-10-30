@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="vue.js"></script>
+	</head>
+	<body>
+		
+		<!-- ES6 语法中 定义变量已经不用var 该关键字有缺陷 没有作用域
+			ES6中 用 let定义变量  const定义常量
+				let定义的量里边的值可以被更改 重新为其赋值是有效的
+				const定义量里边的值不能被更改 重新为其赋值是无效的
+		 {{ }} mustache语法 用于显示数据  
+		 vue
+		 vue声明式开发 界面响应数据的改变
+		 实现代码和数据分离  
+		 
+		 函数：function 最外面定义
+		 方法：methods 在类里边定义 一般与实例挂钩
+		 
+		 -->
+		<div id="div">
+			<!-- v-text指令在显示内容时 不能解析标签 并完全覆盖该元素里之前的内容 -->
+			<p v-text="message">haha</p> 
+			<!--  {{ }} mathtouch语法 用于显示数据  不会更改原来的内容 多用于元素的内容拼接 -->
+			<span>我的年龄是{{age}}岁</span>
+			<!-- v-on:事件名  用于绑定事件  简写 @事件名-->
+			<input type="button" value="点击打招呼" v-on:click="sayhi()">
+			<ul>
+				<!-- v-html指令在显示内容的时候可以解析html标签 并完全覆盖该元素里之前的内容-->
+				<li v-html="li1"></li> 
+				<!-- v-for用于遍历数组并动态创建新的元素  如下只有一个li 会根据movies里的元素的个数 创建多个li 
+				并将movies里的元素一个个取出来 给item-->
+				<li v-for="item in movies" v-text="item"></li>
+			</ul>
+		</div>
+		
+		<script type="text/javascript">
+			// 创建vue实例 并传入参数 options对象 参数为对象类型
+			const app = new Vue({
+				//el用于挂载要管理的元素 data和方法适用于挂载元素及其内部的元素
+				el:'#div',
+				// el:document.querySelector('#app'); 也可以这样挂载管理
+				//data用于定义数据  数据可以自主定义 也可以来自于网络或者服务器
+				//组件中的data是一个函数
+				data:{
+					message:'我是vue的内容',
+					age:18,
+					li1:'<a href="http://www.baidu.com">点击百度</a>',
+					movies:['星际穿越','大话西游','海贼王','白蛇传说']
+				},
+				// methods用于承载方法  对象型的函数
+				methods:{
+					sayhi:function(){alert('hi~')}
+				}
+			})
+		</script>
+	</body>
+</html>

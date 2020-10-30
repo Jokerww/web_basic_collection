@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="vue.js"></script>
+
+	</head>
+	<body>
+		<!-- 有key属性与没有key属性的区别:在B后面插入一个值
+				没有key属性时 虚拟DOM在渲染时 B后边的元素li'编号'每一个都会变化 一次增加
+				相当于把后的li往后挤 最后不够了再创建一个li  工作量很大
+				有key属性时 会根据属性在渲染 之前已经有的元素key不发生变化 '编号'也不会变
+				只是新生成了一个li并把它放在B的后边而已 工作量较小 性能高
+		 
+		 数组方法 splice()的用法: 可插入/删除/替换元素
+			splice(start,num,...value):
+				start:起始位置 就是从哪个元素开始操作
+				num:从其实位置开始要删除的元素个数
+				...value:从起始位置开始 插入的元素 这里的value时具体的需要插入的元素的值
+				
+				插入元素操作:  items.splice(0,0,'000') 在索引为0的位置插入'000'在最前面插
+				删除第二个元素 item.splice(1,1)
+				用"000"替换第二个元素  items.splice(1,1,'000')  把第二个元素删了 再插一个元素进去
+		 -->
+		
+		<!-- 需求:在数组中间插入一个值 -->
+		<ul id="app">
+			<li v-for="item in items" :key = 'item'>{{item}}</li>
+			<button @click="insert()">插入值</button>
+		</ul>
+		
+		<script type="text/javascript">
+			const app = new Vue({
+				el:'#app',
+				data:{
+					items:['A','B','C','D','E']
+				},
+				methods:{
+					insert(){
+						this.items.splice(0,0,'F')
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

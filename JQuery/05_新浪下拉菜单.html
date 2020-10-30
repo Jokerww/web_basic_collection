@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript" src="JQuery_min.js"></script>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			a{
+				text-decoration: none;
+				color: black;
+			}
+			li{
+				list-style: none;
+			}
+			.out{
+				margin: 100px;
+			}
+			.out>li{
+				float: left;
+				margin: 10px 10px;
+				width: 60px;
+				height: 30px;
+				background-color: #FFA07A;
+				text-align: center;
+				line-height: 30px;
+			}
+			
+			}
+			.in li{
+				/* background-color: pink; */
+				padding: 5px;
+				border: 1px solid lightsalmon;
+			}
+			.in{
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<ul class="out">
+			<li>
+				<a href="#">微博</a>
+				<ul class="in">
+					<li>私信</li>
+					<li>评论</li>
+					<li>@我</li>
+				</ul>
+			</li>
+			<li>
+				<a href="#">微博</a>
+				<ul class="in">
+					<li>私信</li>
+					<li>评论</li>
+					<li>@我</li>
+				</ul>
+			</li>
+			<li>
+				<a href="#">微博</a>
+				<ul class="in">
+					<li>私信</li>
+					<li>评论</li>
+					<li>@我</li>
+				</ul>
+			</li>
+			<li>
+				<a href="#">微博</a>
+				<ul class="in">
+					<li>私信</li>
+					<li>评论</li>
+					<li>@我</li>
+				</ul>
+			</li>
+		</ul>
+		<!-- 
+		 hover()事件：是mouseover()和mouseout()事件的复合事件 鼠标经过或离开事件
+		 		hover(fn1,fn2) 
+		 		fn1：鼠标经过时要做的事情的函数
+		 		fn2: 鼠标离开元素是要做的事情的函数
+		 		如果只写了一个函数 就表示鼠标经过和离开都触发这个事件
+				
+		效果排队：短时间内多次触发效果 效果会排队多次执行 很不美观
+				大都数情况下都只希望执行最后一次的触发
+			stop()方法用于禁止执行之前的排队效果  禁止之后再执行当前的效果
+			stop()应放在效果函数之前
+		 -->
+		<script type="text/javascript">
+			$(function(){
+			/* 	//鼠标经过#in时 让li里边的ul显示出来 
+				$('.out>li').mouseover(function(){
+					//$(this)是JQ的当前元素 不加引号
+					$(this).children('ul').show();
+				});
+				//鼠标离开时 隐藏li里边的ul
+				//整个的代码量比原生JS简单多了
+				$('.out>li').mouseout(function(){
+					$(this).children('ul').hide();
+				}); */
+				
+				/* //利用hover()事件简化上面的代码
+				$('.out>li').hover(function(){
+					$(this).children('ul').show();
+				},function(){
+					$(this).children('ul').hide();
+
+				}); */
+				
+				/* 
+				//鼠标经过和离开 ul显示或隐藏属于切换了效果 可用toggle()进一步简化代码
+				$('.out>li').hover(function(){
+					$(this).children('ul').slideToggle();
+				}); */
+				
+				//上面的代码一句话就实现了鼠标进出的切换效果 但是当鼠标频繁移动时会造成效果排队
+				//短时间内多次鼠标经过和离开 上滑和下拉效果会排队触发 鼠标都移开很久了 还在排队执行效果
+				//很不美观 因此利用stop()停止之前在排队的效果 尽执行本次效果 stop()放在效果之前
+				$('.out>li').hover(function(){
+					$(this).children('ul').stop().slideToggle();
+				});
+				
+			});
+		</script>
+	</body>
+</html>

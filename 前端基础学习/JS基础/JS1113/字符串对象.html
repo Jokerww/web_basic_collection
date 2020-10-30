@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>字符串对象</title>
+	</head>
+	<body>
+		<!-- (为什么简单数据类型会有复杂数据类型才有的属性和方法？)
+			基本包装类型：把简单的数据类型包装成复杂数据类型，这样基本数据类型就有了属性和方法；
+				1，为方便操作基本数据类型，JS提供了三个特殊的引用类型：String、Number 、Boolean
+				2,基本数据类型包装方法：
+					(1)，var str = 'wulijiao'; 
+					(2)，上述代码包装过程为：
+						var temp = new String('wulijiao');申明临时变量 把简单数据类型包装成复杂数据类型
+						str = temp;将临时变量的值给用户声明的变量
+						temp = null;销毁临时变量
+					(3),完成上述包装后，简单数据类型就有了复杂数据类型的方法和属性
+		 -->
+		<script type="text/javascript">
+			var str = 'wulijiao';
+			console.log(str.length);//字符串的lenth属性
+		</script>
+		
+		<!-- 字符串的不可变性：
+				完成字符串的声明赋值操作后，字符串会在内存占用空间
+				就算变量的值改变了，之前的字符串依然会存在内存中 这就是字符串的不可变性
+			即：var str = 'a1'; str = 'a2';
+			虽然改变了str变量里的值，但是str只是从指向'a1'的地址变成了指向'a2'的地址，
+			而'a1'，'a2'这两个字符串依然在内存空间中 没有被改变
+		-->
+		
+		<!-- 字符串操作：字符串所有的方法，都不会修改字符串本身 操作完成会返回新的字符串
+				1，根据字符串元素返回索引号：indexOf() ,lastIndexOf()
+		 -->
+		<script type="text/javascript">
+			var str1 = '春天在哪里呀春天哈哈春哈~';
+			console.log(str1);
+			console.log(str1.indexOf('春'));//第一个春索引为0
+			console.log(str1.indexOf('春',3));//索引3开始的第一个春索引为6
+			console.log(str1.lastIndexOf('春'));//最后一个春索引为10
+			console.log(str1[2]);//索引找元素
+		</script>
+		
+		<!-- 案例：返回字符串中指定元素出现的次数及位置
+				方法1：-->
+		<script type="text/javascript">
+			var str = 'abcoefoxyozzopp';
+			var position = [];
+			var j =0;
+			for (var i =0;i<str.length;i++) {
+				if (str[i]==='o') {
+					position.push(i);
+					j++;
+				}
+			}
+			console.log(position,j);
+		</script>
+		
+	<!-- 方法2：
+			核心算法：先找出第一个'o'出现的位置，然后只要indexOf()返回的不是-1
+			就继续往后查找，因为indexOf()智能找到第一个 所以索引+1，继续往后找-->
+		<script type="text/javascript">
+			var str = 'abcoefoxyozzopp';
+			var index = str.indexOf('o');
+			var i =0;
+			while (index !==-1){ //索引不是-1就往后查找 万一后面有呢
+				console.log(index);
+				i++;
+				index = str.indexOf('o',index+1)
+			}
+			console.log(i);
+		</script>
+		
+		<!--案例：求数组里边某个元素出现的位置和次数 
+					先找出元素第一次出现的位置 然后向后索引查找
+		 -->
+		<script type="text/javascript">
+			var arr = ['red','blue','red','green','pink','red'];
+			index = arr.indexOf('red');
+			// console.log(index);
+			var i=0;
+			while (index !== -1){ //不等于-1则向后查找
+				console.log(index);//输出位置 0,2,5
+				i++; //计数
+				index = arr.indexOf('red',index+1);//更新判断条件
+			}
+			console.log(i); //3
+		</script>
+		
+		<!-- 根据位置返回字符：
+				1，charAt(index) 返回索引处的字符
+				2,charCodeAt(index) 返回索引处字符的ASCII码 用于判断用户按下了那个键
+				3，str[index] HTML5里新增的方法(不考虑兼容性则更好用) 慎用
+		 -->
+		 <script type="text/javascript">
+		 	var str2 = 'wulijiao';
+			// charAt()方法:
+			console.log(str2.charAt(0));//0处的字符是w
+			
+			// charCodeAt()方法:
+			console.log(str2.charCodeAt(6));//a的ASCII码是97
+			
+			// str[]:
+			console.log(str2[2]);//l
+			
+			// 遍历字符串:
+			for (var i=0;i<str2.length;i++) {
+				console.log(str2.charAt(i));
+			}
+		 </script>
+		 
+		 <!-- 案例：判断字符串里出现次数最多的字符 并统计其次数
+				1,利用chasAt()遍历整个字符串
+				2，把每个字符都储存给对象，如果对象没有该属性 就创建并赋值1，如果存在就加1
+				3，遍历对象 找出最大的值和该字符
+				-->
+		 <script type="text/javascript">
+		 	var str3 = 'abcoefoxyozzopp';
+			var obj = {};
+			for (var i=0;i<str3.length;i++) {
+				var chars = str3.charAt(i)
+				if (obj[chars]) {
+					obj[chars] ++;
+				} else{
+					obj[chars] =1;
+				}
+			}
+			console.log(obj);
+			var max = obj[str.charAt(1)]
+			var key = '';
+			for (let k in obj) {
+				if (max < obj[k]) {
+					max = obj[k];//他叠加 它对应的属性也会叠加呀
+					// console.log(k); //一般情况下会输出好几次 让他叠加呀
+					key = k;//取到最大值之后 这个值就不会再改变了 他就是key
+				}
+			}
+			console.log(key ,max );
+		 </script>
+		 
+		<!-- 字符穿的拼接和截取：字符穿的所有操作都不会改变原字符串
+			1，字符串的拼接：concat()(等效于+),数组对象里边出现过的方法
+			2，字符串的截取：substr(index ,num) index指的是索引号 截取的位置，num指的是取几个
+				num不写 就默认取到最后 类似于数组里边的splice()
+			3，slice(start,end) 从start索引取到end索引处 end索引取不到
+			4,substring(start,end)和slice()相同，但不接受负值
+			-->
+		<script type="text/javascript">
+			var str5 = 'abcdefgh';
+			console.log(str5.concat('nana'));
+			console.log(str5.substr(2,3));//从第三个字符开始取3个字符
+			console.log(str5.slice(0,4));//从第一到第四个字符串
+			console.log(str5.slice(0,-1));//截取所有的不包括最后一个的字符串
+			console.log(str5.slice());//截取所有的字符串
+			console.log(str5.substring(0,4));//与上述slice相同
+			console.log(str5.substring(0,-1));//啥都没有
+		</script>
+		
+		<!-- 字符串的替换和转换成数组：
+				1，字符串的替换replace('被替换的'，'替换为的')
+					只会替换找到的第一个目标字符
+				2，字符串转换为数组split('分隔符')；
+					分隔符指的是划分字符串为数组元素的界限 和字符串里边的符号相同
+					不然转换出来的就是只有一个元素的数组
+		-->
+		<script type="text/javascript">
+			var str6 = 'andyandy';
+			//替换replace:
+			console.log(str6.replace('a','h'));//只替换了第一个a
+			
+			// 替换所有的就用循环:
+			while (str6.indexOf('a') !==-1){
+				str6 = str6.replace('a','*');
+			}
+			console.log(str6);
+			
+			// 转换成数组:split()
+			var str7 = 'a,b,c,d,r';
+			var str8 = 'baialaoay';
+			console.log(str7.split(','));//5个元素，就是以哪个符号为界限是一个数组元素
+			console.log(str7.split('-'));//只有一个元素
+			console.log(str8.split('a'));//以a为断点 分成了好几个元素
+		</script>
+		
+		<!-- 字符串转换大小写：
+			1，转换成大写：toUpperCase()
+			2，转换成小写：toLowerCase()
+		 -->
+		 <script type="text/javascript">
+		 	var str9 = 'Wulijiao';
+			console.log(str9.toUpperCase());
+			console.log(str9.toLowerCase());
+		 </script>
+	</body>
+</html>

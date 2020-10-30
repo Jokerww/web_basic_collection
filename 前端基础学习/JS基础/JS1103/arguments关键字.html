@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>arguments</title>
+	</head>
+	<body>
+		
+		<!-- 函数的arguments内置功能用于接收传递的实参
+			目的：当我们不知道将要接收多少个实参时，就不知道设置多少个形参 这是arguments用途来了
+			      不用在申明时设置形参 而在函数内部用arguments接收所有的实参
+			1，arguments是一个伪数组：
+				具有数组的length属性
+				按照索引的方式进行存储
+				他没有真正的数组的一些方法：pop() push()等
+			2，只有函数才具有argument属性，而且每个函数都内置好了
+			-->
+			
+		<script type="text/javascript">
+			function fun1(){
+				for (var i=0;i<arguments.length;i++) {
+					console.log(arguments[i]);
+				}
+			}
+			fun1(1,2,3,4,5);
+			fun1(3,6,4,5)
+		</script>
+		
+		<!-- 案例：求任意个数中的最大值 -->
+		<script type="text/javascript">
+			function getMax(){
+				console.log(arguments);
+				var max = arguments[0];
+				for (var i=1;i<arguments.length;i++) {
+					if (max <= arguments[i]) {
+						max = arguments[i];
+					} 
+				}
+				return max;
+			}
+			console.log(getMax(1,2,3,4,89,0)); //给了多个实参
+		</script>
+		
+		<!-- 案例：翻转任意数组 -->
+		<script type="text/javascript">
+			function reverseArr(arr){
+				var new_arr = [];
+				//原数组的最后一个值给新数组的第一个值 依次向后 
+				//索引从0开始 length-1
+				for (var i=arr.length-1;i>=0;i--) { 
+					new_arr[new_arr.length]=arr[i];
+				}
+				return new_arr;
+			}
+			console.log(reverseArr([1,2,4,5,6]));
+			console.log(reverseArr([5,2,9,5,6,11]));
+		</script>
+		
+		<!-- 案例：冒泡排序——从小到大 -->
+		<script type="text/javascript">
+			function sort(arr){
+				var temp;
+				for (var i=0;i<arr.length-1;i++) { //计数器的作用
+					for (var j=0;j<arr.length-1-i;j++) { //索引号的作用
+						// 判断大小 然后进行两两交换
+						if (arr[j]>arr[j+1]) { //前边的数大于后边的数
+							temp = arr[j];
+							arr[j]=arr[j+1];
+							arr[j+1]=temp;
+						}
+					}
+				}
+				return arr;
+			}
+		console.log(sort([5,2,3,4,6,1]));
+		</script>
+		
+		<!-- 案例：判断闰年 -->
+		<script type="text/javascript">
+			function Year(year){
+				if (year%4==0 && year%100!==0 || year%400 ==0) {
+					return "闰年";
+				} else{
+					return "平年";
+				}
+			}
+			console.log(Year(1996));
+		</script>
+		
+		<!-- 案例：函数调用其他的函数 
+					用户输入年份 输出当前年份2月份的天数-->
+		<script type="text/javascript">
+			function isRunYear(year){ //判断闰年平年
+				var flag=false;
+				if (year%4==0 && year%100!==0 || year%400 ==0) {
+					flag = true;
+				} 
+				return flag; //要返回这个值
+			}
+			function datesOf2thMon(year){
+				if (isRunYear(year)){
+					return 29;
+				}else{
+					return 28;
+				}
+			}
+			
+			console.log(datesOf2thMon(1996));
+		</script>
+	</body>
+</html>

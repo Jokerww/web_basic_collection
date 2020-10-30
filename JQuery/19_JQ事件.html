@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript" src="JQuery_min.js"></script>
+		<style type="text/css">
+			.div1, .div2, .div3{
+				width: 100px;
+				height: 100px;
+				background-color: pink;
+			}
+			.current{
+				background-color: purple;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- JQ的事件注册：
+				1，单个事件的注册： $('div').click(function(){});
+					耽搁时间的注册一次只能注册一个事件 比较麻烦
+				2，多个事件的注册 $('div').on(event,[ele],function(){})
+					多个事件调用相同的方法：多个事件用空格隔开 后面写相同的执行函数
+							$('div').on('click mouseover',function(){});
+					不同的事件调用不同的事件：事件和执行函数以键值对的方式保存在对象中 多个键值对逗号隔开
+							$('div').on({
+								click:function(){},
+								mouseover:function(){},
+								mouseout:function(){},
+							});
+					事件委托：子元素触发事件 但是事件绑定在在父元素身上
+							$('ul').on('click','li'',function(){});
+							点击li元素触发绑定在ul元素的某种效果  function函数里的this指的是时间的触发者li
+							以前的做法是给每个li元素添加事件 现在li可以通过事件冒泡触发绑定在ul身上得事件 就不用逐个注册了
+					重点：：on()可以给未来动态创建的元素绑定事件 而click()方法不能
+							当我们用JQ动态生成元素时 就只能用on()给动态生成的元素绑定事件了
+				3，事件解绑:	off()可以移除通过on()绑定得事件
+						$('div').off();括号里边为空 表示解除了div身上绑定得所有事件
+						$('div').off('click mouseout'); 表示解除了div身上绑定的click和mouseout事件
+		 -->
+		
+		<!--多个事件调用相同的方法：多个事件用空格隔开 后面写相同的执行函数  
+							鼠标经过和离开切换样式 类似于hover()--> 
+		<div class="div1"></div>
+		<script type="text/javascript">
+			$('.div1').on('mouseover mouseleave',function(){
+				$(this).toggleClass('current');
+			});
+		</script>
+		
+		<!-- 不同的事件调用不同的事件：事件和执行函数以键值对的方式保存在对象中 多个键值对逗号隔开
+				点击div弹出11  鼠标离开弹出22
+		 -->
+		 <div class="div2"></div>
+		 <script type="text/javascript">
+		 	$('.div2').on({
+				click:function(){alert(11);},
+				mouseout:function(){alert(22);}
+			});
+		 </script>
+		 
+		 <!-- 事件委托：子元素触发事件 但是事件绑定在在父元素身上 -->
+		 <ul>
+		 	<li>1111</li>
+		 	<li>2222</li>
+		 	<li>3333</li>
+		 	<li>4444</li>
+		 </ul>
+		 <script type="text/javascript">
+		 	// 给ul绑定事件 事件由li触发
+			$('ul').on('click','li',function(){
+				alert($(this).index())
+			})
+		 </script>
+		 
+		 <!-- 给动态创建得li元素添加事件 -->
+		 <ol></ol>
+		 <script type="text/javascript">
+			 // 未来创建得li触发绑定在ol身上得事件
+		 	$('ol').on('click','li',function(){
+				alert($(this).text());
+			});
+			// 动态创建元素
+			var li_cre = $('<li>我是后来创建的</li>')
+			$('ol').append(li_cre);
+		 </script>
+		 
+		 <!-- 事件解绑 -->
+		 <div class="div3"></div>
+		 <script type="text/javascript">
+		 	// 先绑定事件
+			$('.div3').on({
+				click:function(){alert(11)},
+				mouseout:function(){alert(22)}
+			});
+			// 解绑
+			// $('.div3').off(); //移除了所有的事件
+			$('.div3').off('click');
+		 </script>
+	</body>
+</html>

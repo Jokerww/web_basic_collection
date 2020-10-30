@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="vue.js"></script>
+
+	</head>
+	<body>
+		<!-- v-for 循环 分为数组的循环遍历和对象的循环遍历
+		 1,数组的循环遍历:
+			v-for = 'item in items'  其中的item指向的是数组的具体元素
+			v-for = '(item,index) items'  item指向数据的具体元素 index指向当前遍历元素的索引
+			然后对相应的item index进行操作 如果vue的js代码中需要用到item index 
+			需要将他们当作参数传入函数中 才能在js代码中使用
+			
+		2,对象的遍历:
+			v-for = 'value in items' 其中的item指向的是对象中每个元素中的value值
+			v-for = '(value,key) in items'  item指向的是对象中每个元素中的value值 key指向每个元素的键key
+			v-for = '(value,key,index) in items'  item指向的是对象中每个元素中的value值 key指向每个元素的键key
+		 -->
+		 
+		 <ul id="app">
+			 <!-- 显示电影 -->
+		 	<li v-for="movie in movies">{{movie}}</li>
+			<br/>
+			<!-- 显示电影与编号 -->
+			<li v-for="(movie,index) in movies"> {{index+1}} {{movie}}</li>
+			<br/>
+			
+			<!-- 显示对象的内容 value-->
+			<li v-for="item in books">{{item}}</li>
+			<br/>
+			
+			<!-- 显示对象的key和value -->
+			<li v-for="value,key) in books"> {{key}}--{{value}}</li>
+
+		 </ul>
+		 
+		 <script type="text/javascript">
+		 	const app = new Vue({
+				el:'#app',
+				data:{
+					movies:['海盗王','海贼王','一千零一夜','海王'],
+					books:{
+						name:'成功学',
+						price:23,
+						ISDN:22222
+					}
+				}
+			})
+		 </script>
+	</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div></div>
+		<!-- 通过JS获取URL里的信息 -->
+		<script type="text/javascript">
+			var div = document.querySelector('div');
+			// location.search获取a.html提交的信息
+			console.log(location.search);
+			// 想要得到输入的信息 先将前面的问号去掉 然后用=分割字符串为数组
+			var para = location.search.substr(1);//从第二个字符开始截取后边所有的字符串
+			console.log(para);
+			//分割成数组
+			var input = para.split('=');
+			console.log(input);
+			// 获取想要的内容 显示在页面上
+			div.innerHTML = input[1]+' 欢迎您~';
+		</script>
+	</body>
+</html>

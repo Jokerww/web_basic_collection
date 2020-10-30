@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>JS数据类型</title>
+	</head>
+	<body>
+		<!-- 根据数据在内存中占用的空间不同，将数据分为不同的数据类型 
+			变量的数据类型只有在赋值后才能确定 
+			变量的数据类型可以动态变化 例如由数值变成字符串-->
+		<script type="text/javascript">
+			var x =10; //数字型
+			x = "haha"; //变成了字符串型
+		</script>
+		
+		<!-- 数字型 -->
+		<script type="text/javascript">
+			var num1 = 10; //十进制 整数
+			var num2 = 10.22; //十进制 小数
+			var num3 = 011; //八进制前面加0 ,console会转化成十进制输出
+			var num4 = 0xE; //十六进制前面加 0x ,console会转化成十进制输出
+			console.log(num1);
+			console.log(num2);
+			console.log(num3);
+			console.log(num4);
+			console.log(Number.MAX_VALUE);//输出数字中的最大值
+			console.log(Number.MIN_VALUE);//输出数字中的最小值
+			console.log(Number.MAX_VALUE*2);//无穷大 infinity
+			console.log(-Number.MAX_VALUE*2);//无穷小 -infinity
+			console.log('哈哈'-18);//非数值Nan  字符串与数字相减非数值
+			console.log(isNaN("hha "));//检验非数值 数字为false 否则为true
+		</script>
+		
+		<!-- 字符串型 -->
+		<script type="text/javascript">
+			var str1 = "哈哈";
+			var str2 = "hello";
+			var str3 = "12";
+			// 字符串拼接 +
+			var str4 = str1+str2+str3;
+		console.log(str4);
+		console.log(str4.length);//空格也算长度 length是属性 用.调用
+		console.log(typeof str4); // typeof 来查看数据类型
+		console.log("hahahah\nhuhuu")// 转义字符 \  换行\n  制表符\t 空格\  \' \" 等
+		</script>
+		
+		<!-- 布尔型 -->
+		<script type="text/javascript">
+			var flag1 = true; //布尔型 运算中为1
+			var flag2 = false; //布尔型 运算中为0
+			console.log(flag1+flag2); //输出值为1
+		</script>
+		
+		<!-- undefined型和Null型 -->
+		<script type="text/javascript">
+			var t1;//声明变量为给值 就是未定义的数据类型(赋值后才会自动定义数据类型)
+			console.log(typeof t1);//s输出为undefined
+			console.log(t1+"hah");//undefinedhah
+			console.log(t1+1);//不是一个数字 NaN 
+			
+			var t2 = null;
+			console.log(typeof(t2)); //函数输出Object 
+			console.log(t2+"hhah");//nullhhah
+			console.log(t2+1);// 输出1
+		</script>
+	</body>
+</html>

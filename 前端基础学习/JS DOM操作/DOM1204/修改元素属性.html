@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			img{
+				width: 200px;
+				height: 150px;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 修改元素属性：
+			DOM可通过获取元素后修改元素的属性 比如src title等属性 
+			属性的调用直接 对象名.属性名即可
+			在事件触发时  给属性重新赋值 就可改变相应的属性
+		 -->
+		 <!-- 当鼠标点击不同的按钮时 显示不同的图片
+		  事件源：按钮元素 图片元素 
+		  事件类型：鼠标点击事件onclick
+		  事件处理程序：改变图片的src属性的值-->
+		  <button id="ldh">刘德华</button>
+		  <button id="zxy">张学友</button> <br/>
+		  <img src="images/ldh.jpg" title="刘德华" >
+		<script type="text/javascript">
+			// 获取时间源
+			var ldh = document.getElementById('ldh');
+			var zxy = document.getElementById('zxy');
+			var img = document.querySelector('img');
+			// 注册事件 添加事件处理程序
+			zxy.onclick = function(){
+				img.src = 'images/zxy.jpg';
+				img.title = '张学友';
+			}
+			// 鼠标点击张学友变换图片后 再点击刘德华按钮 不会发生变化 因为没给刘德华按钮加事件
+			// 除非刷新一下网页 才能变回来 所以也要给刘德华按钮加事件 点击按钮 改变的是图片标签
+			ldh.onclick = function(){
+				img.src = 'images/ldh.jpg';
+				img.title = '刘德华';
+			}
+		</script>
+		
+		<!-- 案例：根据系统时间的不同 显示不同的问候语和图片 -->
+		<div id="greetings">
+			上午好~
+		</div>
+		<img id="img_1" src="images/s.gif" >
+		<script type="text/javascript">
+			// 获取时间源
+			var greetings_text = document.getElementById('greetings');
+			var greetings_img = document.getElementById('img_1');
+			// 注册事件 根据系统的时间判断 不用注册事件 直接赋值就可以了
+			// if条件判断 和Date构造函数的使用
+			var date = new Date('2019-12-14 14:00');//也可自己检测时间
+			var current_hour = date.getHours();
+			console.log(current_hour);
+			if (current_hour<12) {
+				greetings_text.innerHTML = '上午好！';
+				greetings_img.src = 'images/s.gif';
+			}else if (current_hour<18) {
+				greetings_text.innerHTML = '下午好！';
+				greetings_img.src = 'images/x.gif';
+			} else{
+				greetings_text.innerHTML = '晚上好！';
+				greetings_img.src = 'images/w.gif';
+			}
+		</script>
+	</body>
+</html>

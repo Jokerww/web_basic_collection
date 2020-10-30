@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>伪类选择器</title>
+		
+		<style type="text/css">
+			input:focus{  /* 获得焦点的表单元素会变换成更改的样式 */
+				background: lightcyan;
+				border-color: #A52A2A;
+				color: #8A2BE2;
+			}
+		</style>
+	
+	</head>
+	<body>
+		
+		<!-- 链接伪类选择器：一定要给a单独制定样式 他不能继承
+			请按照以下顺序书写LVHA
+				a:link 选择所有未被访问过的链接
+				a:visited 选择左右访问过的链接
+				a:hover 选择鼠标位于其上的链接
+				a:active 选择活动链接(鼠标按下未弹起的链接)
+		
+			实际开发中的常用写法：
+				先给a一个样式
+				然后按照LVHA的顺序再给a的伪类一些样式
+				
+				-->
+				
+				
+		<!-- ：focus伪类选择器：用于选取获得焦点的表单元素
+					焦点就是光标，一般情况<input>类表单元素才能被获取，因此
+					这个选择器也主要针对表单元素
+		 -->
+		<form>
+			<input type="text" name="" id="" value="" />
+			<input type="text">
+			<input type="text">
+		</form>
+	</body>
+</html>

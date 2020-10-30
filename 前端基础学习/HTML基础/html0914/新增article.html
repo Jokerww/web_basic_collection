@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>article</title>
+	</head>
+	<body>
+		<!--article:元素代表文档、页面或者程序中独立的完整的可以独自被外部引用的内容。
+					可以是一篇博客或者报刊中的文章，一篇论坛帖子、一段用户评论或独立
+					的插件，或者是其他独立的内容。
+			article元素是可以嵌套使用的
+			article元素可以用来表示插件
+		-->
+		<article>
+			<header class="mui-bar mui-bar-nav">
+				<h1 class="mui-title">标题1</h1>
+			</header>
+			<p>标题1的内容</p>
+			<!--内嵌的article通常与外部的article由内容关联-->
+			<article>
+				<header class="mui-bar mui-bar-nav">
+					<h1 class="mui-title">标题1的内嵌</h1>
+				</header>
+				<p>内嵌的内容</p>
+				<footer>
+					<p>内嵌的底部</p>
+				</footer>
+			</article>
+			<footer>
+				<p>这是标题1的底部</p>
+			</footer>
+		</article>
+		
+		<!--article表示插件 使插件好像内嵌在页面中一样-->
+		<article>
+			<h1>下面是一个内嵌页面</h1>
+			<object>
+				<!--embed内嵌当前页面 src表示内嵌源 width 和height表示内嵌页面的大小-->
+				<embed src="#" width="200" height="200"></embed>
+			</object>
+		</article>
+	</body>
+</html>

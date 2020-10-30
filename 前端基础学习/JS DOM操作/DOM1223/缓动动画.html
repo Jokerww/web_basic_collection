@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				position: absolute;
+				top: 100px;
+				left: 0;
+				width: 100px;
+				height: 100px;
+				background-color: pink;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 缓动动画的原理：元素走的越来越慢 直到其停下
+		 之前的动画 每隔一段时间行进的距离(步长)相同 所以是一个匀速的前进过程
+		 缓动动画的基本原理就是 让元素每一次行进的距离越来越慢就可以了 
+		 所以对于step得有相应的调整：
+		 
+			(1)step公式：step = (目标位置-当前位置)/变化的幅度(总距离的几分之一的减小)
+			      若幅度为10  则表示每次都走剩余距离的十分之一 由于当前位置不断变化 则step也不断变化
+			
+			(2)由于上述公式的step变化的过成功会出现小数 而实际开发应当尽量避免小数
+				所以需要对step取整 取整的原则就是 本来计算step是8.1但是走了的0.1肯定不能回去
+				宁愿多走一点 也不能回去 所以就是行走的距离向上取整
+				当step>0时 就是往大了取  Math.cell(step)
+				当step<0时 就是往小了取  Math.floor(step)
+				
+			(3)step之所以会是负数 就是因为 我可能往回走 刚开始是800 现在要去500的位置
+		 -->
+		 
+		<button class="btn500">去500</button>
+		<button class="btn800">去800</button>
+		<div></div>
+		
+		<script type="text/javascript">
+			// 封装缓动动画函数
+			function moveslow(obj,distance){
+				// 为避免多个定时器同时开启 先清除之前开的定时器
+				// 这样重复点击按钮 蓝色盒子就不会加速了
+				clearInterval(obj.timer);
+				// 为避免不断开辟变量空间 
+				// 可用给对象添加属性的方式给定时器命名
+				 obj.timer = setInterval(function(){
+					 // 每次都要重新计算步长 所以放在定时函数里边
+					 // 不能用this 因为定时函数的调用对象的windows this指向windows
+					 var step = (distance - obj.offsetLeft)/15;
+					 // 判断step的正负 然后取整 简单判断用三元表达式
+					 step = step<0 ? Math.floor(step) : Math.ceil(step);
+					 if (obj.offsetLeft == distance) { //到了目标就停下呀
+					 	clearInterval(obj.timer);
+					 } else{
+					 	obj.style.left = obj.offsetLeft + step + 'px';
+					 }
+					},50);
+			};
+			
+			var btn500 = document.querySelector('.btn500');
+			var btn800 = document.querySelector('.btn800');
+			var div = document.querySelector('div');
+			btn500.addEventListener('click',function(){
+				moveslow(div,500);
+			});
+			btn800.addEventListener('click',function(){
+				moveslow(div,800);
+			});
+		</script>
+	</body>
+</html>

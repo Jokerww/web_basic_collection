@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>JQ修改样式</title>
+		<script type="text/javascript" src="JQuery_min.js"></script>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				background-color: pink;
+				margin: 10px;
+			}
+			.current{
+				border: 2px solid #000000;
+			}
+			.div5,.div6{
+				background-color: #FFA07A;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- JQ修改样式之CSS修改：利用css()方法
+				1，修改单个样式：css('属性名'，'属性值')；
+					如修改p标签的文字颜色为红色  $('p').css('color','red');
+				2，修改多个样式：利用对象赋值的方式
+				css({
+					'属性名':'属性值',  //属性名也可不加引号  属性值如果为数字的话 可不加引号和单位
+					'属性名':'属性值',  //若属性值不是数字 如red  则必须加引号
+					'属性名':'属性值'}); //属性名如果不加引号的话 复合属性名必须用驼峰命名法 加引号就用css里的名字
+					如：	$('div').css({
+						color:'red',
+						weight:200,
+						backgroundColor:'red',
+						'background-color':'blue'
+						});
+						
+			<!-- JQ修改样式之操作类：当需要修改的样式过多 使用css的方式修改会非常的繁琐
+									因此可以通过直接修改类名的方式 为其添加一个新的样式
+					1，添加类： addClass('类名')； 类名不用加点
+						$('div').addClass('current'); //给div添加current类
+					2，移除类： removeClass('类名')； 类名不用加点
+						$('div').removeClass('current'); //给div添加current类
+					2，切换类： toggleClass('类名')； 有这个类就移除掉 没有这个类就添加
+						$('div').toggleClass('current'); //给div切换current类
+				注意： JQ的类操作与原生JS的类操属性className有区别：
+						className的类操作 在添加类使会覆盖原有的类 只有当前添加的类
+						而JQ的类操作只针对添加的类做相应的添加或删除 不会改变元素原有的类
+		 -->
+		 
+		<div class="div1"></div>
+		<div class="div2"></div>
+		<div class="div3"></div>
+		<div class="div4"></div>
+		<div class="div5"></div>
+		<div class="div6"></div>
+		
+		<script type="text/javascript">
+			$(function(){
+				//修改div1的背景颜色
+				$('.div1').css('background-color','red');
+				//修改div2的宽度和外边距
+				$('.div2').css({
+					width:200,
+					margin:20,
+					backgroundColor:'blue'
+				});
+				//给div3添加current类
+				$('.div3').addClass('current');
+				//点击div切换current类
+				$('.div4').click(function() {
+					$(this).toggleClass('current');
+				});
+				//给div5添加current类 看看div5类的效果还在不
+				$('.div5').addClass('current'); //改变了颜色和边框
+				//用原生JS方式给div6添加类 看看div6类的效果还在不
+				var div6 = document.querySelector('.div6');
+				div6.className = 'current'; //颜色没了 变成了有边框 覆盖了原来的类
+			});
+		</script>
+	</body>
+</html>

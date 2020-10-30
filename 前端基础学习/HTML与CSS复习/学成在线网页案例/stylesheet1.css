@@ -1,0 +1,399 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+/* 定义版心 宽度和居中*/
+.w{
+	width: 1200px;
+	margin: 0 auto;
+}
+.body{
+	background-color: #f3f5f7;
+}
+li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+}
+.clearfix:after{
+	content:"";
+	display:block;
+	height:0;
+	clear:both;
+	visibility:hidden;
+	}
+.clearfix{ /* 注释：IE6、7专有 */
+	*zoom:1;
+		}
+		
+/* 右边固定侧边栏 */
+.right-fixed{
+	position: fixed;
+	top: 50%;
+	margin-top: 30px;
+	left: 50%;
+	margin-left: -840px;
+	width: 200px;
+	height: 410px;
+	/* background-color: pink; */
+}
+.right-fixed ul li{
+	margin:20px 0px 20px 20px ;
+	
+}
+.right-fixed ul li a{
+	font-size: 14px;
+	color: #000000;
+}
+.right-fixed li a:hover{
+	color:#00A4FF
+}
+/* 头部 */
+.header{
+	height: 42px;
+	/* background-color: pink; */
+	margin: 15px auto;
+}
+.header .logo{
+	float: left;
+	height: 42px;
+	width: 200px;
+	margin-right: 68px;
+}
+.header .nav{
+	/* 大盒子之间的浮动 */
+	float: left;
+	margin: 0px 30px;
+}
+.header .nav ul li{
+	/* 在ul范围内 浮动 li不加宽高 由内容撑起*/
+	float: left;
+	margin: 0px 15px;
+}
+.header  .nav ul li a{
+	/* a是行内元素 转换模式 加宽高 */
+	display: block;
+	height: 42px;
+	padding:5px;
+	text-align: center;
+	line-height:42px;
+	color: #68696a;
+	font-size: 18px;
+	
+}
+.header .nav ul li a:hover{
+	border-bottom: 2px solid #00a4ff;
+	color:#00a4ff ;
+}
+.header .search{
+	float: left;
+	width: 412px;
+	height: 42px;
+	/* background-color: skyblue; */
+}
+.header .search input{
+	float: left;
+	width: 345px;
+	height: 40px;
+	/* 取消表单元素获得光标时的边框线 */
+	outline: none;
+	border: 1px solid #00a4ff ;
+	border-right: 0;
+	font-size: 14px;
+	color: #bfbfbf;
+	padding-left: 15px;
+}
+.header .search button{
+	float: left;
+	height: 42px;
+	width: 50px;
+	outline: none;
+	border: none;
+	background: url(images/search.png) no-repeat top center;
+}
+.header .user{
+	float: right;
+	margin-right: 30px;
+	height: 42px;
+	line-height: 42px;
+}
+.header .user img{
+	vertical-align: middle;
+}
+/* banner */
+.banner{
+	height: 420px;
+	background-color: #1c036c;
+}
+.banner_c{
+	/* 给宽高 才能显示背景颜色和背景呀 */
+	position: relative;
+	height: 420px;
+	background: url(images/banner2.png) no-repeat center top;
+}
+.banner_nav{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 190px;
+	height: 420px;
+	background:rgba(0,0,0,0.3);
+}	
+.banner_nav ul li{
+	/* background-color: pink; */
+	margin: 24px 0px 24px 20px;
+}
+.banner_nav ul li a{
+	font-size: 14px;
+	color:#FFFFFF;
+}
+.banner_nav ul li a:hover{
+	color:#00a4ff ;
+}
+.banner_nav ul span{
+	float: right;
+	margin-right: 10px;
+}
+.banner_course{
+	position: absolute;
+	right: 0px;
+	top:50px;
+	width: 230px;
+	height: 300px;
+	background-color: #ffffff;
+}
+.banner_course .title{
+	width: 100%;
+	height: 50px;
+	background-color: #9bceea;
+}
+.banner_course .title h3{
+	text-align: center;
+	line-height: 50px;
+	color: #FFFFFF;
+	font-size: 18px;
+}
+.banner_course .course-list{
+	padding: 0px 20px;
+}
+.banner_course .course-list ul li{
+	height: 40px;
+	border-bottom: 1px solid lightgray;
+	padding: 12px 0;
+	text-align: left;
+}
+.banner_course .course-list ul h4{
+	font-weight: 400;
+	font-size: 16px;
+	color: #4e4e4e;
+}
+.banner_course .course-list ul p{
+	font-size: ;
+	font-size: 12px;
+	color: #a5a5a5;
+}
+.banner_course .course-list a{
+	margin-top: 5px;
+	display: block;
+	padding: 5px;
+	text-align: center;
+	font: 16px;
+	color: #00a4ff;
+	font-weight: 700;
+	border: 1px solid #00a4ff;
+}
+.main-nav{
+	margin-top: 5px;
+	height: 60px;
+	background-color: #ffffff;
+	box-shadow: 1px 1px 5px #696969;
+} 
+.main-nav ul{
+	float: left;
+}
+.main-nav ul li{
+	display: inline-block;
+	text-align: center;
+	padding: 20px 0px;
+}
+.main-nav ul li:first-of-type a{
+	border: none;
+	color: #00a4ff;
+	font-size: 16px;
+	font-weight: 700;
+	
+}
+.main-nav ul li a{
+	display: block;
+	padding: 0 30px;
+	color: #050505;
+	font-size: 16px;
+	border-left: 1px solid #bfbfbf;
+}
+.main-nav span{
+	float: right;
+	line-height: 60px;
+	margin-right: 20px;
+	color:#00a4ff;
+	font-size: 14px;
+}
+.notes{
+	height: 26px;
+	margin-top: 30px;
+	margin-bottom: 15px;
+}
+.notes span{
+	float: left;
+	color: #686969;
+	font-size: 20px;
+	line-height:26px ;
+}
+.notes a{
+	float: right;
+	color: #d6d7d9;
+	font-size: 12px;
+	margin-right: 30px;
+	margin-top: 10px;
+}
+.main-course{
+	/* 多给一丢丢的宽度 多了居中就不好看了 */
+	width: 1202px;
+	/* border: 1px solid red; */
+}
+.main-course ul li{
+	/* 定义宽度的方式为边界 这样实际的width = width
+	 否则 实际的width=width+border+pading*/
+	position: relative;
+	box-sizing: border-box;
+	float: left;
+	width: 230px;
+	height: 270px;
+	/* border: 1px solid red; */
+	margin-right: 13px;
+	margin-bottom: 13px;
+	box-shadow: 1px 1px 5px #696969;
+}
+/* 一行放五个 最后一个不给外边距 */
+.main-course ul li:nth-child(5n){
+	margin-right: 0px;
+}
+/* hot制作 */
+.main-course ul li::before{
+	content: '';
+	position: absolute;
+	top: 10px;
+	right: -5px;
+	width: 42px;
+	height: 26px;
+	background: url(images/hot.png) no-repeat top center;
+}
+.main-course ul li img{
+	/* 大小跟着父盒子来改变 */
+	width: 100%;
+	height: 150px;
+}
+.main-course ul li h4{
+	margin:20px;
+	font-size: 14px;
+	color:#050505;
+	font-weight: 400;
+}
+.main-course .info{
+	margin: 20px;
+	font-size: 12px;
+	color: #999999;
+}
+.main-course .info span{
+	color: #ff7c2d;
+}
+.basic-program .basic-head{
+	height: 34px;
+	/* background-color: pink; */
+	margin: 5px 0px;
+}
+.basic-program .basic-head .title{
+	float: left;
+	line-height: 34px;
+	color: #494949;
+	font-size: 20px;
+}
+.basic-head ul {
+	float: left;
+	margin-left: 315px;
+}
+.basic-head ul li {
+	display: inline-block;
+	line-height: 34px;
+	padding: 0px 34px;
+}
+.basic-head li>a{
+	color: #868686;
+	font-size: 16px;
+}
+.basic-head li>a:hover{
+	color: #00A4FF;
+}
+.basic-head>a{
+	float: right;
+	line-height: 34px;
+	margin-right: 25px;
+	color: #868686;
+	font-size: 12px;
+}
+.basic-program .basic-slid{
+	float: left;
+	width: 230px;
+	height: 400px;
+	background:url(images/programming.png) no-repeat top center ;
+	margin-right: 13px;
+}
+.basic-program .basic-bd{
+	float: left;
+	width: 957px;
+}
+.basic-program .bd-title{
+	width: 957px;
+	height: 100px;
+	background:url(images/pro_title.png) no-repeat top center;
+	margin-bottom: 23px;
+}
+.basic-program .bd-course{
+	width: 957px;
+	height: 270px;
+	/* background-color: pink; */
+}
+ .basic-bd .bd-course ul li{
+	 box-sizing: border-box;
+	 /* 行内块元素的两个相邻元素之间有小空隙 不是padding 也不是margin
+	  最好用浮动 不然不好调整宽度 浮动的相邻元素间是紧挨着的 没有空隙*/
+	 /* display: inline-block; */
+	 float: left;
+	 margin-right: 12px;
+	 width: 230px;
+	 height: 270px;
+	 box-shadow: 1px 1px 5px #696969;
+	 /* background-color: blue */
+ }
+ .basic-bd .bd-course ul li:last-child{
+	 margin-right: 0px;
+ }
+ .bd-course ul li img{
+ 	/* 大小跟着父盒子来改变 */
+ 	width: 100%;
+ 	height: 150px;
+ }
+ .bd-course ul li h4{
+ 	margin:20px;
+ 	font-size: 14px;
+ 	color:#050505;
+ 	font-weight: 400;
+ }
+ .bd-course .info{
+ 	margin: 20px;
+ 	font-size: 12px;
+ 	color: #999999;
+ }
+ .bd-course .info span{
+ 	color: #ff7c2d;
+ }

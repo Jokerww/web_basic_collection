@@ -1,0 +1,86 @@
+/* transform属性介绍：
+		rotate(a deg)  2D旋转的度数 单位deg
+		translate(xpx,ypx) 2D位移 
+		skew(xdeg,ydeg) 2D倾斜的度数
+		scale（x,y）2D拉伸 拉伸的倍数
+		matrix（a,b,c,d,e,f）各种参数实现不同的以上四个的组合效果*/
+		
+
+
+div{
+	width: 6.25rem;
+	height: 6.25rem;
+	background-color: #7FFFD4;
+	margin-top: 80px;
+}
+
+.div1{  
+	/* rotate实现旋转效果 给的值是度数  单位deg */
+	transform: rotate(200deg); 
+	-webkit-transform: rotate(200deg); /* 适用于chrome Safari浏览器 */
+	-ms-transform: rotate(200deg); /* 适用于IE浏览器 */
+	-o-transform: rotate(200deg); /* 适用于Opera浏览器 */
+	-moz-transform: rotate(200deg); /* 适用于Firefox浏览器 */
+}
+
+.div2{
+	margin-top: 100px;
+	margin-bottom: 100px;
+	/* scale()实现拉伸效果 第一个值的x轴的拉伸倍数 第二个值是y轴的拉伸倍数 */
+	transform: scale(1,2); 
+	-webkit-transform: scale(1,2); /* 适用于chrome Safari浏览器 */
+	-ms-transform: scale(1,2); /* 适用于IE浏览器 */
+	-o-transform: scale(1,2); /* 适用于Opera浏览器 */
+	-moz-transform: scale(1,2); /* 适用于Firefox浏览器 */
+}
+
+.div3{
+	/* translate 实现位移效果 第一个值是相对左侧移动的距离 第二个值相对顶部移动的距离 */
+	transform: translate(10px ,20px);
+	-webkit-transform: translate(10px,20px); /* 适用于chrome Safari浏览器 */
+	-ms-transform: translate(10px,20px); /* 适用于IE浏览器 */
+	-o-transform: translate(10px,20px); /* 适用于Opera浏览器 */
+	-moz-transform: translate(10px,20px); /* 适用于Firefox浏览器 */
+}
+
+.div4{
+	/* skew()实现倾斜 第一个值是x轴倾斜的度数 第二个为y轴 */
+	transform: skew(20deg,20deg);
+	-webkit-transform: skew(20deg,20deg); /* 适用于chrome Safari浏览器 */
+	-ms-transform: skew(20deg,20deg); /* 适用于IE浏览器 */
+	-o-transform: skew(20deg,20deg); /* 适用于Opera浏览器 */
+	-moz-transform: skew(20deg,20deg); /* 适用于Firefox浏览器 */
+}
+
+.div5{
+	/* 矩阵是实现以上四个transform的基础 matrix（a,b,c,d,e,f）
+	 六个参数两个一组竖排方构成3*3矩阵*/
+	 /* 以下为利用矩阵实现translate(40px 30px)的效果 */
+	transform: matrix(1,0,0,1,40,30);
+	-webkit-transform: matrix(1,0,0,1,40,30); /* 适用于chrome Safari浏览器 */
+	-ms-transform: matrix(1,0,0,1,40,30); /* 适用于IE浏览器 */
+	-o-transform: matrix(1,0,0,1,40,30); /* 适用于Opera浏览器 */
+	-moz-transform: matrix(1,0,0,1,40,30); /* 适用于Firefox浏览器 */
+}
+.div6{
+	/* 矩阵实现scale（1，2）效果 */
+	transform: matrix(1,0,0,2,0,0);
+}
+
+.div8{
+	/* 3D的旋转围绕着X轴旋转的角度 转轴默认为div的中轴线 */
+	transform: rotateX(60deg);
+	-webkit-transform: rotateX(60deg); /* 适用于chrome Safari浏览器 */
+	-ms-transform: rotateX(20deg); /* 适用于IE浏览器 */
+	-o-transform: rotateX(20deg); /* 适用于Opera浏览器 */
+	-moz-transform: rotateX(20deg); /* 适用于Firefox浏览器 */
+}
+
+.div9{
+	/* 3D的旋转围绕着Y轴旋转的角度 */
+	transform: rotateY(60deg);
+	-webkit-transform: rotateY(60deg); /* 适用于chrome Safari浏览器 */
+	-ms-transform: rotateY(20deg); /* 适用于IE浏览器 */
+	-o-transform: rotateY(20deg); /* 适用于Opera浏览器 */
+	-moz-transform: rotateY(20deg); /* 适用于Firefox浏览器 */
+}

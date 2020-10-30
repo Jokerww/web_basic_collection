@@ -1,0 +1,12 @@
+/* clear：设置一个元素的侧面是否允许其他的浮动元素
+   float：定义元素在哪个方向浮动
+   position：八元素放在一个静态的、相对的、绝对的、固定的位置
+   cursor：规定当指向某个元素上时的鼠标显示方式
+   display：设置元素是否及如何显示
+   visibility：设置元素是否可见
+   */
+li{
+	cursor: help;  /* 鼠标放上时的鼠标显示方式 */
+	display: inline;  /* 列表的显示方式 一行显示  可用于制作链接栏 */
+	visibility: visible; /* 是否可见 */
+}

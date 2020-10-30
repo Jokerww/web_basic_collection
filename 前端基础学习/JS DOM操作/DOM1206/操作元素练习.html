@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			a{
+				text-decoration: none;
+			}
+			li{
+				list-style: none;
+			}
+			.demo1 input{
+				color: #999999;
+			}
+			.demo2{
+				position: relative;
+				width: 1200px;
+				height: 90px;
+			}
+			
+			.demo2 a img{
+				width: 1200px;
+				height: 90px;
+			}
+			.demo2  .close{
+				position: absolute;
+				top: 0;
+				right: 0;
+				width: 20px;
+				height: 20px;
+				background-color: #050505;
+				color: #fff;
+				font-size: 8px;
+				font-style: normal;
+				line-height: 20px;
+				cursor: default;
+			}
+			.demo3{
+				background-color: pink;
+				margin: 10px 0;
+				width: 100px;
+				height: 20px;
+				line-height: 20px;
+				text-align: center;
+			}
+			.demo3 ul{
+				position: relative;
+				display: none;
+				background-color: lightblue;
+			}
+			.demo3 h4{
+				cursor: default;
+				/* 写上内边距 没有颜色 也不在demo3之外 就不会触发关闭 */
+				padding-bottom: 5px;
+			}
+			.demo3 ul::before{
+				content: '';
+				position: absolute;
+				right: 25px ;
+				top: -12px;
+				width: 0;
+				height: 0;
+				border-style: solid;
+				border-width: 6px;
+				border-color: transparent transparent lightblue transparent ;
+				
+			}
+			.demo3 ul li:nth-child(-n+2){
+				margin: 0px 5px;
+				border-bottom: 1px solid gray;
+			}
+			.demo3 ul li a{
+				color: #000000;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 操作元素的总结与联系
+			操作元素：
+				操作元素的内容:innerText innerHTML
+				操作元素的属性：element.display/url/href/title
+				操作表单元素属性：element.value(操作表单内容) type disabled
+				操作元素样式：element.style  element.className
+		-->
+		
+		<!-- 案例1：表单显示与隐藏内容 
+			鼠标放上去文字消失 拿回来文字又回来-->
+		<div class="demo1">
+			<input type="text" id="user_id" value="手机号/邮箱/用户名" >
+			<input type="password" id="user_pwd" placeholder="输入密码"/>
+			<button type="button">登录</button>
+		</div>
+		<script type="text/javascript">
+			var user_id = document.getElementById('user_id');
+			user_id.onclick = function(){
+				this.value = '';
+				this.style.outlineColor = 'pink';
+			}
+			user_id.onblur = function(){
+				if (this.value === '') {
+					this.value = '手机号/邮箱/用户名';
+				} 
+			}
+		</script>
+		
+		<!-- 案例2：京东关闭广告 -->
+		<div class="demo2">
+			<a href="#"> <img src="images/demo2.png" > </a>
+			<i class="close">关闭</i>
+		</div>
+		<script type="text/javascript">
+			var demo2 = document.querySelector('.demo2');
+			var close = document.querySelector('.close');
+			close.onclick = function(){
+				console.log('关闭');
+				// display属于样式属性 在css里边出现的 要加style 
+				demo2.style.display = 'none';
+			}
+		</script>
+		
+		<!-- 案例3：新浪下拉菜单：鼠标点击时显示下拉菜单 -->
+		<div class="demo3">
+			<h4 >用户信息</h4>
+			<ul>
+				<li><a href="#">个人中心</a></li>
+				<li><a href="#">主页</a></li>
+				<li><a href="#">收藏夹</a></li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			var h_4 = document.querySelector('h4');
+			var ul = document.querySelector('ul');
+			var demo3 = document.querySelector('.demo3');
+			/* var flag = 1;
+			h_4.onmouseover = function(){
+				if (flag == 1) {
+					ul.style.display = 'block';
+					console.log('显示');
+					flag = 0;
+				} else{
+					ul.style.display = 'none';
+					console.log('不显示');
+					flag = 1;
+				}
+			} */
+			h_4.onmouseover=function(){
+				ul.style.display = 'block';
+			}
+			demo3.onmouseleave=function(){
+				ul.style.display = 'none';
+			}
+		</script>
+		
+		<!-- 案例4：开关灯 -->
+		<button type="button" class="switch">开关灯</button>
+		<script type="text/javascript">
+			var switch_1 = document.querySelector('.switch'); 
+			var body_1 = document.body;
+			var html_1 = document.documentElement;//获取整个HTML文件
+			flag = 1;
+			switch_1.onclick = function(){
+				if (flag == 1) {
+					body_1.style.backgroundColor = '#000000';
+					flag =0;
+				} else{
+					body_1.style.backgroundColor = '#FFFFFF';
+					flag = 1;
+				}
+			}
+		</script>
+	</body>
+</html>

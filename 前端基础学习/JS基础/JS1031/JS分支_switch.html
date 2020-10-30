@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>JS_switch语句</title>
+	</head>
+	<body>
+		
+		<!-- switch语句也是分支语句的一种 与if语句类似 满足某种条件是执行相应的语句
+		当要针对变量设置一系列特定值的选项时，就可以使用switch语句 实现多选一的结构
+		--> 
+		<script type="text/javascript">
+			// switch后面括号里边的表达式的返回值与case后边的值相匹配（数值与字符串数字也可以匹配）,匹配上则执行
+			//都不匹配上的话 执行default 的语句
+			
+			/* 注意： 1，switch后经常用变量
+					 2，switch与case后边的值是全等匹配（===） 要求值与数据类型都相同
+					 3, break语句一定要写上 执行后跳出 不然会一直向下执行下面的case 直至遇见break或执行完	
+					*/
+			var num = prompt('请输入数字(0-3)：')-0; //转换成数值类型
+		 	switch (num){
+		 		case 0 : 
+					console.log('输入的是选项0：'+num);
+		 			break;  //执行语句后边一定要写break 否则无法退出
+		 		case 1:
+					console.log('输入的是选项1：'+num);
+		 			break;
+				case 2:
+					console.log('输入的是选项2：'+num);
+					break;
+				case 3:
+					console.log('输入的是选项3：'+num);
+					break;
+				default:
+					console.log('请输入正确的数字！');
+					// 若没有上面的选项则执行这条语句 后面没有break
+		 	}
+		</script>
+		
+		<!-- 小案例练习 -->
+		<script type="text/javascript">
+			var fruit = prompt('输入水果名查询价格：')
+			switch(fruit){
+				case '苹果':
+					console.log(fruit + "的价格是3元/斤");
+					break;
+				case '香蕉':
+					console.log(fruit + "的价格是2元/斤");
+					break;
+				case '葡萄':
+					console.log(fruit + "的价格是1.5元/斤");
+					break;
+				case '橘子':
+					console.log(fruit + "的价格是2.1元/斤");
+					break;
+				default:
+					console.log('没有'+ fruit+'!!');
+			}
+		</script>
+		
+		<!-- if与switch 的区别：一般情况下二者可以互换
+				1，switch用于处理确定值；if用于判断范围值；
+				2，switch判断时直接执行到程序的条件语句，效率更高。
+					而if是有几种条件就要判断集中条件
+				3，分支较少时，使用if的效率比较高
+				4，分支较多时，使用switch的效率更高，而且结构跟清晰
+				-->
+				
+		
+	</body>
+</html>

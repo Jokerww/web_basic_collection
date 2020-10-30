@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.div{
+				width: 100px;
+				height: 100px;
+				background-color: pink;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<!-- 事件对象：与事件相关的一系列属性与方法的集合
+			1，事件对象直接写在function(event)小括号里的
+			2，事件对象只有在有了事件才存在，它是系统自己创建的 不需要我们传递参数
+			3，事件对象是一系列与时间相关的数据的集合  
+				例如鼠标点击事件包含了鼠标点击的位置 谁绑定了点击事件
+				键盘事件对象包含了例如用户按下了那个键等信息
+			4，事件对象可以我们自己命名 例如 event evt e等
+			5，事件对象也有兼容性问题 IE678通过 windows.event来调用
+				兼容性写法： e = e||windows.event;
+				逻辑中断
+		 -->
+		 
+		 <div class="div"></div>
+		 <script type="text/javascript">
+		 	var div = document.querySelector('.div');
+			div.addEventListener('click',fn2);
+			function fn2(e){
+				console.log(e);//输出事件对象 包含事件的相关信息
+			}
+		 </script>
+		 
+		 
+		 <!-- 事件对象属性：
+			1,this 与 target的区别：e.target指向触发事件的对象
+				(1)，this 指向的是绑定事件的对象 谁绑定了这个时间 this就是谁
+				(2)，e.target指向的是触发事件的对象 谁触发了这个事件 target就是谁
+					由于事件的冒泡特性 触发时间的对象与绑定事件的对象可能不同
+					如果外部元素ul绑定了点击事件  内部元素li没有绑定点击事件
+					鼠标点击内部元素li时 事件流冒泡时检测到外部元素ul绑定了点击事件 就会执行该事件 
+					但是鼠标点击的是内部元素li 而不是外部元素ul 因此是内部元素触发的外部元素的点击事件
+					因此 target会指向内部元素li  this指向事件的绑定者ul
+					兼容性问题 IE678   e.srcElement返回触发事件的对象
+				(3)，一个与this类似的属性 也是指向绑定事件的对象 currentTarget
+					e.currentTarget指向的就是绑定事件的元素
+			2,e.type 返回当前事件的类型 如 click事件 不带on
+			3,e.preventDefault() 阻止默认行为方法：如阻止按钮提交 阻止链接的跳转
+		 -->
+		 <ul>
+		 	<li>1</li>
+		 	<li>2</li>
+		 	<li>3</li>
+		 </ul>
+		 <script type="text/javascript">
+		 	var ul = document.querySelector('ul');
+			ul.addEventListener('click',function(e){
+				console.log(this); //指向ul对象
+				console.log(e.currentTarget);//指向ul对象
+				console.log(e.target);//点击的谁 指向谁
+				console.log(e.type);//返回click
+			})
+		 </script>
+		 
+		 <!-- e.preventDefault() 阻止默认行为 -->
+		 <a href="http://www.baidu.com"> 点击百度</a>
+		 <script type="text/javascript">
+		 	var a = document.querySelector('a');
+			a.addEventListener('click',function(e){
+				e.preventDefault();//点击链接不跳转 方法的调用 带括号
+			});
+			// 传统方法
+			a.onclick = function(e){
+				e.preventDefault();
+				// 方法2 IE678兼容性
+				e.returnValue;//属性 不带括号
+				// 方法3  没有兼容性问题 但是return会终止程序的执行 
+				// 且只限于传统注册事件方式才能用
+				return false;
+			}
+		 </script>
+		 
+	</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>数组练习</title>
+	</head>
+	<body>
+		<!-- 删除指定数组元素 -->
+		<script type="text/javascript">
+			var arr1 = [2,0,6,1,77,0,52,20,25];
+			var new_arr = [];
+			for (var i=0; i<arr1.length; i++) {
+				if (arr1[i] !== 0) {
+					new_arr[new_arr.length] = arr1[i];
+				}
+			}
+			console.log(new_arr);
+		</script>
+		
+		<!-- 翻转数组 -->
+		<script type="text/javascript">
+			var arr2=['purple','pink','green','red'];
+			var new_arr2 = [];
+			var new_arr21 = [];
+			for (var i=0;i<arr2.length;i++) { //原来数组的第一个放到新数组最后一个
+				new_arr2[arr2.length-1-i]=arr2[i];
+			}
+			console.log(new_arr2)
+			
+			//感觉下面这种方式比较好 上面的方式把原数组的长度给了新数组 
+			//还是新数组的索引从零开始递增比较好 新数组按顺序存  原数组长度可直接算 新数组不可以
+			for (var i=arr2.length-1;i>=0;i--) { //原来数组最后一个放到新数组第一个
+				new_arr21[new_arr21.length]=arr2[i];
+			}
+			console.log(new_arr2)
+		</script>
+		
+		<!-- 冒泡排序 两两比较并交换位置 例如从小到大的顺序排列 -->
+		<script type="text/javascript">
+			var arr3 = [5,9,3,6,1];
+			// var new_arr3 =[];
+			var temp;
+			for (var i=0;i<arr3.length;i++) {
+				for (var j=i+1;j<arr3.length;j++) {
+					if (arr3[i]>arr3[j]) {
+						temp = arr3[j];
+						arr3[j]=arr3[i];
+						arr3[i]=temp;
+					}
+				}
+			}
+			console.log(arr3);
+		</script>
+		
+		
+		<!-- 冒泡排序的标准做法：
+				1，外层循环控制需要交换的元素个数（有几个元素需要进行交换），元素个数-1就行i<=length-1
+				2，内层循环控制每个元素需要交换几次才能到指定的位置  数组长度-1-趟数 j<=length-1-i
+				3，五个元素 第一个元素交换四次 第二个交换三次 第三个两次 第四个一次 索引从0开始
+				4，第j和j+1的函数相比较 内层变量就表示第几个元素的交换
+				-->
+		<script type="text/javascript">
+			var arr3 = [5,9,3,6,1];
+			// var new_arr3 =[];
+			var temp;
+			for (var i=0;i<=arr3.length-1;i++) { //表示的是一共有几个元素需要交换(变动)
+				for (var j=0;j<=arr3.length-1-i;j++) { //表示每个元素交换（变动）几次
+				//前一个值与后一个值比较 大于则换 该值一直向后比较 大的值一定会被放在最后面 
+				// 所以下一次比较的时候 最后一个值就已经不用比较了 次数就递减 -i
+					if (arr3[j]>arr3[j+1]) { 
+						temp = arr3[j+1];
+						arr3[j+1]=arr3[j];
+						arr3[j]=temp;
+					}
+				}
+			}
+			console.log(arr3);
+		</script>
+	</body>
+</html>

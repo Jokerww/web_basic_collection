@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>sticky粘性定位</title>
+		<!-- 粘性定位：position：sticky；
+				可以理解为相对定位和固定定位的结合
+				当元素没有到达指定位置是 依据相对定位来跟随页面移动
+				当元素移动到固定位置时，就像固定定位一样相对页面固定了
+			特点：
+				(1)以浏览器的可视窗口为参考点移动元素(固定定位特点)
+				(2)粘性点位占有原来的位置(相对定位特点)
+				(3)必须添加top left right bottom其中一个才能生效 否则就是相对定位
+		
+		-->
+		<style type="text/css">
+			body{
+				/* 给页面加高度 让他可以滚动 */
+				height: 3000px;
+			}
+			.sticky{
+				position: sticky;
+				/* 当它岁页面翻滚到距离页面50px的时候 就固定在这个位置不动了
+				 不管页面怎么继续向上翻滚 依然相对可视窗口固定
+				 知道他原来(标准流)的位置与页面顶部的距离大于50px 才变成相对定位 跟着一起滚动*/
+				top: 50px;
+				width: 300px;
+				height: 100px;
+				background-color: pink;
+				/*给他一个初始位置 距离上部300px */
+				margin: 300px auto;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="sticky"></div>
+	</body>
+</html>

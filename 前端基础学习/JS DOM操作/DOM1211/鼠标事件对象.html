@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				height: 3000px;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 鼠标时间对象：event 即MouseEvent
+			e.clientX :鼠标相当于当前 可视区 的X坐标
+			e.clientY :鼠标相对于当前 可视区 的Y坐标
+			e.pageX :鼠标相当于当前 文档页面 的X坐标 IE9+兼容
+			e.pageY :鼠标相对于当前 文档页面 的Y坐标 IE9+兼容
+			e.screenX :鼠标相当于当前 屏幕 的X坐标
+			e.screenY :鼠标相对于当前 屏幕 的Y坐标
+		 
+		 当文档较长 向上滚动时  client的坐标始终相对于可视区 不会变
+				page相对于文档 会变
+		 -->
+		<script type="text/javascript">
+			document.addEventListener('click', function(e){
+				// 可视区坐标
+				console.log(e.clientX);
+				console.log(e.clientY);
+				console.log('--------------');
+				// 文档页面坐标
+				console.log(e.pageX);
+				console.log(e.pageY); //翻滚后Y坐标变大了
+				// 电脑屏幕坐标
+				console.log(e.screenX);
+				console.log(e.screenY);
+				
+			})
+		</script>
+	</body>
+</html>

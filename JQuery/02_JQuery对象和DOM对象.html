@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript" src="JQuery_min.js"></script>
+		<!-- 样式设置 -->
+		<style type="text/css">
+			div{
+				width: 200px;
+				height: 200px;
+				background-color: pink;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- DOM对象与JQ对象
+			1, DOM对象：用原生JS获取到的对象就是DOM对象 
+			2，JQuery对象： 用JQuery方式获取到的对象 本质是通过$把DOM元素进行了包装 
+							DOM对象是JQ方法获取到的伪数组里边的元素
+			3，JQuery对象只能使用JQ方法  DOM对象则只能使用原生JS的属性和方法  二者不能混用
+		 -->
+		 <!-- DOM对象与JQ对象的转换：
+			JQ只是封装了部分JS里面常用的方法 有时JQ对象需要用到JQ封装的函数之外的JS方法
+			就需要将JQ对象转换成DOM对象 才能使用原生的JS方法
+			1 DOM对象转换成JQ对象：$(DOM对象)  
+				注意：DOM对象已经通过原生方法获取了 放在$()里边不需要加引号''
+				var myDiv = document.QuerySelector('div');
+				$(myDiv); 将DOM对象通过$包装成了JQ对象
+			2 JQ对象转换成DOM对象：JQ对象可以看是是一个伪数组　而相应的DOM对象是JQ对象伪数组里边的元素　
+				所以JQ转换成DOM只需要将伪数组里的DOM对象元素总过数组的方式取出来即可
+				$('div')[index] 或 $('div').get(index)
+				$('div')[0] 或 $('div').get(0)
+				
+		  -->
+		<div></div>
+		<span></span>
+		<script type="text/javascript">
+			//1, DOM对象：用原生JS获取到的对象就是DOM对象 
+			var myDiv = document.querySelector('div'); //得到一个DOM对象
+			var mySpan = document.querySelector('span');
+			console.dir(myDiv); //得到对象的详细信息
+			//2，JQuery对象： 用JQuery方式获取到的对象 本质是通过$把DOM元素进行了包装
+			$('div');
+			$('span');
+			console.dir($('div')); //得到一个包含DOM对象的伪数组 长度为1 只有一个div元素
+			//3，JQuery对象只能使用JQ方法  DOM对象则只能使用原生JS的属性和方法  二者不能混用
+			// myDiv.style.display = 'none'; //原生JS方式隐藏元素
+			$('div').hide();  //JQ内置方法隐藏函数 原生JS里边没有hide()方法
+			// myDiv.hide(); //报错 DOM对象不能使用JQ的方法 
+			// $('div').style.display = 'none';//报错 display不是JQ里边定义的属性
+			
+			// 二者转换
+			console.log($(myDiv));//不加引号 将DOM对象转换成了JQ伪数组对象
+			console.log($('div')[0]); //取出了JQ伪数组里的DOM对象 完成了二者的转换
+		</script>
+	</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.w{
+				width: 1000px;
+				margin: 0 auto;
+				background-color: pink;
+			}
+			.slide_bar{
+				position: absolute;
+				top: 300px;
+				left: 50%;
+				height: 100px;
+				width: 50px;
+				margin-left: 510px;
+				background-color: pink;
+			}
+			span{
+				display: none;
+			}
+			.header{
+				height: 200px;
+				margin: 10px auto;
+			}
+			.banner{
+				height: 400px;
+				margin: 10px auto;
+			}
+			.main{
+				height: 1800px;
+				margin: 10px auto;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 淘宝右侧侧边栏：
+			1，刚开始侧边栏是绝对定位
+			2，当页面滚动到一定位置 侧边栏改为固定定位
+			3，页面继续滚动 回让'返回顶部'显示出来
+			
+		页面滚动时 被卷去的上侧的距离获取方式为：window.pageYoffset
+		 -->
+		<div class="slide_bar">
+			<span>返回顶部</span>
+		</div>
+		<div class="header w">头部</div>
+		<div class="banner w">广告</div>
+		<div class="main w">主体</div>
+		
+		<script type="text/javascript">
+			var slide_bar = document.querySelector('.slide_bar');
+			var span = document.querySelector('span');
+			var banner = document.querySelector('.banner');
+			var bannerTop = banner.offsetTop;
+			var slideTop = slide_bar.offsetTop - bannerTop
+			// console.log(bannerTop);
+			var main = document.querySelector('.main');
+			var mainTop = main.offsetTop;
+			// console.log(mainTop);
+			// 滚到banner时改成固定定位
+			document.addEventListener('scroll',function(){
+				if (window.pageYOffset >= bannerTop) {
+					slide_bar.style.position = 'fixed';
+					slide_bar.style.top = slideTop + 'px';
+				} else{
+					slide_bar.style.position = 'absolute';
+					slide_bar.style.top = '300px';
+				}
+				// 滚到main处显示span的内容
+				if (window.pageYOffset >= mainTop) {
+					span.style.display = 'block';
+				} else{
+					span.style.display = 'none';
+				}
+			});
+			// 调用系统的回到顶部函数 window.scroll(x,y); 
+			span.addEventListener('click',function(){
+				// 直接调回顶部 x y不加单位
+				// window.scroll(0,0);
+				moveslow2(window,0);
+			})
+			
+			// 利用动画函数实现 点击'回到顶部'时的 缓动回到顶部
+			// 先要修改之前的缓动动画 因为之前智能左右动 现在要上下动
+			function moveslow2(obj, distance ,callback){
+				// 先清除其他的定时器
+				clearInterval(obj.timer);
+				// 设置定时器
+				obj.timer = setInterval(function(){
+					// 页面当前的向上卷过的距离用window.pageYOffset
+					var step = (distance - window.pageYOffset) / 20;
+					step = step<0 ? Math.floor(step) : Math.ceil(step);
+					if (window.pageYOffset == distance) {
+						clearInterval(obj.timer);
+						// 判断有无回调函数
+						/* if (callback) {
+							callback();
+						} */
+						// 利用逻辑逻辑短路运算
+						callback&&callback();
+					};
+					// obj.style.left = obj.offsetLeft + step + 'px';
+					// 页面的滚动用window.scroll(x,y);
+					window.scroll(0, window.pageYOffset + step);
+				},15);
+			}; 
+			
+			
+		</script>
+	</body>
+</html>

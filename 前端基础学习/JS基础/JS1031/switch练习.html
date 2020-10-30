@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>switch练习</title>
+	</head>
+	<body>
+		<!-- 判断时间阶段 -->
+		<script type="text/javascript">
+			var time = prompt('请输入时间：')-0;
+			if(time>=0 && time<=8){
+				console.log('早上好！');
+			}else if (time<=12) {
+				console.log('中午好！');
+			} else if (time <= 18) {
+				console.log('下午好！');
+			} else if (time <= 24) {
+				console.log('深夜好！');
+			}else{
+				console.log('请输入正确的时间！');
+			}
+		</script>
+		
+		<!-- 比较大小 -->
+		<script type="text/javascript">
+			var num1 = prompt('输入第一个值：')-0;
+			var num2 = prompt('输入第二个值：')-0;
+			if (num1 > num2) {
+				console.log('比较大的是：'+num1);
+			} else if (num1 < num2){
+				console.log('比较大的是：'+num2);
+			}else if(num1 == num2){
+				console.log('二者一样大')
+			}
+		</script>
+		
+		<!-- 判断奇数和偶数 -->
+		<script type="text/javascript">
+			var num3 = prompt('输入一个数字：');
+			if (num3 % 2 == 0) {
+				console.log(num3 +'是偶数');
+			} else if (num3 % 2 ==1) {
+				console.log(num3 +'是奇数');
+			}else{
+				console.log('你输入的是啥？重新输');
+			}
+		</script>
+		
+		<!-- 输出周几 -->
+		<script type="text/javascript">
+			var date = prompt('输入数字(1-7):')-0;
+			switch (date){
+				case 1:
+					console.log('周一');
+					break;
+				case 2:
+					console.log('周二');
+					break;
+				case 3:
+					console.log('周三');
+					break;
+				case 4:
+					console.log('周四');
+					break;
+				case 5:
+					console.log('周五');
+					break;
+				case 6:
+					console.log('周六');
+					break;
+				case 7:
+					console.log('周日');
+					break;
+				default:
+					break;
+			}
+			
+		</script>
+	</body>
+</html>

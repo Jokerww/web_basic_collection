@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>字体图标的使用</title>
+		
+		<!-- 字体图标的使用步骤：
+				1，去官网下载图标文件 下载完后解压
+				2，将fonts文件夹复制到当前使用图标的文件的根目录下
+					因为字体图标都在fonts文件里
+				3，字体文件的导入：
+					打开解压文件中的 style.css 文件 复制第一个样式的代码
+					把里边的代码直接复制到自己的css文件中即可
+				4，字体图标的使用：
+					打开解压文件中的 demo.html 文件 找到自己要使用的图标 
+					将图标下一行最右边的小框框(或者前面的十六进制数字 前面要加\)复制到自己的html文件中
+					然后给包含小框框的标签加 font-family (字体样式)属性即可
+					font-family的值 就是导入文件是 复制的代码里的对应值 (直接复制导入文件的值即可)
+				5,复制的小框框其实就是个文字 只不过长得和我们看到的文字不一样而已
+				  所以 可以给这个小框框文字添加文字样式 颜色 大小 粗细等
+				6,字体文件的追加：如果之前下载的字体图标太少了 想再下载点
+					打开下载图标的网站 点击import...导入之前解压文件后的selection.json文件
+					然后按照正常的下载步骤 选择 下载即可 重新解压后 将新的fonts文件复制到根目录
+					替换原来的fonts文件 然后继续步骤3、4、5即可。
+				7，字体样式的追加 其实就是利用原来的selection.json文件 在下载图标的地方
+					重新选图标往里边加 重新下载之后使用的所有步骤都跟第一次使用一样
+					用新的fonts文件夹 导入新的style.css文件 但是之前写好的样式不用换啦
+					style.css不重新复制的话 就没有新加的文件了
+		 -->
+		 
+		<style type="text/css">
+			@font-face {
+			  font-family: 'icomoon';
+			  src:  url('fonts/icomoon.eot?dm68g0');
+			  src:  url('fonts/icomoon.eot?dm68g0#iefix') format('embedded-opentype'),
+			    url('fonts/icomoon.ttf?dm68g0') format('truetype'),
+			    url('fonts/icomoon.woff?dm68g0') format('woff'),
+			    url('fonts/icomoon.svg?dm68g0#icomoon') format('svg');
+			  font-weight: normal;
+			  font-style: normal;
+			  font-display: block;
+			}
+			.span1{
+				/* 小框框就是一个文字 按照文字的样式原则给他样式 
+				一定要给font-family才能显示出来*/
+			font-family: 'icomoon';	
+			color:pink;
+			font-size: 100px;
+			font-weight: 700; /* 400为不加粗 */
+			}
+			.span2{
+				font-family: 'icomoon';
+				color: #0000FF;
+				font-size: 130px;
+			}
+			.append{
+				font-family: 'icomoon';
+				color: #0000FF;
+				font-size: 130px;
+			}
+		</style>
+	</head>
+	<body>
+		<span class="span1"></span>
+		<span class="span2"></span>
+		<span class="append"></span>
+	</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.div1{
+				width: 200px;
+				height: 200px;
+				background-color: pink;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- Js用来修改样式属性：
+				js修改的样式属性的权重属于行内样式 权重比CSS样式的权重要高
+				可以通过JS修改元素的大小 颜色 位置等
+				element.style   行内样式操作 element.style.CSS样式属性名='属性值'
+				element.ClassName 类名样式操作 
+					先把样式写好 然后直接把新样式的类名给元素 就可以个元素改变样式
+			JS 里面的样式采用驼峰命名法：如backgroungColor fontSize等
+			JS 修改样式产生的是行内样式 权重较高
+		 -->
+		 <div class="div1">样式</div>
+		 <!-- 点了div之后修改div的颜色和大小 -->
+		 <script type="text/javascript">
+		 	var div1 = document.querySelector('.div1');
+			div1.onclick=function(){
+				// px在JS里面是没有定义的 他只是修改了一个值而已 所以都要用字符串包起来
+				// 复制的时候把字符串里的东西给样式 所以不能直接300px JS读不出来
+				this.style.width = '300px';
+				this.style.height = '300px';
+				// JS 里边的样式属性都是驼峰命名法
+				this.style.backgroundColor = 'red';
+			}
+		 </script>
+	</body>
+</html>

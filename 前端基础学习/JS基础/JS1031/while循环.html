@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>while循环</title>
+	</head>
+	<body>
+		<!-- 满足条件时执行while语句里边的内容 注意要有操作表达式 避免死循环 
+		先判断条件 再执行循环体
+		可以执行比for更复杂的循环-->
+		<script type="text/javascript">
+			var i = 1;
+			while (i<=20){
+				console.log('我今年'+i+'岁啦');
+				i++;
+			}
+		</script>
+		
+		<script type="text/javascript">
+			//不说我爱你 就一直问
+			var respond = prompt('你爱我么？');
+			while (respond !== '我爱你'){
+				respond = prompt('你爱我么？');
+			}
+			alert('我也爱你')
+		</script>
+		
+		<!-- do while循环 -->
+		<script type="text/javascript">
+			// 循环体至少执行了一次!! 限制性循环体 再判断条件
+			do{
+			var message = prompt('你爱我吗？');	
+			}while (message !== '我爱你');//循环执行的条件时不说我爱你
+			alert('我也爱你');
+		</script>
+		
+		<script type="text/javascript">
+			var i=1;
+			do{
+				console.log('我爱你');
+				i++;
+			} while (i<1);//依然可以执行一次
+		</script>
+	</body>
+</html>

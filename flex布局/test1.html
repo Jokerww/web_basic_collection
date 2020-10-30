@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function a(n){
+				let flag1 = flag2='';
+				if (n < 0){
+					n = Math.abs(n);
+					flag1 = '(';
+					flag2 = ')';
+				}
+				let m = Math.floor(n*100)/100;
+				m = m.toString();
+				const i = m.length;
+				const a = (i-3)%3;
+				const b = parseInt((i-3)/3);
+				const m_1 = m.substr(a,i-3-a);
+				console.log(m_1);
+				let ms = [];
+				for (let j=0;j < m_1.length;j=j+3) {
+					ms.push(m_1.substring(j,j+3));
+				};
+				console.log(ms);
+				let str1 = '';
+				for (let k = 0;k<ms.length;k++) {
+					str1 =str1+ ',' + ms[k];
+				};
+				const string = '$'+flag1+ m.slice(0,a)+str1+m.slice(i-3)+flag2;
+				console.log(string);
+			}
+			a(-1234522345.337)
+
+		</script>
+	</body>
+</html>

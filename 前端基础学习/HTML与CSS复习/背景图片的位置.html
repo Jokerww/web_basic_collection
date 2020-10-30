@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>背景图片的位置</title>
+		
+		<!--背景图片：一半都用背景图片来做一些图片效果 便于控制位置
+							背景属性可以设置背景颜色background-color:
+									背景图片background-image:url()
+									背景平铺background-repeat:repeat-x/repeat-y/repeat/none
+									背景图片位置background-position:方位词/精确值
+									背景图片固定background-attachment:fixed/scroll
+									背景色半透明background:rgba(0,0,0,0.3)
+										前三个是颜色比例	最后的a表示半透明效果的程度(0-1)
+			背景的复合型写法：
+				baxkground:背景颜色 背景图片地址 背景平铺 背景图像滚动 背景图片位置
+					这五个属性没有顺序 随便写即可
+					注：可同时添加背景图片与背景颜色 不过背景图片会压着背景颜色
+			插入背景图片:backgroung-image:url()/none;
+			背景图片的位置：background-position: x,y
+				x,y可以是方位名词 也可以是精确的数字单位-->
+						
+		<style type="text/css">
+			*{
+				padding: 0px;
+				margin: 0px;
+			}
+			.div{
+				height: 700px;
+				width: 700px;
+				background-color: #7FD0D4;
+				background-position: left center;
+				/* background: rgba(0,0,0,0.6);黑色半透明 */
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div class="div">
+		</div>
+	</body>
+</html>

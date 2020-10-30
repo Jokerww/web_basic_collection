@@ -1,0 +1,40 @@
+/* position属性
+			absolute: 以使用position的上一层组件（父组件）的左上角为原点来定位
+					  如果找不到有position的上一层组件 则使用body左上角为原点定位
+			relative：以组件本身的左上角为原点来定位*/
+
+#div1{
+	width: 400px;
+	height: 400px;
+	background-color: #A52A2A;
+	/* position: absolute; */	
+}
+
+#div2{
+	width: 200px;
+	height: 200px;
+	background-color: blueviolet;
+	position: relative;  /* 还是在容器内部 */
+	/* margin-left: 50px; */
+	/* margin-top: 50px; */
+	z-index: 1;  /* 统一层次的才管用 都在同一个父组件下  值越小的在下面*/
+	float: left;
+}
+
+#div3{
+	width: 200px;
+	height: 100px;
+	background-color: #008000;
+	position: relative;
+	float: left;
+	z-index: 2;
+}
+
+#div4{
+	width: 300px;
+	height: 300px;
+	background-color: #00FFFF;
+	position: absolute;
+	float: left;
+	z-index: 0;
+}

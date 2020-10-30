@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="animate.js"></script>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				background-color: #000000;
+			}
+			.c_nav{
+				height: 42px;
+				width: 800px;
+				margin: 20px auto;
+				border-radius: 10px;
+				background-color: #FFFFFF;
+				position: relative;
+			}
+			.c_nav ul{
+				position: relative;
+			}
+			.cloud{
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 83px;
+				height: 42px;
+				background: url(cloud.gif) no-repeat top center;
+			}
+			.c_nav li{
+				float: left;
+				list-style: none;
+				width: 83px;
+				text-align: center;
+				line-height: 42px;
+			}
+			.c_nav li a{
+				text-decoration: none;
+				font-size: 14px;
+				color: #000000;
+			}
+			.c_nav li a:hover{
+				color: #FFFFFF;
+			}
+			.c_nav .current{
+				color: #008000;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="c_nav">
+			<span class="cloud"></span>
+			<ul>
+				<li ><a href="#" class="current" >哈哈哈哈</a></li>
+				<li><a href="#">哈哈哈哈</a></li>
+				<li><a href="#">哈哈哈哈</a></li>
+				<li><a href="#">哈哈哈哈</a></li>
+				<li><a href="#">哈哈哈哈</a></li>
+				<li><a href="#">哈哈哈哈</a></li>
+				<li><a href="#">哈哈哈哈</a></li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			var ul = document.querySelector('ul');
+			var lis = ul.querySelectorAll('li');
+			var span = document.querySelector('.cloud');
+			var current = 0;//用于存储云移动的位置
+			for(var i=0;i<lis.length;i++){
+				lis[i].addEventListener('mouseenter',function(){
+					animate(span,this.offsetLeft);
+				});
+				// 鼠标离开 span就的位置就复原为0
+				lis[i].addEventListener('mouseleave',function(){
+					animate(span,current);
+					console.log(span.offsetLeft);
+				});
+				// 鼠标点击 将目标位置变为当前点击的li的位置 
+				// 鼠标离开后 发现原位置与目标位置相同 他就不会改变了
+				 lis[i].addEventListener('click',function(){
+					 current = this.offsetLeft;
+				 });
+			}
+		</script>
+	</body>
+</html>

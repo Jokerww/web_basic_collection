@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../vue.js"></script>
+	</head>
+	<body>
+		<!-- 加入value之后 check里边就是选中状态的组件的value值 排列顺序是选中的顺序-->
+		<div id="app">
+			<label for="">
+				<input type="checkbox" value='篮球' v-model="checked">篮球
+				<input type="checkbox" value='足球' v-model="checked">足球
+				<input type="checkbox" value='乒乓球' v-model="checked">乒乓球
+				<input type="checkbox" value='羽毛球' v-model="checked">羽毛球
+			</label>
+			<ol>
+				<li v-for="item of checked">{{item}}</li>
+			</ol>
+			<!-- 值绑定 -->
+			<label v-for="item in fruits">
+				<input type="checkbox"  :value="item" v-model="likes"/>{{item}}
+			</label>
+		</div>
+		<script type="text/javascript">
+			const app = new Vue({
+				el:'#app',
+				data:{
+					checked:[],
+					fruits:['苹果','梨子','香蕉','榴莲'],
+					likes:[]
+
+				}
+			})
+		</script>
+	</body>
+</html>

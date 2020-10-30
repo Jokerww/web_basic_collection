@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.fa{
+				display: flex; /* 子元素会有inline-block相关的特性 */
+				flex-flow: row wrap;
+				justify-content: space-between;
+				/* 设置多行元素在侧轴方向上的排列方式 wrap */
+				/* align-content: flex-end; 侧轴靠下显示 */
+				/* align-content: center; 侧轴方向上居中 */
+				/* align-content: space-around; 各元素平分侧轴剩余的空间 */
+				align-content: space-between;/* 侧轴方向上 两边元素靠边 其他元素平分剩余空间 */
+				height: 400px;
+				width: 400px;
+				background-color: pink;
+			}
+			span{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				margin: 0 5px;
+			}
+			.fa span:nth-child(1){
+				/* height: 200px; */
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 
+		 align-content：子元素沿着侧轴方向的排列方式 与主轴垂直的方向 多行元素起效 即flex-wrap:wrap;
+		 		flex-start：与交叉轴的起点对齐。
+		 		flex-end：与交叉轴的终点对齐。
+		 		center：与交叉轴的中点对齐。
+		 		space-between：与交叉轴两端对齐，轴线之间的间隔平均分布。
+		 		space-around：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。
+		 		stretch（默认值）：轴线占满整个交叉轴。
+		 -->
+		   <div class="fa">
+		 	<span>1</span>
+		 	<span>2</span>
+		 	<span>3</span>
+		 	<span>4</span>
+		 	<span>5</span>
+		 	<span>6</span>	
+			<span>4</span>
+		 	<span>5</span>
+		 	<span>6</span>
+		 </div>
+	</body>
+</html>

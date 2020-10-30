@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="JQuery_min.js"></script>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+				box-sizing: border-box;
+			}
+			li{
+				list-style: none;
+			}
+			a{
+				text-decoration: none;
+				color: #000000;
+			}
+			.wrapper{
+				width: 400px;
+				height: 400px;
+				margin: 100px auto;
+			}
+			#left{
+				float: left;
+				width: 80px;
+				height: 100%;
+			}
+			#left>li{
+				height: 50px;
+				width: 100%;
+				text-align: center;
+				line-height: 50px;
+				border: 1px solid pink;
+			}
+			#left li:nth-of-type(n+2){
+				border-top: none;
+			}
+			#right{
+				float: left;
+				overflow: hidden;
+				width: 320px;
+				height: 100%;
+				border: 1px solid black;
+				border-left: none;
+			}
+			#right div{
+				width: 100%;
+				height: 100%;
+				text-align: center;
+				line-height: 400px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<ul id="left">
+				<li><a href="">1</a></li>
+				<li><a href="">2</a></li>
+				<li><a href="">3</a></li>
+				<li><a href="">4</a></li>
+				<li><a href="">5</a></li>
+				<li><a href="">6</a></li>
+				<li><a href="">7</a></li>
+				<li><a href="">8</a></li>
+			</ul>
+			<ul id="right">
+				<div><a href="#">111</a></div>
+				<div><a href="#">222</a></div>
+				<div><a href="#">333</a></div>
+				<div><a href="#">444</a></div>
+				<div><a href="#">555</a></div>
+				<div><a href="#">666</a></div>
+				<div><a href="#">777</a></div>
+				<div><a href="#">888</a></div>
+			</ul>
+		</div>
+		
+		<!-- 需求：当鼠标放在左侧的li上 右侧的对应数字显示
+			步骤：给左侧的li添加鼠标移动事件 改变其背景颜色
+			     拿到当前li的索引 然后显示对应索引的右侧的div
+		 -->
+		 <!--链式编程：让代码量更少 更优雅
+				$(this).css('color'.'red').sinlings().css('color','blue');
+				我的颜色变红    我的兄弟的颜色变蓝
+				
+			链式编程一定要注意是那个对象执行样式
+		  -->
+		<script type="text/javascript">
+			$(function(){
+				$('#left li').mouseover(function(){
+					/* 排他思想做法
+					$(this).siblings('li') .css('background-color','');
+					$(this).css('background-color','pink'); */
+					// 链式编程做法  节省代码量  我的元素背景变红  并且我的兄弟元素背景没了 要注意链式编程的执行对象
+					$(this).css('background-color','pink').siblings('li') .css('background-color','');
+					//拿到当前li的索引
+					var index = $(this).index();
+					//显示对应索引的div
+					/* $('#right div').eq(index).show();
+					$('#right div').eq(index).siblings('div').hide(); */
+					//链式编程 有相同的所有格对象 我的 我的兄弟的
+					$('#right div').eq(index).show().siblings('div').hide();
+				});
+			});
+		</script>
+	</body>
+</html>

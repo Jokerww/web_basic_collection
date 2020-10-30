@@ -1,0 +1,31 @@
+.header .logo i{
+	position: absolute;
+	top: 16px;
+	left: 185px;
+	width: 80px;
+	height: 36px;
+	background: url(../images/miaosha.png) no-repeat top left;
+}
+/* 导航栏 */
+.nav .navfirst {
+	float: left;
+}
+.navfirst ul li{
+	float: left;
+	margin: 0px 27px;
+	line-height: 43px;
+}
+.navfirst ul li a{
+	font-size: 16px;
+	color: #000000;
+	font-weight: 700;
+}
+.navitems ul li a{
+	font-size: 14px;
+	color: #adadad;
+}
+.goods_body{
+	widows: 100%;
+	height: 200px;
+	background-color: pink;
+}

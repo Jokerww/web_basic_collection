@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>数组Array</title>
+	</head>
+	<body>
+		<!-- 1，数组是一组数据的集合 存放在单个变量下
+			 2，数组的创建方式：
+					利用new创建数组：var array = new Array()
+					利用数组字面量：var array = []
+			 3,数组里边的数组元素间用逗号，隔开
+			 4，声明数组并赋值称为 数组的初始化
+			 5，数组里面可以存放任意类型的数据：数值 字符串 布尔型等
+			 6，数组的索引从0开始 获取数组元素 数组名[索引]
+		-->
+			<script type="text/javascript">
+				var arr1 = [0,1,2,3,4];
+				arr1[0]=2; //替换了第一个元素的值 
+				arr1[5]='嘿嘿'; //在最后追加了一个元素
+				console.log(arr1);
+				console.log(arr1[6]);//没有第七个元素 undefined
+			</script>
+		
+			<!-- 遍历数组：把数组元素从头到尾访问一边就叫做遍历 -->
+			<script type="text/javascript">
+				var arr2 = ["关羽","张飞","马超","赵云","黄忠","刘备","姜维"];
+				// 索引从0开始，所以i一定要小小于数组长度 而不是小于等于 
+				for (var i = 0; i <arr2.length; i++) {
+					console.log(arr2[i]);
+				}
+			</script>
+			
+			<script type="text/javascript">
+				var sum = 0, ave = 0, arr3 =[2,6,1,7,4];
+				for (var i = 0; i<arr3.length;i++) {
+					sum += arr3[i];
+				}
+				ave = sum/arr3.length;
+				console.log(sum,ave);
+			</script>
+			
+			<!-- 求数组最大值 -->
+			<script type="text/javascript">
+				var arr4 = [2,6,1,77,52,25,7];
+				//在数组里边随便给一个值给temp,避免给出的值达不到要求
+				//如果所有的值都小于0 那给temp一个0显然得不到数组的最大值 因此在数组里边选一个值
+				//也不能不赋值 因为第一次无法比较 (会随机选一个值 所以要有初始值)
+				var temp=arr4[0]; 
+				for (var i=0;i<arr4.length;i++) {
+					if (temp < arr4[i]) {
+						temp = arr4[i];
+					} 
+				}
+				console.log(temp);
+			</script>
+			
+			<!-- 拼接字符串 -->
+			<script type="text/javascript">
+				var arr5 = ["red","green","blue","pink"];
+				var str = "";
+				var sep = '*';
+				for (var i=0;i<arr5.length;i++) {
+					str += arr5[i]+sep;//字符串拼接是在原来的基础上加 而不是赋值
+				}
+				console.log(str);
+			</script>
+			
+			<script type="text/javascript">
+				var arr6 = [2,0,6,1,77,0,52,0,25,7];
+				var new_arr = [];
+				// var j=0;
+				for (var i=0;i<arr6.length;i++) {
+					if (arr6[i]>=10) {
+						new_arr[new_arr.length]=arr6[i];
+						/* 下边的方法也行 再加一个变量：
+						new_arr[j]=arr6[i];
+						j++;
+						 */
+					}
+				}
+				console.log(new_arr);
+			</script>
+	</body>
+</html>

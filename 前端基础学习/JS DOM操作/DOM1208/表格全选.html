@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			table{
+				margin: 10px auto;
+				border-collapse: collapse;
+				text-align: center;
+				border-color: lightgray;
+			}
+			td, th{
+				padding: 5px 10px;
+			}
+			thead{
+				background-color: lightblue;
+				color: #fff;
+			}
+			tbody{
+				background-color: #F1F1F1;
+				color: #696969;
+			}
+			.color1{
+				background-color: #fff;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 
+		 全选按钮选中时 下边的小选框全部勾选 分两步：
+		 1，给全选框绑定状态 其他所有小选框的状态都与其保持一致
+		 2，根据小选矿的状态来给定全选框的状态
+			给所有的小选框都绑定点击事件 每次点击都检查所有小选框的状态
+			如果所有的都为true就将全选框的状态也改为true
+			也即是只要有一个为false 就将全选框的变为false
+		 -->
+		 
+		 <table border="1" >
+		 	<thead class="t_hd">
+				<tr>
+					<th>全选<input type="checkbox" id="check_all"></th>
+					<th>商品</th>
+					<th>价钱</th>
+				</tr>
+			</thead>
+			<tbody id="t_bd">
+				<tr>
+					<td><input type="checkbox"></td>
+					<td>iPhone8</td>
+					<td>8000</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox"></td>
+					<td>iPad Pro</td>
+					<td>5000</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox"></td>
+					<td>iPad Air</td>
+					<td>2000</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox"></td>
+					<td>Apple Watch</td>
+					<td>2000</td>
+				</tr>
+			</tbody>
+		 </table>
+		 
+		 <script type="text/javascript">
+		 	var tr_list = document.querySelector('tbody').querySelectorAll('tr');
+			var check_all = document.getElementById('check_all');
+			var check_list = document.getElementById('t_bd').querySelectorAll('input');
+			// 不用给每一个绑定事件 就用循环 表格变色
+			for (var i=0;i<tr_list.length;i++) {
+				tr_list[i].onmousemove = function(){
+					this.className = 'color1';
+				}
+				tr_list[i].onmouseleave = function(){
+					this.className = '';
+				}
+			}
+			// 表格全选 给check_all绑定点击事件 不管他是否选中 其他的选框都与他保持一致
+			check_all.onclick=function(){
+				console.log(this.checked);//选中为true 未选中为false
+				// 给其他的选矿都绑定全选框的状态 跟着全选框的状态一起变
+				for (var i =0;i<check_list.length;i++) {
+					check_list[i].checked = this.checked;
+				}
+			}
+			// 当下面所有的表格都选中时 全选框才会被勾选
+			/* 给下面所有的选框绑定点击事件 每次点击时检查这四个选框有没有被选中
+			 只要有一个没被选中 全选的选定状态就为false 否则就为true */
+			// 给所有的选框绑定事件用for循环
+			for(var i=0;i<check_list.length;i++){
+				check_list[i].onclick = function(){
+					// 给一个状态 给全选框赋值
+					var flag = true;
+					// 每次点击都检查所有按钮的状态
+					// 如果所有的状态都为true就不会运行if的代码 flag的值就不会被改变
+					for (var i=0;i<check_list.length;i++) {
+						// 只要有一个没被选中 全选框就为false 退出循环
+						if (!check_list[i].checked) {
+							flag = false;
+							break;
+						}
+					}
+					// 检查完了之后 将false的值给全选框的状态
+					check_all.checked = flag;
+				}
+			}
+			
+		 </script>
+	</body>
+</html>

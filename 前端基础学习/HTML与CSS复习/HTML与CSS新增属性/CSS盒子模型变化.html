@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>CSS盒子的模型的变化</title>
+		<!-- 盒子模型的问题:
+				再给盒子添加完高度宽度之后 如果再给盒子加border 和 padding 盒子会被撑大
+				进而影响后面元素的布局  否则还要计算 真是让人头大
+			改变：box-sizing属性
+				box-sizing属性有两个值 content-box 和 border-box
+				box-sizing:content-box;时 盒子的实际大小为 width+padding+border 
+									以内容为基准 设置宽度和高度 默认值
+				box-sizing:border-box; 盒子的实际大小为 width
+									以边框为基准 设置宽度和高度
+									当content+padding+border>width时  盒子还是会被撑大
+									一般情况下是不会的
+				-->
+		<style type="text/css">
+			.div1,.div2{
+				width: 200px;
+				height: 200px;
+				background-color: pink;
+				padding: 10px;
+				border: 10px solid red;
+				margin-top: 10px;
+			}
+			.div1{
+				box-sizing: content-box;
+			}
+			.div2{
+				box-sizing: border-box;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="div1">content-box</div>
+		<div class="div2">border-box</div>
+	</body>
+</html>

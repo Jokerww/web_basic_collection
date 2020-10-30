@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			a{
+				text-decoration: none;
+				color: red;
+			}
+			table{
+				margin: 50px auto;
+				border-collapse: collapse;
+				text-align: center;
+			}
+			th{
+				padding: 10px 25px;
+				background-color: #F1F1F1;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 动态创建表格：
+			1，拿到一组数据 分析数据的构成和创建方式
+			2，创建行
+			3，在每个行里边创建单元格
+			4，创建完表格之后就添加删除操作
+		 -->
+		 
+		<table border=" " cellspacing="0" >
+			<thead>
+				<tr>
+				<th>姓名</th>
+				<th>科目</th>
+				<th>成绩</th>
+				<th>操作</th>
+				</tr>
+			</thead>
+			<tbody></tbody>
+			
+		</table>
+		
+		<script type="text/javascript">
+			// 创建一组数据 用数组来保存
+			datas = [
+				{name:'老大',
+				item:'JavaScript',
+				score:100},
+				
+				{name:'老二',
+				item:'JavaScript',
+				score:90},
+				
+				{name:'老三',
+				item:'JavaScript',
+				score:80},
+				
+				{name:'老四',
+				item:'JavaScript',
+				score:70},
+				
+				{name:'老五',
+				item:'JavaScript',
+				score:60},
+			]
+			// 获取元素
+			var tbody = document.querySelector('tbody');
+			// 在tbody里面添加行 就要先创建行 有几个对象就要创建几行 for来创建
+			for (var i=0;i<datas.length;i++) {
+				// 创建某一行 并且添加行
+				var tr = document.createElement('tr');
+				tbody.appendChild(tr); //追加节点对象
+				// 创建了行 在每一行里边创建含有数据的表格td 存放date对象的数据
+				// 创建几个表格就取决于 每个数组元素里边有几个属性
+				for (var k in datas[i]) {
+					var td = document.createElement('td');
+					// 给单元格添加内容 k取得了每个对象datas[i]的属性
+					td.innerHTML = datas[i][k];
+					tr.appendChild(td);
+				}
+				// 创建了前三个表格 现在来创建第四个表格 这些都是在一行里边操作
+				var td_last = document.createElement('td');
+				// 给他添加删除标签 删除是在a标签里面的 innerHTML可以识别HTML标签
+				td_last.innerHTML = '<a href="#">删除</a>';
+				tr.appendChild(td_last);
+			}
+			// 创建完了所有的表格 就开始注册点击事件 点击a标签 就删除a所在的行
+			// 获取所有的a 给他们都添加点击事件
+			var a_list = document.getElementsByTagName('a');
+			for (var i = 0;i<a_list.length;i++) {
+				a_list[i].onclick=function(){
+					// 删除tbody元素下的当前节点(a)的父元素(td)的父元素(tr)
+					tbody.removeChild(this.parentNode.parentNode);
+				}
+			}
+		</script>
+	</body>
+</html>

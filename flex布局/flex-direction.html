@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.fa{
+				display: flex; /* 子元素会有inline-block相关的特性 */
+				/* flex-direction: row; /* 默认方向 从左向右排列 flex-shrink默认为1 一行放不下会收缩子元素宽度*/
+				/* flex-direction: row-reverse; 从右向左开始排列 1在最右边 */
+				/* flex-direction: column; 从上向下排列 */
+				flex-direction: column-reverse; /* 从下往上排列 1在下边 */
+				height: 400px;
+				width: 400px;
+				background-color: pink;
+			}
+			span{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				margin: 0 5px;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<!-- 
+		 flex-direction：设置主轴的方向 即元素按照哪个方向排列 默认为x轴水平方向
+		 		row水平方向 从左至右
+		 		row-reverse 水平方向的反方向 从右至左
+		 		column 垂直方向 从上往下
+		 		column-reverse 垂直方向 从下往上
+		 -->
+		 
+		<div class="fa">
+			<span>1</span>
+			<span>2</span>
+			<span>3</span>
+			<span>4</span>
+			<span>5</span>
+		</div>
+	</body>
+</html>

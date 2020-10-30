@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="vue.js"></script>
+
+	</head>
+	<body>
+		<!-- JS中的数组处理的高级函数 filter/map/reduce -->
+		<script type="text/javascript">
+			const num = [10,20,3,6,88,34,9,16,20];
+			// 从num中筛选出20一下的数字 传统的方法
+			/* let num1 = [];
+			for (let n of num) {
+				if (n<20) {
+					num1.push(n);
+				};
+			};
+			console.log(num1); */
+			// 用filter函数直接完成 filter()里的参数是一个回调函数 
+			// 回调函数function()的参数是数组里边的一个个元素 return后面跟筛选的条件 满足条件就会被返回 否则就略过
+			/* const num1 = num.filter(function(n){
+				return n < 20;
+			}) */
+			// 匿名函数简写成 箭头函数
+			const num1 = num.filter(n => n<20)
+			console.log(num1);
+			
+			// 让数组里每个数组都乘以2  传统的方法依旧用for of 遍历
+			// 可用map()函数简单实现 map()里边的参数是个回调函数 
+			// 回调函数function()的参数是数组里边的一个个元素 return后面跟具体的操作
+			/* const num2 = num.map(function(n){
+				return n*2;
+			}) */
+			const num2 = num.map(n => n*2);
+			console.log(num2);
+			
+			//对数组里的数字进行归纳汇总(如求和) 传统的方法还是遍历 
+			// 可用reduce()函数简单实现
+			// 可用reduce()函数简单实现 reduce()里有两个参数，第一个是个回调函数,第二个是回调函数里提前参数的初始值
+			// 回调函数function()里要两个参数 第一个参数是提前参数 用于存放提前传入和计算后的值 第二个参数是数组里的元素
+			// 开始计算时 reduce()的第二个参数会传给回调函数里的pre参数 而后计算所得的值 也都会存入pre参数
+			/* const sum = num.reduce(function(pre,n){
+				return pre += n;
+			},0); */
+			const sum = num.reduce((pre,n) => pre += n,0);
+			console.log(sum);
+		</script>
+	</body>
+</html>

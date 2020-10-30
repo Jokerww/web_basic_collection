@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.current{
+				color: red;
+			}
+		</style>
+		<script src="vue.js"></script>
+		
+	</head>
+	<body>
+		<!-- 当点击某一个标签时 就为该标签绑定类 所以肯定有判断条件 而不是直接给绑定true或者false -->
+		<div id="app">
+			<ul>
+				<li v-for="(item,index) in books" :class="{current:isCurrent==index}" @click="targetItem(index)">{{item}}</li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			const app = new Vue({
+				el:'#app',
+				data:{
+					books:['《星际穿越》','《星际导航》','《蓝色大海》','《哈哈哈哈》'],
+					isCurrent:0// 把这个当作一个flag 用于指示是否绑定当前类
+				},
+				methods:{
+					targetItem(index){
+						this.isCurrent = index;
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

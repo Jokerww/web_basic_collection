@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 事件委托：事件代理 JQuery里称为事件委派
+			原理：不是每个子节点单独设置事件监听器 而是将事件监听器设置在父节点身上
+					然后利用冒泡原理影响设置每个子节点
+			优势：只操作了一次DOM  提高了程序的性能
+		 -->
+		 
+		 <ul>
+		 	<li>1</li>
+		 	<li>2</li>
+		 	<li>3</li>
+		 	<li>4</li>
+		 </ul>
+		 <script type="text/javascript">
+		 	var ul = document.querySelector('ul');
+			ul.addEventListener('click',function(e){
+				// 通过时间对象来改变当前触发该事件元素的属性
+				for (var i=0;i<ul.children.length;i++) { //排他
+					ul.children[i].style.backgroundColor = 'transparent';
+				}
+				console.log(e.target);
+				e.target.style.backgroundColor = 'pink';
+			})
+		 </script>
+	</body>
+</html>

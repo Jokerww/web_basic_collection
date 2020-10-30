@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../vue.js"></script>
+	</head>
+	<body>
+		<!-- radio用于单选框的选定 
+			具有相同的name属性的input绑定到一起 当用v-model绑定统一数据时 可以省略name属性
+			label标签 可以点击文字实现表单的选中 for属性绑定对应控件的name 或id名
+		 --> 
+		 <div id="app">
+			 <label for="male"> 
+				<input type="radio" id="male" v-model="gender" value="男">男
+			 </label>
+			 <label for="female"> 
+				<input type="radio" id="female" v-model="gender" value="女">女
+			 </label>
+			 <h3>{{gender}}</h3>
+		 </div>
+		 
+		 <script type="text/javascript">
+		 	const app = new Vue({
+				el:'#app',
+				data:{
+					gender:'男',//给一个默认值 双向绑定后相应的控件也会默认选中
+				}
+			})
+		 </script>
+	</body>
+</html>

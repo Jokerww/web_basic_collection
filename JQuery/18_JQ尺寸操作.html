@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript" src="JQuery_min.js"></script>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			body{
+				height: 2000px;
+			}
+			#div1{
+				width: 100px;
+				height: 100px;
+				padding: 10px;
+				border: 10px solid red;
+				margin: 10px;
+				background-color: pink;
+			}
+			
+			.father{
+				position: relative;
+				width: 200px;
+				height: 200px;
+				background-color: pink;
+				margin: 10px;
+			}
+			
+			.son{
+				position: absolute;
+				top: 10px;
+				left: 10px;
+				width: 100px;
+				height: 100px;
+				background-color: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 尺寸操作：
+			1，获取尺寸方法：
+				width()/height():  设置/获取元素的width/heigh大小 盒模型的最内部一圈的大小
+				innerWidth()/innerHeight():  设置/获取元素width/heigt+padding的尺寸
+				outerWidth()/outerHeight():  设置/获取元素width/heigt+padding+border的尺寸
+				outerWidth(true)/outerHeight(true):  设置/获取元素width/heigt+padding+border+margin的尺寸
+				
+			2,位置方法：
+				offset() 获取/设置元素距离文档的位置（偏移）跟父级没有关系 JS BOM中的offset
+							输出一个包含了top、left值的对象
+							修改：$('div').offset({
+								top:200, //更改距离顶部的值和距离左侧的值都是200
+								left:200
+								})
+				position() 获取元素距离带有定位的父级元素的位置（偏移）
+							如果父级元素都没有定位 则是距离文档的距离
+							这个方法只能获取尺寸 不能设置
+				scrollTop()/scrollLeft():获取/设置元素被卷去的头部/左边的距离
+							滚动一般为页面滚动  window.scrollTop()
+		 -->
+		 
+		 <div id="div1"></div>
+		 <div class="father">
+		 	<div class="son"></div>
+		 </div>
+		 
+		 <script type="text/javascript">
+		 	$(function(){
+				console.log($('#div1').width()); // 只获取了最内部一层的width的大小100
+				$('#div1').width(200);//更改了宽度
+				console.log($('#div1').innerHeight()); // 只获取了最内部一层的width+padding的大小120
+				console.log($('#div1').outerHeight()); // 获取了width+padding+border的大小140
+				console.log($('#div1').outerHeight(true)); // 获取了width+padding+border+margin的大小160
+				
+				// 位置
+				console.log($('.son').offset()); //输出一个对象 包含了top left值 距离文档顶部和左侧的距离 与父级元素无关
+				$('.son').offset({
+					top:150,
+					left:150
+				});
+				console.log($('.son').position()); //距离带有定位的父级元素的距离 如果父级元素都没有定位 则是距离文档的距离
+				
+				
+				// scroll 卷去头部=100是输出
+				$(window).scroll(function(){  //JQ对象才能使用JQ方法 window是DOM对象 $(window)才是JQ对象
+					console.log($(this).scrollTop());
+				})
+			})
+		 </script>
+	</body>
+</html>

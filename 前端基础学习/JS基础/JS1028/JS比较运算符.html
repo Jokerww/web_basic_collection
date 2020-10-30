@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>JS比较运算符</title>
+	</head>
+	<body>
+		
+		<!-- 两个数据进行比较时用的运算符  比较运算后 
+		会返回布尔值（true or false）作为运算结果 -->
+		<script type="text/javascript">
+			console.log(3 <= 2);
+			console.log(3 >= 1);
+			
+		// 是否等于用'==' 会转换数据类型(隐式转换) 不同的数据类型也可用于比较  
+		console.log(3 == 3); //true
+		console.log(3 == "3"); // true 转型后的再比较 数值与字符串的比较
+		console.log(0 == ''); //true
+		// 严格的等于用'===' 会同时要求数值和数据类型都一致才是true
+		console.log(3 === '3'); //结果为false
+		//不等于用'！='  也会转型(隐式转换)把数值和字符串进行比较 只在乎数值
+		console.log(3 != '3'); //false 
+		// 严格不等于用'!==' 要求比较值和数据类型 其中一个不一样就是不等于
+		console.log(3 !== '3'); //true
+		</script>
+	</body>
+</html>

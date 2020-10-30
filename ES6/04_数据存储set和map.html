@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/* Set() 构造函数用于创建一个存储数据的实例  存储的数据不会重复
+				const numberSet = new Set();
+					增加数据add：numberSet.add(3) 增加数字3
+					删除数据delete：numberSet.delete(3)；
+									若数字集合里面有该数据便会删除成功 然后返回true 
+									若没有该数据 就是返回false
+					判断数集里边有无某个数字has:numberSet.has(3);有数字3则返回true 没有则返回false
+					获得数集的长度size:numberSet.size() 输出数集的长度 即里边有几个数字
+					遍历数集： numberSet.forEach(number => console.log(number);)
+					
+			Map() 构造函数用于存储对象
+				const map = new Map();
+					增加数据：map.set(key,value); key是简单数据类型（数字、字符串），value可是所有数据类型
+					修改数据：map.set(key1,value2);直接重新设置key1的值就行
+					删除数据：map.delete(key);有且删除成功返回true 没有该值则返回false
+					map长度 size : map.size()
+					清空map:map.clear()
+					遍历：for...of... 
+						遍历对象一般用for in  可以直接得到对象的key
+						其余遍历用for of  直接得到元素内容
+			 */
+			
+			const numberSet = new Set();
+			numberSet.add(3);
+			console.log(numberSet);//其他操作直接在网页控制板进行
+			
+			const map = new Map();
+			map.set('name','小明');
+			console.log(map);
+		</script>
+	</body>
+</html>

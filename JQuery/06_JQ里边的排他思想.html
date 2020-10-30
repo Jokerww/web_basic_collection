@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript" src="JQuery_min.js"></script>
+
+	</head>
+	<body>
+		<!-- 
+			原生JS的排他思想需要利用循环 先让所有的元素都清除效果 再给当前的元素设置效果
+			而JQ里边拥有隐式迭代 不用再进行循环 可以直接设置当前元素和其他兄弟元素的效果
+		 -->
+		<button>按钮</button>
+		<button>按钮</button>
+		<button>按钮</button>
+		<button>按钮</button>
+		<button>按钮</button>
+		<button>按钮</button>
+		
+		<script type="text/javascript">
+			$(function(){
+				//点击按钮 当前按钮变成红色 其他按钮没有颜色
+				$('button').click(function(){
+					//先让当前点击的按钮改变背景颜色
+					$(this).css('background-color','red');
+					//再清除其他按钮的颜色 隐式迭代就不用循环了
+					$(this).siblings('button').css('background-color','');
+				});
+			});
+		</script>
+	</body>
+</html>

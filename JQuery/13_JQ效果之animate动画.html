@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript" src="JQuery_min.js"></script>
+		<style type="text/css">
+			div{
+				position: absolute;
+				width: 200px;
+				height: 200px;
+				background-color: pink;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 
+			animate() 方法用于创建自定义动画，只能创建元素的动画 不能是document文档的动画 可用body html元素
+			$(selector).animate({params},speed,callback);
+			必需的 params 参数定义形成动画的 CSS 属性。 想要改变的属性和值以键值对的形式写在{}中 多个属性用逗号隔开
+			可选的 speed 参数规定效果的时长。它可以取以下值："slow"、"fast" 或毫秒。
+			可选的 callback 参数是动画完成后所执行的函数名称。
+			
+			默认地，所有 HTML 元素都有一个静态位置，且无法移动。
+			如需对位置进行操作，要记得首先把元素的 CSS position 属性设置为 relative、fixed 或 absolute！
+			当使用 animate() 时，必须使用驼峰命名法书写所有的属性名，
+			比如，必须使用 paddingLeft 而不是 padding-left，使用 marginRight 而不是 margin-right，等等。
+			
+			在当前的值上进行更改 而不是直接改变当前值  前面要加上+= -=便是增加或减少
+			也可以定义相对值（该值相对于元素的当前值）。需要在值的前面加上 += 或 -=：
+			$("button").click(function(){
+				$("div").animate({
+					left:'250px',
+					height:'+=150px',
+					width:'+=150px'
+				});
+			});
+		 -->
+		 <button type="button">动画</button>
+		<div></div>
+		
+		<script type="text/javascript">
+			$(function(){
+				//按下按钮 改变div的位置 透明对和大小
+				//注意 改变位置使用left top时 元素必须加定位 这些属性值是与定位一起搭配使用的
+				$('button').click(function(){
+					$('div').animate({
+						top:300,
+						left:500,
+						width:400,
+						opacity:.5
+					},1000)
+				})
+			})
+		</script>
+	</body>
+</html>

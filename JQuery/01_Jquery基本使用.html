@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>JQuery的基本概念</title>
+		
+		 <!-- 导入JQuery库 -->
+		<script type="text/javascript" src="JQuery_min.js"></script>
+		
+		<!-- 样式设置 -->
+		<style type="text/css">
+			div{
+				width: 200px;
+				height: 200px;
+				background-color: pink;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- JQuery其实是一个封装了许多JS函数和方法的库 解决了兼容性的问题
+		     内部的函数和方法都是通过原生的JS实现的
+			学习JQuery主要是学习里边函数的使用方法
+		 -->
+		 <!-- JQuery的顶级对象$:
+		       1, $使JQuery得别称 另外得名字 二者实现的功能是一样的
+			   2，$是JQuery的顶级对象 相当于原生JS中的window 。把元素利用$包装成JQuery对象 就可以调用JQ方法
+		  -->
+		<div></div>
+		
+		<script type="text/javascript">
+			// JQuery的使用和原生JS类似  必须的等到标签创建完成后 才能正常的获取到标签 所以JS代码就只能放在标签后面
+			// JQuery的入口函数可以使JS代码的位置不受限制 等待页面的HTML CSS等加载完了 再运行JS代码
+			/* 入口函数有两种：
+				1 $(document).ready(function(){JS代码})
+				2 $(function(){JS代码})
+			 */
+			
+			/* $(document).ready(function(){ //入口函数
+				$('div').hide();  //隐藏粉色的div
+			}) */
+			$(function(){  //更简单
+				$('div').hide();
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 箭头函数特点：
+				能使函数的写法更简洁
+				能隐式返回函数的返回值
+				不成重新绑定this的值
+				
+			注意：只有匿名函数'function(){}'才能改写成箭头函数  命名函数'function Fuc(){}'不能改写	
+			写法：function(){} 变成  () => {}   
+					去掉function 在圆括号和中括号中间加一个胖箭头 =>
+					如果()里边有且仅有一个参数 圆括号可以省略
+					如果{}只有一行/只有一个结尾的分号;  {}也可以省略
+					如果{}只有一行 且这一行为return  {}和return关键字 都可以省略
+					
+			不绑定this值：普通的函数会绑定this的值  函数里边的this指向函数的调用者 
+						如果是函数嵌套函数 每一层函数里的this值都会被重新绑定  也即是每一层函数里面的this指向的值都不相同 不能盲目使用
+						箭头函数不会绑定this的值 箭头函数之外this指向什么 箭头函数之内this还是指向什么 不会改变
+		 -->
+		 <script type="text/javascript">
+		 	//练习1
+// 			const doubleNum = function(num){
+// 				return num*2;
+// 			};
+			const doubleNum = num => num*2; //有且仅有一个参数 一行为return  (){}return都省了
+			console.log(doubleNum(3)); //6
+			
+			//练习2
+// 			const add = function(a,b){
+// 				console.log(a+b);
+// 			};
+			const add = (a,b) => console.log(a+b);//()不能省  只有一行{}可省
+			add(2,3);
+			
+			// 练习3
+// 			const com = function(a){
+// 				const b = a**2;
+// 				return a+b;
+// 			};
+			const com = a => {  //只有一个参数()可省  函数体有很多行 {}不能省
+				const b = a**2;
+				return a+b;
+			};
+			console.log(com(3));
+		 </script>
+	</body>
+</html>

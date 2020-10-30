@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>表单列表组件</title>
+	</head>
+	<body>
+		
+		<form action="" method="">
+			<!--select组件：
+					name:列表名
+					size：列表的行数，1时为常见的下拉列表 4时为选择列表 1-4时为滚动条列表
+					multipl：可多选 利用cotrl或shift辅助多选-->
+			选择你喜欢的运动：<br/>
+			<select multiple="multiple">
+				<option value ="">跑步</option>
+				<option value ="">游泳</option>
+				<option value ="">篮球</option>
+				<option value ="">汽车</option>
+			</select>
+			<br/>
+			<!--datalist：
+					由datalist标签与Option标签组成，必须与input的list属性一起使用
+					datalist的属性类似于自造词列表，让用户输入第一个字，就可以从列表中
+					找到符合的词语
+					datalist必须先使用id属性并指定
+					input的list属性值只要与datalist的id属性值相同，
+					就可获得datalist组件中的列表
+					-->
+			<input list="browsers"/> <!--必须指定list属性-->
+			<datalist id="browsers"><!--必须指定ID名称-->
+				<option value ="firefox">火狐</option>
+				<option value ="google"></option>
+				<option value ="baidu"></option>
+				<option value ="sougou"></option>
+			</datalist>
+		</form>
+	</body>
+</html>

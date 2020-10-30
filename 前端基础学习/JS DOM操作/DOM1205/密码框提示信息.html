@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.origin{
+				display: none;
+			}
+			.message{
+				display: inline-block;
+				padding-left: 20px;
+				background: url(images/mess.png) no-repeat center left;
+				color: #00A4FF;
+			}
+			.error{
+				background-image: url(images/wrong.png);
+				color: red;
+			}
+			.success{
+				background-image: url(images/right.png);
+				color: #008000;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="register">
+			<input type="text" class="ipt">
+			<p class="origin">请输入6-16位密码！</p>
+		</div>
+		<script type="text/javascript">
+			var ipt = document.querySelector('.ipt');
+			var message = document.querySelector('.origin');
+			// 获得光标时显示提示文字
+			ipt.onfocus=function(){
+				message.innerHTML = '请输入6-16位密码！'
+				message.className='message';
+			}
+			// 失去光标时 判断输入的长短 来选择提示信息
+			ipt.onblur=function () {
+				if (this.value.length<6 || this.value.length>16) {
+					message.innerHTML = '位数输入错误！'
+					message.className = "message error"
+				} else{
+					message.innerHTML = '位数输入正确~'
+					message.className = "message success"
+				}
+			}
+		</script>
+	</body>
+</html>

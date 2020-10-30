@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>购物车</title>
+		<style>
+			table{
+				border: 1px solid #e9e9e9;
+				border-collapse: collapse;
+				border-spacing: 0;
+			}
+			th,td{
+				padding: 8px 16px;
+				border: 1px solid #E9E9E9;
+				text-align: center;
+			}
+			th{
+				background-color: #f7f7f7;
+				color: #5c6b77;
+				font-weight: 600;
+			}
+		</style>
+		<script src="vue.js"></script>
+	</head>
+	<body>
+		<div id="shopping" >
+			<div v-if="books.length">
+				<table>
+					<thead>
+						<tr>
+							<th></th>
+							<th>书籍名称</th>
+							<th>出版日期</th>
+							<th>价格</th>
+							<th>购买数量</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr v-for="(item,index) in books">
+							<td>{{item.id}}</td>
+							<td>{{item.name}}</td>
+							<td>{{item.date}}</td>
+							<!-- 下面用过滤器对价格的样式进行处理 保留小数 前面加符号 也可用计算属性 但要自己传参数 -->
+							<td>{{item.price | showPrice}}</td>
+							<td>
+								<!-- 数量小于1的时候按钮禁用  用methods需要传递index参数  -->
+								<button  @click="item.count--" :disabled="item.count<= 1" >-</button>
+								{{item.count}}
+								<!-- 直接操作  @click='item.count++' 用函数的话就需要传递参数 不然所有的count都会增加 -->
+								<button @click="add(index)" >+</button>
+							</td>
+							<td>
+								<button @click="removeItem(index)">移除</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<h2>总价格：{{totalPrice | showPrice}}</h2>
+			</div>
+			<h2 v-else>购物车为空！</h2>
+		</div>
+		<script type="text/javascript">
+			const app = new Vue({
+				el:'#shopping',
+				data:{
+					books:[
+						{id:1,
+						name:'《算法导论1》',
+						date:'2006-9',
+						price:85.00,
+						count:1
+						},
+						{id:2,
+						name:'《算法导论2》',
+						date:'2006-9',
+						price:85.00,
+						count:1
+						},
+						{id:3,
+						name:'《算法导论3》',
+						date:'2006-9',
+						price:85.00,
+						count:1
+						},
+						{id:4,
+						name:'《算法导论4》',
+						date:'2006-9',
+						price:85.00,
+						count:1
+						},
+						{id:5,
+						name:'《算法导论5》',
+						date:'2006-9',
+						price:85.00,
+						count:1
+						},
+						{id:6,
+						name:'《算法导论6》',
+						date:'2006-9',
+						price:85.00,
+						count:1
+						},
+						]
+				},
+				methods:{
+					add(index){
+						this.books[index].count++;
+					},
+					removeItem(index){
+						this.books.splice(index,1);
+					}
+				},
+				computed:{
+					totalPrice(){
+						/* totalPrice = 0;
+						for (let value of this.books){
+							totalPrice += value.price * value.count;
+						};
+						return totalPrice;*/
+						return this.books.reduce((pre,value)=> pre += value.price * value.count ,0)
+					}
+				},
+				filters:{
+					// 过滤器用于对数字进行过滤 对其进行处理 里边是函数
+					// A | filteraA(A)  会自动将A传入过滤器函数 对其进行过滤操作
+					showPrice(price){//price是传进去的参数 
+						return '￥'+ price.toFixed(2);
+					}
+					
+				}
+			})
+		</script>
+	</body>
+</html>

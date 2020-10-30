@@ -1,0 +1,76 @@
+/* 页面初始化 */
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+li{
+	list-style: none;
+}
+.focus .current{
+	list-style: disc;
+}
+.focus{
+	position: relative;
+	/* 大小设置的和图片一样大呀 */
+	width: 721px;
+	height: 455px;
+	margin: 100px auto;
+	overflow: hidden;
+}
+/* 小箭头也定位 */
+.focus>a{
+	text-decoration: none;
+	width: 40px;
+	height: 40px;
+	background:rgba(6,6,6,.5);
+	text-align: center;
+	line-height: 40px;
+	color: #fff;
+	
+}
+.arrow_l{
+	display: none;
+	position: absolute;
+	top: 50%;
+	z-index: 99;
+	margin-top: -25px;
+	left: 0;
+	border-radius: 0 20px 20px 0;
+}
+.focus .arrow_r{
+	display: none;
+	position: absolute;
+	top: 50%;
+	z-index: 99;
+	margin-top: -25px;
+	right: 0;
+	border-radius: 20px 0 0 20px;
+}
+/* 图片的滚动肯定要图片在一行上 而展示框focus不能动 那就让ul变得足够宽
+ 能把图片放一起 focus 溢出隐藏就行了*/
+.focus ul{
+	position: relative;
+	width: 600%;
+}
+
+.focus ul li{
+	float: left;
+}
+/* 小圆点在图片上 就让他绝对定位吧 */
+.focus ul li img{
+	width: 721px;
+	height: 455px;
+}
+.focus ol{
+	position: absolute;
+	bottom: 0px;
+	left: 130px;
+}
+.focus ol li{
+	float: left;
+	list-style: circle;
+	margin-right: 20px;
+	font-size: 30px;
+	color: white;
+}

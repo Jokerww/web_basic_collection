@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript" src="JQuery_min.js"></script>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				background-color: pink;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- JQ的自动触发事件 有时候需要元素自动触发事件 而不需要人为操作
+			1.元素.事件()
+			2,元素.trigger('事件')
+			3,元素.triggerHandler('事件')
+				该方法与上面两种方法的不同之处是他不会触发元素的默认行为 如表单元素获得焦点时 默认会有光标闪烁
+				但是该方法自动触发focus事件时 表单不会闪烁光标
+		 -->
+		 <input type="text" >
+		 <div></div>
+		<script type="text/javascript">
+			//先给div绑定事件 刷新页面 让它自动触发
+			$('div').on('click',function(){
+				alert(11);
+			});
+			$('input').on('focus',function(){
+				$(this).val('haha')
+			});
+			//自动触发
+			$('div').click();
+			// $('input').trigger('focus'); //有光标闪烁
+			$('input').triggerHandler('focus');//没有光标闪烁 
+		</script>
+	</body>
+</html>

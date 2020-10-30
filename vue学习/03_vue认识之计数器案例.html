@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="vue.js"></script>
+
+	</head>
+	<body>
+		<div id="app">
+			<h2>当前计数：{{counter}}</h2>
+			<!-- 
+			<button type="button" @click="counter++">+</button>
+			<button type="button" @click="counter--">-</button> -->
+			<button type="button" @click="add()">+</button>
+			<button type="button" @click="sub()">-</button>
+		</div>
+		
+		<script type="text/javascript">
+			const app = new Vue({
+				el:'#app',
+				data:{
+					counter:0
+				},
+				methods:{
+					add:function(){
+						this.counter++;
+						console.log('加1了');
+					},
+					sub:function(){
+						this.counter--;
+						console.log('减1了');
+
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

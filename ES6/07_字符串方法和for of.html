@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 字符串方法
+				是否包含某字符串inclueds : str1.includes(str2)
+				是否以某字符串开头:  str1.startsWith(str2,index)  
+									从str1的index个字符开始是否以str2开头
+				是否以某字符串结尾:  str1.startsWith(str2,num)  
+									str1的前num个字符开始是否以str2开头
+									
+			for of 的使用
+		 -->
+		 
+		 <script type="text/javascript">
+			 // 字符串方法
+			const str1 = 'asgebbdhdkuiyvlli9';
+			console.log(str1.includes('sg'));
+			console.log(str1.startsWith('asg'));
+			console.log(str1.startsWith('bb',4)); //索引4开始的字符串是否以'bb'开头 true 
+			console.log(str1.endsWith('li9'));
+			console.log(str1.endsWith('iyv',14));//前14位是否以'iyv'结尾
+		 	const map = new Map();
+			map.set('name','小明');
+			map.set('age',18);
+			map.set('height',180);
+			console.log(map);
+			// 遍历map
+			/* for (const ele of map){  
+				console.log(ele); //输出三个数组 每个数组里边依次放着key value
+			} */
+			for (const [key,value] of map){ //结构赋值给key value 
+				console.log(key,value);
+			};
+			
+			// 数组的遍历
+			const team = ['李楠','易建联','郭艾伦','翟晓川','赵继伟','周琦'];
+		/* 	for (const name of team){ //数组使用for of 可直接遍历得到元素 而不用length了
+				console.log(name);
+			}; */
+			// 得到数组中元素的索引
+			for (const [index,name] of team.entries()){ 
+					console.log(index,name);
+				};
+			
+			// 对象的遍历 依旧用for in
+			const person = {
+				'name':'小明',
+				'age':18,
+				'height':180
+			}
+			for(const k in person){
+				console.log(k);//得到键名
+				console.log(person[k]);//得到键值
+			};
+			
+			
+		 </script>
+	</body>
+</html>

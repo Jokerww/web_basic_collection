@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>JS初体验</title>
+		<!-- 2，内部script  内容加载前运行 按顺序吧-->
+		<script type="text/javascript">
+			alert('Hello')
+		</script>
+		<!-- 3，外部JS  通过script 标签引入 标签之间禁止写任何代码-->
+		<script src="alert.js" type="text/javascript" charset="utf-8"></script>
+		
+	</head>
+	<body>
+		
+		<!-- JS代码中 单行注释ctrl+/ ‘//’ 
+						 多行注释shift+alt+A  ‘/*  */’  不同的编辑器不一样 -->
+		<!-- 1，内嵌JS  注意引号 -->
+		<input type="button" value="按钮" onclick="alert('哈哈哈')" />
+	</body>
+</html>

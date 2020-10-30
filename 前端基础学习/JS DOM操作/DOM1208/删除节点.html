@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 删除节点：
+				node.removeChild(child);删除node的子元素节点
+		 -->
+		 <button type="button">删除</button>
+		 <ul>
+		 	<li>熊大</li>
+		 	<li>熊二</li>
+		 	<li>光头强</li>
+		 </ul>
+		 <!-- 点击删除按钮就删除下边的最后一个元素 -->
+		 <script type="text/javascript">
+		 	var btn = document.querySelector('button');
+			var ul =document.querySelector('ul');
+			btn.onclick = function(){
+				if (ul.children.length !== 0) {
+					ul.removeChild(ul.children[ul.children.length-1])
+				}else{
+					alert('没有可删除元素哦！')
+				}
+			}
+		 </script>
+	</body>
+</html>

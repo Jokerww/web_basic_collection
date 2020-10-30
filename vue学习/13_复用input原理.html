@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="vue.js"></script>
+
+	</head>
+	<body>
+		<!-- 点击切换输入方式之后 之前输入在输入框里的东西还在:
+			因为vue的底层在渲染的时候会经过虚拟DOM的计算 复用结构相同的部分 因此切换显示之后的输入框依旧是之前的输入框
+			所以输入框里的数字还在  解决办法是为输入框绑定一个识别其身份的属性 key  当再次渲染时 key不同的元素就不会复用
+		 -->
+		<div id="app">
+			<div v-if="isShow">
+				手机号登陆:
+				<input type="text" :key= '1' /> 
+			</div>
+			<div v-else>
+				邮箱登陆:
+				<input type="text" :key='2' />
+			</div>
+			<input type="button" value="切换" @click="click1()">
+		</div>
+		
+		<script type="text/javascript">
+			const app = new Vue({
+				el:'#app',
+				data:{
+					isShow:true
+				},
+				methods:{
+					click1 : function(){
+						this.isShow = ! this.isShow;
+						console.log(this.isShow);
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

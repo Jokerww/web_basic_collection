@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="vue.js"></script>
+
+	</head>
+	<body>
+		<!-- v-on 事件监听 用于给元素绑定事件 v-on:click = ''
+				语法糖简写形式  @click = ''
+				
+			v-on的参数问题：
+				1，当事件监听方法不需要传递参数时 在元素里边调用时 可省略括号
+					注意 仅限事件监听函数 且不需要传递参数  @click = 'sayHi'
+				2,当事件监听函数需要传递一个参数 但是元素调用时没有传参时
+					函数内部会自动将 event函数对象 赋值给该参数 
+				3,当事件监听函数同时需要传递参数和event对象时 event的传入用 $event 来表示
+					@click = 'sayHi(123,$event)'  第二个参数为事件监听对象
+			
+			v-on的修饰符：修饰符是对监听函数的行为进行限制 @click.修饰符 = ''
+				1，阻止事件冒泡  @click.stop = ''; 相当于 stopProragation()
+				2，阻止元素的默认行为 @click.prevent = '';
+				3，对于键盘事件 限定某一个案件按下时才会触发 @keyUp.enter(或其ASCII码) = ''
+				4，只触发一次回调 .once
+				5，监听组件根元素的原生事件 .native
+		 -->
+		 
+		 	<div id="app">
+				<button @click="click1">按钮1</button> <!-- 省略括号 依旧可以调用 -->
+				<button @click="click2">按钮2</button> <!-- 需要传一个参数却没有传 会将event对象赋值给该参数 -->
+				<button @click="click3(123,$event)">按钮3</button>  <!-- 需要同时传入参数和event对象 -->
+			</div>
+			<br/>
+			<div id="app1" @click="click4">
+				qqqqq
+				<button type="button" @click.stop="click4">按一下</button> <!-- 添加了修饰符就不会冒泡到父元素的click上 -->
+				
+			</div>
+			
+		 <script type="text/javascript">
+			const app = new Vue({
+				el:'#app',
+				methods:{
+					click1(){console.log('你好啊');},
+					click2(abcc){console.log(abcc);},
+					click3(abcc,e){console.log(abcc,e);}
+				}
+			});
+			const app1 = new Vue({
+				el:'#app1',
+				methods:{
+					click4(){console.log('点了一下');}
+				}
+			})
+		 </script>
+	</body>
+</html>

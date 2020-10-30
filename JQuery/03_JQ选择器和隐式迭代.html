@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript" src="JQuery_min.js"></script>
+		
+	</head>
+	<body>
+		<!-- JQ选择器就是选择元素的方式：$('css选择器')
+				JQ选择器是利用css选择其来选择元素的 非常方便 常用的如下：
+					ID选择器  $('#div');
+					类选择器  $('.div');
+					标签选择器  $('div');
+					子元素选择器  $('ul>li');
+					后代元素选择器  $('ul li');
+					并集（多元素）选择器  $   ('ul,p,div');
+					交集选择器  $('li.current');  //选择类名为current的li元素
+				筛选选择器：
+					:first  选取第一个元素  $('li:first')  获取第一个li元素
+					:last  选取最后一个元素  $('li:last')  获取最后一个li元素
+					:eq(index)  选取索引号为index的元素  $('li:eq(2)')  获取索引号为2的li元素 索引号从0开始
+					:odd  选取索引号为奇数的元素  $('li:odd')  获取索引号为奇数的li元素
+					:even  选取索引号为偶数的元素  $('li:odd')  获取索引号为偶数的li元素
+					
+					  
+		 -->
+		 <!-- JQ的隐式迭代：
+				JQ对象其实是一个伪数组 里边存储的是相应的DOM对象 可能有多个对象 也可能只有一个
+				遍历JQ对象内部所有的DOM对象元素的过程就叫 隐式迭代
+				即：给匹配到的所有元素进行循环遍历 执行相应的方法 而不需要再去进行for循环 简化操作 方便调用
+		  -->
+		<div>惊喜不 意外不</div>
+		<div>惊喜不 意外不</div>
+		<div>惊喜不 意外不</div>
+		<div>惊喜不 意外不</div>  
+		<ul>
+			<li>我是ul的</li>
+			<li>我是ul的</li>
+			<li>我是ul的</li>
+			<li>我是ul的</li>
+		</ul>
+		<ol>
+			<li>我是ol的</li>
+			<li>我是ol的</li>
+			<li>我是ol的</li>
+			<li>我是ol的</li>
+		</ol>
+		<script>
+			//选择div元素
+			$('div');//得到一个包含四个DOM对象的伪数组
+			console.log($('div'));
+			//选择ol里面的li 元素
+			$('ol li');
+			console.log($('ol li'));//得到一个包含四个DOM对象的伪数组
+			
+			/* JQ 的css()方法：
+				单个属性修改  $().css('属性名','值'); 
+				多个属性修改  $().css({
+									'属性名':'值', //与CSS样式修改规则相同 不同属性间用逗号隔开 ：用于赋值
+									'属性名':'值',
+									'属性名':'值'}); 
+			 */
+			//将所有的div背景改成粉色  $().css('属性名','值');   
+			$('div').css('background','pink'); //隐式迭代将里边所有的DOM元素都调用了css()函数 无需原生JS的for循环
+			//将所有的ol的li改成蓝色
+			$('ol li').css('color','blue');
+			//将ul的第一个元素的颜色改成红色
+			$('ul li:first').css('color','red');
+			//将ul的第3个元素的颜色改成蓝色 索引从0开始 第3个元素的索引为2
+			$('ul li:eq(2)').css('color','blue');
+			//将ol的偶数索引号的元素加粗
+			$('ol li:even').css('font-weight','700');
+			//将ol的奇数索引号的元素加删除线
+			$('ol li:odd').css('text-decoration','line-through')
+		
+		</script>
+	</body>
+</html>

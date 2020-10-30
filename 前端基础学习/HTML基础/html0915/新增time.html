@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>time与微属性</title>
+	</head>
+	<body>
+		<!--微格式：一种class为网页添加附加信息的方法，附属信息有：时间 电话号码等
+		     time：指定时间-->
+			 
+		<!--表示当前时间，黑色字体为显示的时间-->
+		<time datetime="2019-09-15">2019-09-15</time>
+		<!--T是分隔符 间隔日期与时间-->
+		<time datetime="2019-09-15T20:00">2019-09-15</time>
+		<!--Z表示机器编码是UTC标准时间-->
+		<time datetime="2019-09-15T20:00Z">2019-09-15</time>
+		<!--+9：00表示使用地与当前编码地区的时差-->
+		<time datetime="2019-09-15T20:00+09:00">2019-09-15</time>
+		
+		<!--pubdate属性表示了发布日期 需要在以下两个time中明确指定一个发布时间 -->
+		<article>
+			<header>
+				<h1>苹果</h1>
+				<p>发布日期：
+				<time datetime="2019-09-15" pubdate="true">2019-09-15</time>
+				</p>
+				<p>舞会时间：
+				<time datetime="2019-09-17">2019-09-17</time>
+				</p>
+			</header>
+		</article>
+	</body>
+</html>

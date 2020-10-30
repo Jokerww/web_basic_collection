@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="vue.js"></script>
+		<style type="text/css">
+			.current{
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 
+		 v-bind 给元素的属性绑定内容
+			更改a链接的href属性 img的scr等
+			很多时候 图片的链接不是写死的 而是在服务器获取的 就需要修改
+			语法： 
+				v-bind:属性名=''   <a v-bind:href="aURL"></a>
+				简写  :属性名=''    <a :href="aURL"></a>
+				
+				
+		利用v-bind操作元素的class类   
+			对象语法：v-bind:class = '{类名1:布尔值,类名2:布尔值}'
+				利用v-bind操作元素的样式给他更换class 在赋值括号后面传入一个对象 对象里边以键值对的形式储存类名何其布尔值
+				当布尔值为true时 响应的类名就会被添加给元素 原来固定写入元素的类不会受影响
+				在操作元素类的时候 只需要操作元素的类名的布尔值即可
+			数组语法：:class = ['类名1','类名2','类名3']  加了引号表示括号里的是类名 不加括号就是该变量里边存的值
+						这种形式的类一般是写死的 原来固定写入元素的类不会受影响
+			函数绑定：类属性改变属于计算属性
+					:class = 'getclass()'
+					然后在method里边定义一个方法：
+					getclass:function(){
+						return {类名1:this.布尔值,类名2:this.布尔值}
+					}
+						
+		利用v-bind操作元素的样式style:
+			对象语法：:style = {color:'red',font-size/fontSize:'50px'}
+						属性名后面的值'red' '50px'通常用vue给定:style = {color:finalColor,font-size/fontSize:finalFsize}
+			数组语法：:style = [color,fontsize] 在vue里给color、fontsize传入对象形式的样式值
+		 -->
+		<div id="app">
+			<img v-bind:src="imgURL" >
+			<a :href="a1URL">点击跳转</a>
+			<h1 class="origin" :class="{current:isCurrent,Active:isActive}">哈哈哈哈</h1>
+			<h3 class="origin" :class="getclass()">哈哈哈哈</h3>
+			<button type="button" @click="shift">切换颜色</button>
+			<p :style="{color:finalColor, fontSize:finalFsize}">对象修改style</p>
+			<p :style="[color,fontsize]">数组修改style</p>
+		</div>
+		
+		<script type="text/javascript">
+			const app = new Vue({
+				el:'#app',
+				data:{
+					imgURL: 'https://dss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1035415831,1465727770&fm=26&gp=0.jpg',
+					a1URL: 'http://www.baidu.com',
+					isCurrent:true,
+					isActive:true,
+					finalColor:'blue',
+					finalFsize:'40px',
+					color:{color:'red'},
+					fontsize:{fontSize:'50px'} //不能用font-size
+				},
+				methods:{
+					shift:function(){
+						this.isCurrent = !this.isCurrent;
+					},
+					getclass:function(){
+						return {current:this.isCurrent,Active:this.isActive}
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

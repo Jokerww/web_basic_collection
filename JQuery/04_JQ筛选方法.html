@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript" src="JQuery_min.js"></script>
+
+	</head>
+	<body>
+		<!-- JQ筛选方法： 用于选择JQ对象的方法 是JQ的内置方法 
+				parent()           查找父级元素          $('li').parent();        查找最近一级的父级元素的JQ对象
+				children(selector) 查找最近一级的子元素   $('ul').children('p');   查找ul下一级的p元素 相当于 ul>p
+				find(selector)     查找后代某元素        $('ul').find('p');       查找ul下边所有的p 包括孙子元素 相当于 ul p
+				siblings(selector) 查找兄弟节点元素 不含自己 %('.first').siblings('li') 查找类名为first元素的兄弟li元素
+									括号里边为空 就选择所有的兄弟元素
+				nextAll()          查找当前元素之后的所有同辈元素 $('.first').nextAll() 
+				prevAll()          查找当前元素之前的所有同辈元素 $('.last').preAll() 
+				hasClass(class名)    检查当前的元素是否含有某个特定的类 有则返回true  $('div').hasClass('current'); 类名不加点
+				eq(index)          相当于$('li:eq(index)');   $('li').eq(2)   index从0开始
+									推荐使用这种方法 因为是方法 比较方便设置变量
+		 -->
+		 
+		<div class="grandfa">
+			<div class="fa">
+				<div class="son">孙子</div>
+			</div>
+		</div>
+		
+		<ul>
+			<p>第一级p </p>
+			<li class="li1">11</li>
+			<li><p>第二级p</p></li>
+			<li>11</li>
+			<li class="lastli">11</li>
+		</ul>
+		<script>
+			$(function(){
+				//son的父级元素
+				console.log($('.son').parent()); //只有最亲以及的父级.fa
+				//ul的子元素p 
+				$('ul').children('p').css('color','red');
+				console.log($('ul').children('p'));
+				//ul的后代元素p 包括孙子元素
+				$('ul').find('p').css('text-decoration','underline'); //两个p都选中了
+				//grandfa 的兄弟节点ul  包含很多的script 
+				// console.log($('.grandfa').siblings());
+				console.log($('.li1').siblings());//p和三个li
+				//第一级P后的同辈元素  四个li 都是同一个父级元素里边的 从前往后找和排列
+				console.log($('ul>p').nextAll());
+				//.lastli前面的同辈元素  从后往前找 并排列
+				console.log($('.lastli').prevAll());
+				//ul的li中有没有lastli这个类名的元素
+				console.log($('ul li').hasClass('lastli'));
+			});
+		</script>
+	</body>
+</html>
+  

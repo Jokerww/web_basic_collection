@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>五彩导航案例</title>
+		<style type="text/css">
+			.nav a {
+				display: inline-block;
+				width: 120px;
+				height: 57px;
+				/* 设计背景的平铺用background 可以同时设置多个
+				 只改变图片的话 用background-image就行了*/
+				background: #DEB887 no-repeat; 
+				text-decoration: none;
+				text-align: center;
+				/* 文字居中原理 行高=容器高 由于下面的小三角 文字偏上点才好 行高<容器高 */
+				line-height: 47px; 
+				color: white;
+			}
+			/* 接下来为每个a设置背景颜色 a:hover 同样可以用 .nav1:hover
+			 因为.nav指代的就是a标签*/
+			.nav .nav1{
+				background-image: url(images/bg1.png);
+			}
+			.nav .nav1:hover{
+				background-image: url(images/bg11.png);
+			}
+			.nav .nav2{
+				background-image: url(images/bg2.png);
+			}
+			.nav .nav2:hover{
+				background-image: url(images/bg22.png);
+			}
+			.nav .nav3{
+				background-image: url(images/bg3.png);
+			}
+			.nav .nav3:hover{
+				background-image: url(images/bg3.jpg);
+			}
+			.nav .nav4{
+				background-image: url(images/bg4.png);
+			}
+			.nav .nav4:hover{
+				background-image: url(images/bg5.png);
+			}
+			
+			
+		</style>
+		
+	</head>
+	<body>
+		<!-- 1，行内元素的显示模式的转换
+			 2，文字的水平居中
+			 3，背景图片的相关属性设置
+			 4，伪类选择器
+			 -->
+		<div class="nav">
+			<!-- a{五彩导航}*5 TAB  按住alt鼠标左键拖动 选中多个输入-->
+			<a href="#" class="nav1">五彩导航</a>  
+			<a href="#" class="nav2">五彩导航</a>
+			<a href="#" class="nav3">五彩导航</a>
+			<a href="#" class="nav4">五彩导航</a>
+		</div>
+		
+	</body>
+</html>

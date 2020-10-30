@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="vue.js"></script>
+
+	</head>
+	<body>
+		<!-- v-if条件判断：
+		当v-if = 'true'时会显示当前的元素
+		v-else-if='' 相当于else if 
+		v-else 相当于 else 后面不需要跟条件
+		
+		v-show = 'true'是也会显示当前的元素 与v-if的区别：
+			1，二者显示时会将元素显示在界面上和DOM中
+			2，当二者不显示元素时 v-show 相当于给当前元素加了个行内样式 display = none DOM中依然存在
+				而v-if所在的元素根本不会显示在DOM中 相当于在DOM中将该元素删了
+			当需要频繁切换显示与否时 最好用v-show
+			偶尔切换时 用v-if -->
+			
+		 
+		<div id="app">
+			<!-- 查看网页源码时 1 2都没了 不在DOM中 只有3还在 
+			 哈哈哈也在DOM中 不过被加了个行内样式-->
+			<h2 v-if="score>80">1</h2>
+			<h2 v-else-if="score>= 60 ">2</h2>
+			<h2 v-else>3</h2>
+			<h3 v-show="false"> 哈哈哈</h3>
+		</div>
+		<script type="text/javascript">
+			const app = new Vue({
+				el:'#app',
+				data:{
+					score : 40
+				}
+			});
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>JS赋值运算</title>
+	</head>
+	<body>
+		<script>
+			var num = 10;
+			// num = num +1; 
+			//num++
+			// num +=2;
+			//num = num+2;
+			console.log(num += 2);//12
+			console.log(num -= 3); //num = num -3  9
+			console.log(num *= 2); //num = num*2   18
+			console.log(num /=3);//num = num /3  6
+			console.log(num %= 4);//num = num %4 取模 2
+		</script>
+		
+		<!-- 运算符优先级: 算术>比较>逻辑
+		        1，()
+		        2，一元运算符 只有一个操作数的运算符 ：++ -- ！（逻辑非的优先级很高）
+				3，算术运算符：先 * / % 后 + -
+				4，关系运算符：> >= < <= 
+				5，相等运算符：== != === !==
+				6，逻辑运算符：先&& 后 ||
+				7，赋值运算符：=
+				8，逗号运算符：，
+				-->
+	</body>
+</html>

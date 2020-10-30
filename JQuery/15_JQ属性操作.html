@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript" src="JQuery_min.js"></script>
+
+	</head>
+	<body>
+		
+		<!-- JQ属性操作用于获取或修改元素的属性
+				1，元素固有属性操作prop():用于操作元素固有(系统自带)的属性
+					$('div').prop('属性名') 获取固有属性
+					$('div').prop('属性名','属性值')  修改某个固有属性的值
+				2，元素的自定义属性attr(): 用于操作元素的自定义属性 如用户自定义的index属性等 也可获取固有属性
+					$('div').attr('属性名') 获取固有属性  原生getAttribute()
+					$('div').attr('属性名','属性值')  修改某个固有属性的值  原生setAttribute()
+				3,数据缓存data()：把元素当成一个变量 把数据存储在元素的内存里边 再DOM里边看不到 但是可以取出来用
+					(可以获取 H5新增过的date- 自定义属性)
+					$('div').data('属性名','属性值')  存储某个属性和值  这些属性和值存在内存中 DOM界面看不到
+					$('div').data('属性名')  获取存储过的某个属性的值 可用来获取H5的data-属性 且属性名前不用加data-
+											取出的是数字型的值 而用attr()取出的是字符串型的
+		 -->
+		 <!-- a标签的固有属性href  div的自定i属性index  span的H5新增属性data-index1 -->
+		 <a href="http://www.baidu.com">百度</a>
+		 <div index = 2></div>
+		 <span data-index1 = 3></span>
+		 
+		 <script type="text/javascript">
+		 	$(function(){
+				//获取元素的固有属性
+				console.log($('a').prop('href'));
+				//修改网址值
+				$('a').prop('href','https://www.w3school.com.cn');
+				console.log($('a').prop('href'));
+				//获取div和span的自定义属性
+				console.log($('div').attr('index')); //输出字符串类型的2
+				console.log($('span').attr('data-index1')); //输出字符串类型的3
+				// 修改div的自定义的index属性
+				$('div').attr('index',4);
+				console.log($('div').attr('index')); //变成了4
+				// 存储数据
+				$('span').data('name1','andy');
+				// 取出name1的值
+				console.log($('span').data('name1'));
+				// 取出span里的data-值
+				console.log($('span').data('index1')); //取出的是数字型的3
+			});
+		 </script>
+	</body>
+</html>

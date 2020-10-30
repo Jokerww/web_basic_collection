@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>教学意见调查表</title>
+	</head>
+	<body bgcolor="aquamarine">
+		<h1>教学意见调查表</h1>
+		<!--表单一定要以form开始 并包含在内！！-->
+	<form action="" method="">
+					
+		<fieldset id="">
+			<legend>个人课程及资料</legend>
+			<ol>
+				<li>
+					科目名称：<input type="text" />
+				</li>
+				<li>
+					请选择系所：<select>
+						<option value ="英文系">英文系</option>
+						<option value ="法语系">法语系</option>
+						<option value ="电子系">电子系</option>
+						<option value ="法学">法学</option>
+					</select> 
+				</li>
+				<li>
+					讲师：<input type="text"  /> 
+				</li>
+				<li>
+					性别：<input type="radio" name="gender" id="" value="男" />男
+							<input type="radio" name="gebder" id="" value="女" />女
+							
+				</li>
+				<li>
+					开课日期：<input type="date"  /> 
+				</li>
+			</ol>
+			<!--
+			1，科目名称：<input type="text" /><br/>
+			2，请选择系所：<select>
+				<option value ="英文系">英文系</option>
+				<option value ="法语系">法语系</option>
+				<option value ="电子系">电子系</option>
+				<option value ="法学">法学</option>
+			</select> <br/>
+			3，讲师：<input type="text"  /> <br/>
+			4，性别：<input type="radio" name="gender" id="" value="男" />男
+					<input type="radio" name="gebder" id="" value="女" />女
+					<br/>
+			5，开课日期：<input type="date"  /> <br/>
+			-->
+		</fieldset>
+		
+		<fieldset id="">
+			<legend>意见调查</legend>
+			<ol>
+				<li>
+					这门课你的出席状况是：<input type="radio" name="attendence" id="" value="没有缺课" />没有缺课
+										   <input type="radio" name="attendence" id="" value="缺课1-3次" />缺课1-3次
+										   <input type="radio" name="attendence" id="" value="缺课4-6次" />缺课4-6次
+										   <input type="radio" name="attendence" id="" value="缺课6次以上" />缺课6次以上
+										 
+				</li>
+				<li>
+					你对这门课的学习态度：<input type="radio" name="attitude" id="" value="很认真" />很认真
+										   <input type="radio" name="attitude" id="" value="还算认真" />还算认真
+										   <input type="radio" name="attitude" id="" value="不认真" />不认真
+										 
+				</li>
+				<li>
+					你修习这门课的原因（可复选）：<input type="checkbox" name="reason" id="" value="必修" />必修
+												  <input type="checkbox" name="reason" id="" value="凑学分" />凑学分
+												  <input type="checkbox" name="reason" id="" value="个人兴趣" />个人兴趣
+												  <input type="checkbox" name="reason" id="" value="其他原因" />其他原因
+												 
+				</li>
+				<li>
+					请简述你对此门课程的意见：<br/>
+					<textarea rows="10" cols="100">
+						
+					</textarea>	
+				</li>
+			</ol>
+			<!--
+			1，这门课你的出席状况是：<input type="radio" name="attendence" id="" value="没有缺课" />没有缺课
+								   <input type="radio" name="attendence" id="" value="缺课1-3次" />缺课1-3次
+								   <input type="radio" name="attendence" id="" value="缺课4-6次" />缺课4-6次
+								   <input type="radio" name="attendence" id="" value="缺课6次以上" />缺课6次以上
+								   <br/>
+			2，你对这门课的学习态度：<input type="radio" name="attitude" id="" value="很认真" />很认真
+								   <input type="radio" name="attitude" id="" value="还算认真" />还算认真
+								   <input type="radio" name="attitude" id="" value="不认真" />不认真
+								   <br/>
+			3，你修习这门课的原因（可复选）：<input type="checkbox" name="reason" id="" value="必修" />必修
+										  <input type="checkbox" name="reason" id="" value="凑学分" />凑学分
+										  <input type="checkbox" name="reason" id="" value="个人兴趣" />个人兴趣
+										  <input type="checkbox" name="reason" id="" value="其他原因" />其他原因
+										  <br/>
+			4，请简述你对此门课程的意见：<br/>
+			<textarea rows="10" cols="100">
+				
+			</textarea>	
+			-->
+		</fieldset>
+		<br/>
+		<input type="submit" name="" id="" value="提交" />
+		<input type="reset" name="" id="" value="重写" />
+		
+	</form>
+	</body>
+</html>

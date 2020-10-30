@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="vue.js"></script>
+		<style type="text/css">
+			.current{
+				color: red;
+			}
+		</style>
+
+	</head>
+	<body>
+		<!-- 需求： 刷新时第一部电影为红色  然后点击哪个电影 那个电影就变红
+			 要点：1，需要找到点击的li的索引值 才能确定哪个li变颜色
+				  2，既然要利用到索引的话 势必要把索引传递到函数内部 才能利用
+				  3，class用对象的形式传递进去 就需要改变对象名后边的布尔值  点击那个 就让哪个的布尔值为true
+				  4，布尔值不仅仅是写死的 也可以通过表达式来实现 {current:index === currentIndex}
+					当 当前点击元素的索引值不等于设定的值时 布尔值就为false 他就变不了颜色
+					为currentIndex指定一个值 那么就只有一个li满足条件
+					currentIndex刷新时为0 则第一个电影变色
+		 -->
+		<ul id="app">
+			<li v-for="(m,index) in movies" :class="{current:index === currentIndex}" @click="shift(index)">{{index}}-{{m}}</li>
+		</ul>
+		<script type="text/javascript">
+			const app = new Vue({
+				el:'#app',
+				data:{
+					movies:['星际穿越','大话西游','海贼王','白蛇传说'],
+					currentIndex:0
+					},
+				methods:{
+					shift:function(index){
+						this.currentIndex = index
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

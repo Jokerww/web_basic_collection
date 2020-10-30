@@ -1,0 +1,37 @@
+.h1class{
+	color: #0000FF; /* 十六进制颜色表示法两两一组分别为红绿蓝的分量 蓝色 */
+}
+
+/* 类选择的派生 与标签选择器混用 */
+.h1class strong{
+	color: #5F9EA0;
+}
+
+
+.pclass2{
+	color: rgb(0,255,0); /*rgb颜色表示法 绿色 */
+}
+/* 多个类名 后一个类名定义的样式会覆盖前一个的样式 */
+.pclass1{
+	color: red; /* 颜色名称表示法 红色 */
+}
+
+/* 看看标签选择器 id选择器 类选择器同时使用时哪个会优先显示 */
+/* 看来id选择器的权重更大 优先显示id选择器 */
+/* 可以利用 !important 自定义需要优先显示的样式 */
+a{
+	color: red;
+}
+
+.aclass1{
+	color: green;
+}
+
+#aid{
+	color: blue; 
+}
+
+.aclass2{
+	color: #8A2BE2 !important;
+}
+

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.fa{
+				display: flex; /* 子元素会有inline-block相关的特性 */
+				flex-flow: row wrap;
+				justify-content: space-between;
+				align-content: space-between;/* 侧轴方向上 两边元素靠边 其他元素平分剩余空间 */
+				height: 400px;
+				width: 400px;
+				background-color: pink;
+			}
+			span{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				margin: 0 5px;
+			}
+			.fa span:nth-child(1){
+				/* flex: 1; /* 若其他的设置为零 则他会占据所有的剩余空间 */ 
+			}
+			.fa span:nth-child(2){
+				/* 没有设置其宽度时(不是设为0) 宽度自适应 */
+				flex: 1; /* 与第一个元素平分剩余空间 */
+				order: -1; /* 数字越小 就排在月前面 默认为0 */
+				/* align-self: flex-end; 侧轴放线上 底部对齐 */
+				align-self: center;/* 侧轴方向上居中 覆盖继承自父元素的属性 */
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 
+		 flex: flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto(不放大 会缩小)。后两个属性可选。 常用
+		 order：定义项目的排列顺序。数值越小，排列越靠前，默认为0，按照html的书写顺序排列
+		 align-self：属性允许单个项目有与其他项目不一样沿着侧轴的对齐方式，可覆盖align-items属性。
+		 		auto：默认值 继承父元素(容器)的排序方式
+		 		一下与align-items都相同
+		 		flex-start
+		 		flex-end
+		 		center
+		 		baseline
+		 		stretch;
+		 -->
+		 <div class="fa">
+		 	<span>1</span>
+		 	<span>2</span>
+		 	<span>3</span>
+	</body>
+</html>

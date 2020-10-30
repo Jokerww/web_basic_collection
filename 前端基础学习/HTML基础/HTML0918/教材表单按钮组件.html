@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>按钮</title>
+	</head>
+	<body>
+		
+		<form action="" method="">
+			<!--提交submit：
+					当用户点击提交时，表单会按照action属性设置的方式来发送表单
+					name:名称 普通的发送此值可省略
+					value:显示在按钮上的文字
+					-->
+			账号：<input type="text" name="" id="" value="" /><br/>
+			密码：<input type="password" name="" id="" value="" /><br/><br/>
+			<input type="submit" name="" id="" value="提交" />
+			<!--重置reset：
+					当用户点击时 会将表单中所有组件的值设置为默认值
+					name:名称 意义不大 经常忽略
+					value:显示在按钮上的文字
+					-->
+			<input type="reset" name="" id="" value="重置" />
+			
+			<!--按钮botton：
+					本身并无作用 需配合js语法来表达想要的效果
+					name:名称 意义不大 经常忽略
+					value:显示在按钮上的文字
+					-->
+			<input type="button" name="" id="" value="点击" />
+			
+			<!--表单分组fieldset：
+					当表单属性太多太长时间 可将表单中的问题分门别类，以免用户输入时眼花缭乱
+					用legend设置分组标题
+					-->
+			<fieldset>
+				<legend>性别选择</legend>
+				<input type="radio" name="sex" id="" value="男" checked="checked"/>男
+				<input type="radio" name="sex" id="" value="女" />女
+				<input type="radio" name="sex" id="" value="其他" />其他
+			</fieldset>
+			<fieldset >
+				<legend>兴趣爱好</legend>
+				<input type="checkbox" name="interest" id="" value="看电影" />看电影
+				<input type="checkbox" name="interest" id="" value="打球" />打球
+				<input type="checkbox" name="interest" id="" value="看书" />看书
+				<input type="checkbox" name="interest" id="" value="书法" />书法
+				
+			</fieldset>
+		</form>
+	</body>
+</html>

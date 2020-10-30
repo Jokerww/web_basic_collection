@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- this的指向问题：一般情况下 this指向的是哪个调用它的对象
+		 1，全局作用域或者普通函数中，this指向的是全局对象window
+			(定时器里的this指向的是window)
+		 2,方法中 谁调用 指向的就是谁
+		 3，构造函数中 this指向的是构造函数的实例
+		 -->
+		<script type="text/javascript">
+			// 1，全局作用域或者普通函数中，this指向的是全局对象window
+			console.log(this); //window
+			
+			function fn(){
+				console.log(this);
+			}
+			fn();//window.fn() 指向window
+			
+			// (定时器里的this指向的是window)
+			var timer = setTimeout(console.log(this),1000);
+			
+			//  2,方法中 谁调用 指向的就是谁
+			var o = {
+				w:'hahha',
+				fnn:function(){
+					console.log(this);
+				}
+			}
+			o.fnn();//指向的是包含fnn的对象
+			
+			//  3，构造函数中 this指向的是构造函数的实例对象Fun
+			function Fun(){
+				console.log(this);
+			}
+			var fun = new Fun();//fun指向的是Fun
+		</script>
+	</body>
+</html>

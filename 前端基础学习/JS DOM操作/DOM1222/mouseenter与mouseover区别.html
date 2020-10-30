@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.father{
+				margin: 100px 100px;
+				width: 200px;
+				height: 200px;
+				background-color: pink;
+			}
+			.son{
+				width: 100px;
+				height: 100px;
+				background-color: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- mouseenter和mouseover的区别：
+		 1，当鼠标移动到元素上时 就会触发mouseenter事件
+		 2，mouseover鼠标经过自身盒子会触发 经过盒子里边的子盒子还是会触发
+			mouseenter盒子只会经过自身盒子触发
+		 3，mouseover会冒泡 经过子盒子 子盒子没有mouseover事件 会冒泡至父盒子
+			而父盒子有了该事件 就会触发
+		   mouseenter没有冒泡  经过子盒子没有该事件就没有 
+		   与mouseenter搭配的是mouseleave 同样不会冒泡
+		 -->
+		
+		<div class="father">
+			<div class="son"></div>
+		</div>
+		
+		<script type="text/javascript">
+			var father = document.querySelector('.father');
+			// mouseover事件
+			father.addEventListener('mouseover',function(e){
+				console.log('father');
+			});
+			// 阻止冒泡要阻止son冒泡才能使father不接着输出
+			 // 阻止father冒泡只能让他不忘更上层传播
+			 
+			// mouseenter事件
+			father.addEventListener('mouseenter',function(){
+				console.log(22);
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 200px;
+				height: 200px;
+				text-align: center;
+				line-height: 200px;
+				background-color: pink;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 页面中经常有些与实践相关的操作，需要用到定时器
+		windows.setTimeout(调用的函数,[延迟的毫秒数])；
+		触发这个事件后(一般是页面加载后) 延迟相应的毫秒数，再调用函数。
+		即setTimeout()方法用于设置一个定时器 定时器到期后执行调用函数
+			1，方法前边的window可以省略 直接写setTimeout();
+			2,延迟的时间单位是毫秒 可以省略 默认为0
+			3，调用函数可直接写函数 也可写函数名 或写'函数名()'(不推荐)
+			4，页面中可能有多个定时器，经常给定时器加上标志符(起名字),用以区分
+			5,定时器方法默认调用一次之后就不会再被调用 除非重复调用
+		 -->
+		 <!-- 停止 -->
+		 <script type="text/javascript">
+			 // 写法1：直接写函数
+		 	/* setTimeout(function() {
+				console.log('5秒到了 boom！！');
+			}, 5000); */
+			// 写法2：写函数名
+			setTimeout(callback,5000);
+			// 写法3：字符串形式 '函数名()' 不推荐
+			// setTimeout('callback()',5000);
+			function callback(){
+				console.log('5秒到了 boom！！');
+			}
+			// 给定时器起名字
+			var timer1 = setTimeout(callback,5000);
+			var timer2 = setTimeout(callback,3000);
+		 </script>
+		 
+		 <!-- 案例：8秒钟后关闭广告(框框) -->
+		 <div>广告</div>
+		 <script type="text/javascript">
+		 	var div = document.querySelector('div');
+			var timer3 = setTimeout(callback1,8000);
+			function callback1(){
+				div.style.display = 'none';
+			}
+		 </script>
+	</body>
+</html>

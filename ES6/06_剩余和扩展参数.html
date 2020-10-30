@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 剩余参数：将剩余的参数存储到一个变量里
+			扩展参数：将集合在一个数组里的参数打散开
+		 -->
+		 
+		<script type="text/javascript">
+			const team = ['李楠','易建联','郭艾伦','翟晓川','赵继伟','周琦'];
+			// 把这个队伍里的教练 队长 队员 分别存入三个变量(可用解构赋值)
+			// const [coach,captain,players] = team 这样得话 players里边就只有一个值
+			const [coach,captain,...players] = team //...使得player里边有剩余的所有值
+			console.log(coach,captain,players);
+			
+			// 可用于接受多个变量 变量数未知
+			function sortNum(...number){
+				console.log(number);
+				if (number.length ==0) {
+					return number
+				} else{
+					return number.sort((a,b) => a-b); //按数字大小顺序排序  倒序number.sort((a,b) => b-a)
+				}
+			};
+			console.log(sortNum(1,2,5,9,10,3));
+			
+			// 扩展参数
+			const food = ['面包','蛋糕','蛋挞'];
+			const drink = ['可乐','雪碧','奶茶'];
+			const kfc = [...food,'鸡块',...drink];
+			console.log(kfc);//把数组打散组合在了一起 还能随意增加数据 
+			// 数组拼接 food.concat(drink)  不能加数据
+		</script>
+	</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			const user = {
+				name:'小明',
+				age: 18,
+				height : 180,
+				girlFriend : {
+					name : '小红',
+					age : 18,
+					height : 160
+				}
+			}
+			// 模板字符串${ }比字符串拼接更加简便实用
+			// 使用模板字符串拼接的时候要用反引号括起来``(1左边的按钮)  而不能用正常的引号
+			console.log(`我的名字是${user.name},我的年龄是${user.age},我的身高是${user.height}`);
+			
+			function cal(x){
+				// 也可在{}里边进行简便的运算
+				return `你输入数字是${x},他的两倍是${2*x},他的平方是${x*x}`
+			};
+			console.log(cal(3));
+		</script>
+	</body>
+</html>

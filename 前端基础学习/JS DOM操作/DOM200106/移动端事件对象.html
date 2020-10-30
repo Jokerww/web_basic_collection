@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			div{
+				width: 200px;
+				height: 200px;
+				background-color: pink;
+				margin: 30px auto;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 触摸事件对象：TouchEvent
+		 TouchEvent是指一类描述手指在触摸平面上的状态变化的事件，
+		 这类事件多用于描述一个或多个 的触点 
+		 是开发者可以检测到触点的移动、增加和减少等。
+		 touchstart touchmove touchend都有触摸事件
+		 常见的触摸事件对象属性：
+			e.touches 正在触摸屏幕的所有手指的列表
+			e.targetTouches 正在触摸当前DOM元素的手指的列表
+			e.changedTouches 手指状态发生改变的列表 从无到有 从有到无
+		 -->
+		 <div id=""> </div>
+		 
+		 <script type="text/javascript">
+		 	var div = document.querySelector('div');
+			div.addEventListener('touchstart',function(e){
+				console.log(e);//三个常见的时间对象属性都有 状态改变为从无到有
+				console.log(e.touches[0]);//屏幕上第一个手指的相关信息（坐标等）
+			});
+			div.addEventListener('touchmove',function(e){
+				console.log(e);//三个常见的时间对象属性都有 状态改变为从无到有
+				console.log(e.touches[0]);//屏幕上第一个手指的相关信息（坐标等）
+			});
+			div.addEventListener('touchend',function(e){
+				//touches 和targetTouches没有 因为没有手指了 
+				 // 要是多个手指只离开了一个的话 还会有其他手指的信息
+				 // changedTouches从有到无
+				console.log(e);
+				
+			});
+		 </script>
+	</body>
+</html>

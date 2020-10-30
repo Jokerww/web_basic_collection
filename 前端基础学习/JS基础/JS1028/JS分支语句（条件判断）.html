@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>JS条件判断</title>
+	</head>
+	<body>
+		
+		<!-- 流程控制：控制代码以什么样的顺序执行
+		        1，顺序结构： 从上往下 依次执行
+				2，分支结构：条件判断 不同的条件执行不同的代码 得到不同的结果（多选一）
+				3，循环结构：满足条件 重复执行
+				-->
+		<!-- 分支结构——if语句 多选一执行-->		
+		<script type="text/javascript">
+			// var age = prompt('输入年龄：') - 0; //隐式转换成数值 不换也能比较
+			var age= 20;
+			console.log(age)
+			if (age < 18) {
+				console.log("未成年")
+			} else if(age >=18 && age<50){
+				console.log("中年")
+			}else{
+				console.log("老年")
+			}
+		</script>
+		
+		<script type="text/javascript">
+			// 判断输入年份是否为闰年
+			var year = prompt("输入年份：") - 0;
+			if (year%4 ==0 && year % 100 !=0 || year % 400 ==0) {
+				alert("闰年")
+			} else{
+				alert("平年")
+			}
+		</script>
+
+
+		<!-- 判断成绩 -->
+		<script type="text/javascript">
+			var score = prompt("Input your score:");
+			if(score >= 90){
+				alert('A');
+			}else if(score >= 80){
+				alert('B');
+			}else if (score >= 70) {
+				alert('C');
+			} else if (score >= 60) {
+				alert('D')
+			} else{
+				alert('E')
+			}
+			
+			
+		</script>
+	</body>
+</html>

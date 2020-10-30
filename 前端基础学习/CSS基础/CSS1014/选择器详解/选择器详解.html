@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>选择器</title>
+		<link rel="stylesheet" type="text/css" href="选择器详解.css"/>
+		
+	<style type="text/css">
+		[title]{ color: #A52A2A;}  /* title属性都变了颜色 */
+		[title="title"]{ font-size: 40px;}  /* title="title"才会变大 */
+		[title~="title"]{font-style: normal;} /* 属性值里含有title字符的都变正了 */
+	</style>
+	
+	</head>
+	<body>
+		<h2>测试元素选择器</h2>
+		
+		<a href="#">测试选择器分组</a>
+		<h1>测试选择器分组</h1>
+		
+		<div class="div1">
+			测试类选择器	
+		</div>
+		
+		<div class="div2">
+			测试元素与类结合使用
+		</div>
+		
+		<p class="p1">测试多类选择器1</p>
+		<p class="p2">测试多类选择器2</p>
+		<!-- 这个标签拥p1和p2的样式 但其引用类名为.p1.p2 -->
+		<p class="p1 p2">测试多类选择器1,2</p> 
+		 <!-- 如果单独引用 后一个的样式 将覆盖前一个的样式 -->
+		 <p class="p11 p22">多个class</p>
+		 <div id="div1">
+		 	测试id选择器
+		 </div>
+		 
+		 <!-- 在head里边设置属性 -->
+		 <p title="title">测试属性选择器title </p>
+		 <p title="tt">测试属性选择器tt</p>
+		 <p title="hello title">测试属性选择器hello title </p>
+		 
+		 <!-- 测试后代选择器  p包含strong,strong包含i-->
+		 <p>测<strong> 试<span> 后代 </span >选择 </strong>器</p>
+		 
+		 <div >
+		 	<ul>
+		 		<li>hahh</li>
+		 		<li>测试相邻兄弟选择器 </li>
+		 		<li>hahah </li>
+		 	</ul>
+			<ol>
+				<li>heihei </li>
+				<li>heihei </li>
+				<li>heihei </li>
+			</ol>
+		 </div>
+		 
+	</body>
+</html>

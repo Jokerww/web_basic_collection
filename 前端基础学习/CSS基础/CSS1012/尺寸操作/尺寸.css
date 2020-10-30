@@ -1,0 +1,25 @@
+/* 尺寸操作的属性有：
+	height：设置元素高度
+	width：设置元素宽度
+	max-width：设置元素的最大宽度
+	min-width：设置元素的最小宽度
+	max-height：设置元素的最大高度
+	min-height：设置元素的最小高度
+	line-heght：行高  可用于设置行间距
+	文字的vertical-align:垂直的对齐方式 有 上标sup 下标sub 顶端对齐top 居中middle等*/
+.p1{
+	/* width: 300px; */
+	max-width: 200px;  /* 设置每一行的最大宽度
+	/* min-width: 250px;  设置每一行的最小宽度 除非内容不够了 */
+	line-height: normal; /* 正常行高 */
+}
+.p2{
+	max-width: 310px;
+	line-height: 200%; /* 2倍行高 */
+}
+
+.p3{
+	width: 200px;
+	line-height: 50%; /* 一半行高 */
+	
+}

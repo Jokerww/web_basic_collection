@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>JS循环</title>
+	</head>
+	<body>
+		<!-- 重复执行某写代码 被重复执行的代码称为循环体 
+		能否重复执行取决于终止条件-->
+		
+		<!-- for循环语法：
+		for (初始条件；(终止)条件表达式；操作表达式){
+			循环体；
+		}
+		 -->
+		 <script type="text/javascript">
+			 /* i是一个普通变量 作为计数器使用 控制循环的次数 
+			 初始条件确定计数器的初始值
+			 中间的条件表达式用于决定循环是否继续，
+			 操作表达式用于对计数器进行更新，最后执行的循环代码*/
+			for(var i=0;i<=9;i++){
+				console.log('你好！');
+			}
+		 </script>
+		 
+		 <script type="text/javascript">
+		 	for (var i = 1; i <=100; i++) {
+		 		if (i ==1) {
+		 			console.log('他出生了！');
+		 		} else if (i == 100) {
+		 			console.log('他死了');
+		 		} else{
+		 			console.log('他今年'+i+'岁啦');
+		 		}
+		 	}
+		 </script>
+		 <!-- 求和 -->
+		 <script type="text/javascript">
+		 	var sum = 0;
+			for (var i = 1;i<=100;i++) {
+				sum += i;
+			}
+			console.log(sum);
+		 </script>
+		<!-- 求均值 -->
+		<script type="text/javascript">
+			var ave = 0;
+			for (var i=1;i<=100;i++) {
+				ave += i; 
+			}
+			console.log(ave/100);
+		</script>
+		
+		<!-- 分别求奇数和偶数的和 -->
+		<script type="text/javascript">
+			var sum_even = 0,sum_odd = 0;
+			for (var i =1; i<=100; i++) {
+				if (i%2==0) {
+					sum_even += i;
+				} else{
+					sum_odd +=i;
+				}
+			}
+			console.log(sum_even,sum_odd);
+		</script>
+		
+		<!-- 被3整除的数字的和 -->
+		<script type="text/javascript">
+			var sum_3 = 0;
+			for (var i=0;i<=100;i++) {
+				if (i%3 ==0) {
+					sum_3 += i;
+				} 
+			}
+			console.log(sum_3);
+		</script>
+		
+		<!-- 打印星星 追加字符串的方式-->
+		<script type="text/javascript">
+			var str = ''
+			for (var i=1;i<=5;i++) {
+				str = str + "*";//字符串拼接 一个一个的接上后放在空字符串里边
+			}
+			console.log(str);
+		</script>
+		
+		<script type="text/javascript">
+			str = '';
+			for (var i=1;i<=5;i++) {
+				for (var j=1;j<=5;j++) {
+					str = str +'*';
+				}
+				// console.log(str);
+				// str = '';
+				str = str + '\n';//直接在str里边加换行 输出一次 
+			}
+			console.log(str);
+		</script>
+		
+		<script type="text/javascript">
+			var str = '';
+			for (var i = 5;i>=1;i--) {
+				for (var j=1;j<=i;j++) {
+					str =str +'*';
+				}
+				// console.log(str);
+				// str = '';
+				str = str +'\n'; //在字符串里边加换行 输出就只执行一次
+			}
+			console.log(str);
+		</script>
+		
+		<!-- 九九乘法表 -->
+		<script type="text/javascript">
+			var str = '';
+			for (var i=1;i<=9;i++) {
+				for (var j=1;j<=i;j++) {
+					str = str + j+'x'+i+'='+i*j+'\t';//字符串是直接拼接的
+				}
+				str = str +'\n';
+			}
+			console.log(str);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>margin负值布局技巧</title>
+		<!-- 
+		margin负值布局技巧: 当多个加了边框的盒子浮动贴到一起时 
+						衔接除的边框会变的很宽 利用margin负值
+						让后一个边框压住前面的边框 就变窄啦
+		当鼠标经过时 边框会变色 但是中间的盒子边框被压住了 变不了色怎么办呢
+				1，若其他盒子没有定位 则鼠标经过时给他加相对定位
+					因为定位的元素会压住普通流的盒子 他就可以显示啦 相对定位不脱标 不影响布局
+				2，若其他的盒子有定位 则用z-index属性 提高他的位置
+		 -->
+		<style type="text/css">
+			ul li{
+				position: relative;
+				list-style: none;
+				width: 100px;
+				height: 160px;
+				border: 1px solid red;
+				float: left;
+				/* 中间的三条线明显比其他的线宽很多 */
+				margin-left: -1px;
+				
+			}
+			ul li:hover{
+				border-color: #0000FF;
+				/* position: relative; */
+				z-index: 1;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+		</ul>
+	</body>
+</html>

@@ -1,0 +1,43 @@
+/* 盒子模型分为四个部分：margin、border、padding、content */
+
+*{  /* 通过通配符先设定所有的内外边距为0 包括body */
+	margin: 0px;
+	padding: 0px;
+}
+
+#div1{
+	/* margin 上下左右外边距为20 border以外的部分 可以一起设计 也可单独设计：margin-top、margin-left、margin-right、margin-bottom*/
+	margin: 20px 20px; 
+	background-color: #00FFFF;
+	/* height: 300px; */
+	/* width: 300px; */
+	/* padding 上下左右内边距为50 内边距在content外 border内 可单独设计 padding-top、padding-left、padding-right、padding-bottom */
+	padding: 50px 50px;
+	/* 指定了边框样式才能显现出边框的各种效果 因为默认边框为none,设置的颜色等效果都没用
+	 边框样式可以单独制定某一个边框 border-top-style、border-left-style等*/
+	border-top-style: dotted; 
+	border-left-style: double;
+	border-bottom-style: dashed;
+	border-right-style: groove;
+	 /* 可单独指定某一个边框的颜色 border-top-color、border-left-color等 */
+	border-color: #A52A2A;
+	/* 可单独指定某一个边框的宽度 border-top-width、border-left-width */
+	border-width: 10px;
+}
+
+/* 开始设计盒子模型 就当做这些盒子都不存在 是一个整体 指定的地方设计指定的东西
+ padding的div设计padding  div分块其实也只是为了css设计 内容分块与他无关*/
+#container{
+	/* 此时的上部外边距是与上一个组件的外边框的距离 相邻两个盒子的外边距会合并 并采用大的外边距*/
+	margin: 100px;
+	/* background-color: #00FFFF; */
+}
+#border{
+	border-style: dashed;
+}
+#padding{
+	padding: 100px;
+}
+#content{
+	background-color: #0000FF;
+}

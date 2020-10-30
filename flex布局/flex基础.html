@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- flex布局：flex布局是一种非常高效简洁的布局方式 display:flex/inline-flex;
+				采用 Flex 布局的元素，称为 Flex 容器（flex container），简称"容器"。
+				它的所有子元素自动成为容器成员，称为 Flex 项目（flex item），简称"项目"。
+					
+			重点：flex容器(父元素)有两根轴线：水平的主轴（main axis）和垂直的交叉轴(侧轴)（cross axis）。
+				flex元素(子元素)所有的位置排列方式 都是依附于轴线而起作用的 因此轴线很重要
+				主轴延水平x方向 从左至右  侧轴延垂直y方向 从上往下
+				在没有设置flex-direction主轴方向时  方向默认为水平x轴方向
+				
+			flex容器的属性：
+				flex-direction：设置主轴的方向 即元素按照哪个方向排列 默认为x轴水平方向
+						row水平方向 从左至右
+						row-reverse 水平方向的反方向 从右至左
+						column 垂直方向 从上往下
+						column-reverse 垂直方向 从下往上
+				flex-wrap：子元素是否换行；
+						nowrap 默认值，不换行，当容器一行装不下元素时不换行 
+								此时会同时收缩子元素的宽度 让容器将他们装下
+						wrap 换行 一行装不下元素时 子元素会到下一行显示
+						wrap-reverse：换行，第一行在下方
+				flex-flow：是flex-direction和flex-wrap的合并写法 可同时设置二者的值 常用
+				justify-content：子元素沿着 主轴 的排列方式 依附于flex-direction的值
+						flex-start 和主轴的起始线对齐
+						flex-end 和主轴的尾部对齐
+						center 沿主轴方向 居中显示
+						space-around 沿主轴方向 每个元素平分剩余空间
+						space-between 两边的元素贴线 中间的元素平分本行的剩余空间
+						strecth 拉伸 默认值 当子元素高度不一样时 会默认拉伸元素至最高高度
+								没设置高度时 会拉伸与容器等高
+				align-items：子元素沿着侧轴方向的排列方式 与主轴垂直的方向 只能设置单行元素 即flex-wrap:nowrap;
+						flex-start：交叉轴的起点对齐。
+						flex-end：交叉轴的终点对齐。
+						center：交叉轴的中点对齐。
+						baseline: 项目的第一行文字的基线对齐。
+						stretch（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度
+				align-content：子元素沿着侧轴方向的排列方式 与主轴垂直的方向 多行元素起效 即flex-wrap:wrap;
+						flex-start：与交叉轴的起点对齐。
+						flex-end：与交叉轴的终点对齐。
+						center：与交叉轴的中点对齐。
+						space-between：与交叉轴两端对齐，轴线之间的间隔平均分布。
+						space-around：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。
+						stretch（默认值）：轴线占满整个交叉轴。
+						
+			flex项目(子元素)的属性：以上的容器属性设置时 所有的子元素都是一起设置 这个可以为每个子元素单独设置
+				不常用flex-grow: 定义项目的放大比例(占用剩余空间的份数)，默认为0，即如果存在剩余空间，也不放大。
+								如果所有项目的flex-grow属性都为1，则它们将等分剩余空间（如果有的话）。
+								如果一个项目的flex-grow属性为2，其他项目都为1，则前者占据的剩余空间将比其他项多一倍。
+				不常用flex-shrink：定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。
+								如果所有项目的flex-shrink属性都为1，当空间不足时，都将等比例缩小。
+								如果一个项目的flex-shrink属性为0，其他项目都为1，则空间不足时，前者不缩小。
+				不常用flex-basis：flex-basis属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。
+								浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。
+								它可以设为跟width或height属性一样的值（比如350px），则项目将占据固定空间
+				flex: flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto(不放大 会缩小)。后两个属性可选。 常用
+				order：定义项目的排列顺序。数值越小，排列越靠前，默认为0，按照html的书写顺序排列
+				align-self：属性允许单个项目有与其他项目不一样沿着侧轴的对齐方式，可覆盖align-items属性。
+						auto：默认值 继承父元素(容器)的排序方式
+						一下与align-items都相同
+						flex-start
+						flex-end
+						center
+						baseline
+						stretch;
+		 -->
+	</body>
+</html>

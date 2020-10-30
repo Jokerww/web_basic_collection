@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 新的鼠标事件：
+				contextmenu : 鼠标显示上下文 一般是鼠标右键
+				selectstart: 开始选中文字
+				给整个文档 或者父元素 禁止这些事件的默认行为就可以禁止他们的功能
+		 -->
+		 
+		 
+		 <div class="div">
+			 来选中我呀 啦啦啦~
+		 </div>
+		 <script type="text/javascript">
+			 // 禁用鼠标右键
+		 	document.addEventListener('contextmenu',function(e){
+				e.preventDefault();
+			})
+			// 禁用选中文字
+			document.addEventListener('selectstart',function(e){
+				e.preventDefault();
+			})
+		 </script>
+	</body>
+</html>

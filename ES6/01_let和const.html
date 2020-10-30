@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- let和const和var一样是JS中定义变量的关键字
+			let：用于定义变量 定义的变量可以重新赋值 改变其内容和数据类型
+			const:用于定义常量 定义的常量不能重新赋值 第一次定义的是什么就是什么 不允许改变 较为常用
+				const修饰的标识符必须赋值 且不允许改变
+				const定义对象时 指向的对象不能改变 但是可以改变对象内部的属性（给对象的属性重新赋值）
+			
+			let/const和var的区别：
+				1，let/const不能重新声明变量 就可以避免重复声明同一个变量名 造成数据混乱  
+					var能够重新声明变量  如果var声明一个忘了已经声明过的变量 程序不会报错 但是可能已经不是我们想要的数据了
+				2，let/const的作用域范围是块作用域 范围只在{}里边 出了{}块作用域的范围 该变量就失效了 因此不会污染全局变量
+					{}包括 函数function(){}  if(){} for(){}等   
+					var的作用域是函数作用域 函数function(){}  即只有函数的{}里的局部变量不会污染全局变量 出了函数体就失效
+					而if  for 这些的{}里边用var生命的变量依旧是全局变量 会污染全局变量
+		 -->
+		 
+		<script type="text/javascript">
+			// var重复声明变量  第一行声明了price  第1000行不小心重新声明了 第5000行输出想要5 却变成了29
+			var price = 5;
+			var price = 29;
+			console.log(price); //29
+			// let/const不能重新声明变量
+			let name1 = '小明';
+			const name2 = '小小明';
+			/* let name1 = '小红';
+			console.log(name1); //报错 不能重复声明 */
+			name1 = '小花';
+			// name2 = '小小花'; //报错 不可以改变const声明的变量的值
+			console.log(name1);  //可以改变值
+			
+			// 作用域
+			var number = 2;
+			if(number >=1){
+				var number2 = 4;
+			}
+			console.log(number2); //if的{}外面可以取到里面声明的值 if{}里面声明的是全局变量
+			
+			const Num = 2;
+			if(Num >=1){
+				const Num2 = 4;
+			}
+			console.log(Num2); //报错 Num2没有被定义 即Num2在if{}外面失效了 只能在里边起作用
+		</script>
+	</body>
+</html>

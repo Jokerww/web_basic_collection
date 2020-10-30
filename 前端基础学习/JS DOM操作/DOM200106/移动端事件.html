@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div{
+				width: 200px;
+				height: 200px;
+				background-color: pink;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 移动端的触屏事件：touch事件(Android\IOS)
+			移动端的兼容性较好 一般不需要考虑JS的兼容性问题
+			touchstart:手指触摸到一个DOM元素触发(mousedown)
+			touchmove:手指在一个DOM元素上移动触发(mousemove)
+			touchend:手指从一个DOM元素上离开触发(mouseup)
+		 -->
+		 <div></div>
+		 <script type="text/javascript">
+		 	var div = document.querySelector('div');
+			div.addEventListener('touchstart',function(){
+				console.log(11);
+			});
+			div.addEventListener('touchmove',function(){
+				console.log('我在移动');
+			});
+			div.addEventListener('touchend',function(){
+				console.log('走了~');
+			})
+		 </script>
+	</body>
+</html>

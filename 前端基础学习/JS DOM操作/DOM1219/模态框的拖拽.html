@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			.mask{
+				display: none;
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 1000px;
+				background:rgba(0,0,0,.2);
+			}
+			button{
+				display: block;
+				padding: 20px;
+				margin: 30px auto;
+			}
+			.login{
+				display: none;
+				position: fixed;
+				top: 45%;
+				left: 45%;
+				width: 300px;
+				height: 200px;
+				background-color: #FFFFFF;
+			}
+			.login i{
+				position: absolute;
+				top: -15px;
+				right: -15px;
+				height: 30px;
+				width: 30px;
+				cursor: default;
+				background-color: #fff;
+				border-radius: 15px;
+				border: 1px solid lightgrey;
+				font-size: 12px;
+				font-style: normal;
+				line-height: 30px;
+				text-align: center;
+			}
+			
+			.log_hd{
+				height: 50px;
+				cursor: move;
+				text-align: center;
+				line-height: 50px;
+			}
+			.log_bd{
+				padding: 10px;
+				height: 80px;
+			}
+			.left{
+				float: left;
+				width: 60px;
+				height: 80px;
+				line-height: 35px;
+				text-align: right;
+				font-size: 12px;
+			}
+			.right {
+				float: left;
+				width: 80px;
+				height: 80px;
+				padding: 5px;
+			}
+			input{
+				width: 200px;
+				height: 30px;
+				margin-bottom: 5px;
+				padding: 3px;
+				font-size: 12px;
+			}
+			.login p{
+				display: block;
+				cursor: default;
+				width: 120px;
+				margin: 10px auto;
+				padding: 10px;
+				text-align: center;
+				border: 1px solid lightgrey;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 需求：点击登录按钮 弹出登录框 显示遮罩层
+				   点击关闭 即可关闭登录框 隐藏遮罩层
+				   鼠标按下弹出框上部可拖拽 移动鼠标可拖拽登录框 
+				   松开鼠标不释放拖拽
+			步骤：
+				1，先实现点击点击登登录按钮的样式变化
+				2，点击鼠标后的才可拖拽和松开鼠标
+					因此 鼠标移动事件和松开事件都在按下事件里边
+				3，模态框的拖拽时 要求鼠标相对于模态框的位置是不变的
+					鼠标移动时 将鼠标相对于页面的位置减去鼠标相对于模态框的位置
+					就等于模态框相对于页面的位置 就实现了模态框的移动了
+		 -->
+		<div class="mask"></div>
+		<button type="button">点击弹出登录框</button>
+		<div class="login">
+			<i>关闭</i>
+			<div class="log">
+				<div class="log_hd">登录会员</div>
+				<div class="log_bd">
+					<div class="left">用户名：<br/>登录密码：</div>
+					<div class="right">
+						<input type="text" placeholder="请输入用户名" />
+						<input type="password" placeholder="输入密码"/>
+					</div>
+				</div>
+			</div>
+			<p>登录会员</p>
+		</div>
+		
+		<script type="text/javascript">
+			var btn = document.querySelector('button');
+			var mask1 = document.querySelector('.mask');
+			var login = document.querySelector('.login');
+			var log_hd = document.querySelector('.log_hd');
+			var i = document.querySelector('i');
+			// 点击按钮 弹出遮罩层和框框
+			btn.addEventListener('click',function(){
+				mask1.style.display = 'block';
+				login.style.display = 'block';
+			});
+			// 点击关闭 隐藏遮罩层和框框
+			i.addEventListener('click',function(){
+				mask1.style.display = 'none';
+				login.style.display = 'none';
+			});
+			// 按住模态框的头部能拖拽
+			log_hd.addEventListener('mousedown',function(e){
+				// 获得鼠标相对于模态框的位置 一按下就要获得
+				var x = e.pageX - login.offsetLeft;
+				var y = e.pageY - login.offsetTop;
+				// 鼠标按下后移动才有用 
+				// 鼠标的移动是在整个文档内的移动 由文档内触发移动事件 
+				// 而不仅仅是在头部的范围内触发移动
+				document.addEventListener('mousemove',move);
+					// 鼠标相对于页面的坐标减去xy就是模态框的坐标
+					function move(e){
+						login.style.top = e.pageY - y +'px';
+						login.style.left = e.pageX - x+'px';
+					};
+					// 鼠标弹起 移除事件
+				document.addEventListener('mouseup',function(){
+					document.removeEventListener('mousemove',move);
+				});
+			});
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="vue.js"></script>
+
+	</head>
+	<body>
+		<!-- 响应式的是指 当改变利用某些方法改变数据时 界面显示的数据会相应的跟着改变 
+		
+		数组的常用响应式方法:
+			push() 在数组的最后添加元素
+			pop()在数组的最后删除元素
+			unshift()在数组的最前面添加元素
+			shift()在数组的最前面删除元素
+			splice()从指定位置删除/替换/插入元素
+			sort()重新排序
+			reverse()数组逆序
+		通过索引修改元素是非响应式的：
+			num[0] = 9; 
+			这样的操作是非响应式的
+		-->
+		<ul id="app">
+			<li v-for="(n,index) in num1">{{index+1 +' '+n}}</li>
+		</ul>
+		
+		<script type="text/javascript">
+			// 以上的方法在浏览器中演示
+			const app = new Vue({
+				el:'#app',
+				data:{
+					num1:[10,2,3,56,8,22]
+				}
+			})
+		</script>
+	</body>
+</html>

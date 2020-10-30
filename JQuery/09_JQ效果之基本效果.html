@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript" src="JQuery_min.js"></script>
+		<style type="text/css">
+			div{
+				display: none;
+				width: 200px;
+				height: 200px;
+				background-color: pink;
+			}
+		</style>
+	</head>
+	<body>
+		<!--JQ 里边封装了很多的动画效果 
+		   JQ基本效果：使用 hide() 和 show() 方法来隐藏和显示 HTML 元素：
+				1，显示show(s,e,fn)：显示某个元素 $(selector).hide(speed,callback);
+						s   speed 参数规定隐藏/显示的速度，可以取以下值："slow"、"fast" 或毫秒
+						e   指定切换效果 默认swing 可选参数linear
+						fn  回调函数 callback 参数是隐藏或显示完成后所执行的函数名称。
+						
+				2,隐藏hide(s,e,fn):$(selector).show(speed,callback);
+				
+				3,切换toggle(s,e,fn): 使用 toggle() 方法来切换 hide() 和 show() 方法。 
+					显示被隐藏的元素，并隐藏已显示的元素：$(selector).toggle(speed,callback);
+					
+			
+		 -->
+		<button type="button">显示</button>
+		<button type="button">隐藏</button>
+		<button type="button">切换</button>
+		<div id="">
+			
+		</div>
+		<script type="text/javascript">
+			$(function(){
+				//点击按钮 显示下边的div
+				$('button').eq(0).click(function(){
+					$('div').show(1000);
+				});
+				//点击按钮 隐藏下边的div
+				$('button').eq(1).click(function(){
+					$('div').hide(1000);
+				});
+				//点击按钮3 切换效果
+				$('button').eq(2).click(function(){
+					$('div').toggle(1000);
+				});
+			})
+		</script>
+	</body>
+</html>

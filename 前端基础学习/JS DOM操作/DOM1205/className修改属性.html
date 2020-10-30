@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			
+			.div{
+				width: 150px;
+				height: 100px;
+				background-color: pink;
+				text-align: center;
+				line-height: 100px;;
+			}
+			.change{
+				width: 300px;
+				height: 200px;
+				background-color: #00A4FF;
+				color: #fff;
+				font-size: 20px;
+				margin-top: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 利用element.style.样式属性名 = '属性值'；来修改样式 
+				当样式过多时 就会非常的复杂和繁琐 
+				何不先用另一个类选择器把样式用css写好 然后用js改变元素的类名 
+				就可以直接改样式啦
+			
+		element.className 用于改变元素的类名 便于给元素切换样式 适合于样式较多的情况
+				直接更改类名 会直接覆盖原来的类名
+				如果想要保留原来的类名 就在在赋值时 先写上原来的类名 在写上要改变的类名
+		 -->
+		<div class="div">
+			该类名 变样式
+		</div>
+		<script type="text/javascript">
+			var div = document.querySelector('div');
+			div.onclick=function(){
+				// 改变当前元素的类名 
+				// 之前.change在CSS里写在了.div后面 所以会被.div覆盖  
+				this.className = 'div change';
+			}
+		</script>
+	</body>
+</html>

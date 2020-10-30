@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 回调函数：
+			1，setTimeout()这个调用函数称为回调函数
+			普通函数是按照代码顺序直接调用
+			而这个函数需要等待时间 时间到了才回去调用这个函数 因此称为回调函数
+			就是 上一件事情干完 再回头来调用这个函数
+			element.onclick=function(){} 或 element.addEventListener('click',fn)
+			都属于回调函数
+		
+		 
+		 -->
+		<!-- 停止计时器clearTimeout(TimeoutID)
+		 clearTimeout(Timeout名)方法用于停止计时器 
+		 计时器得先起个名字
+		 -->
+		 <button type="button">点击停止计时器</button>
+		 <script type="text/javascript">
+		 	var btn = document.querySelector('button');
+			// 设置定时器
+			var timer4 = setTimeout(callback,5000);
+			function callback(){
+				console.log('5秒到了 boom！！');
+			}
+			// 点击按钮 停止定时器 括号里边跟定时器的ID(名字)
+			// 所以定时器首先得 有个名字 才能关掉它
+			btn.addEventListener('click',function(){
+				clearTimeout(timer4);
+			})
+		 </script>
+		 
+	</body>
+</html>

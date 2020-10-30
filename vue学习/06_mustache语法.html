@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="vue.js"></script>
+
+	</head>
+	<body>
+		<!-- mustache语法中 不仅仅可以直接写变量 还可以写简单的表达式 -->
+		<div id="app">
+			<h2>{{message}}</h2>
+			<!-- 拼接 -->
+			<h2>{{message}},hahah</h2>
+			<!-- 表达式 -->
+			<h2>{{fistName + lastName}}</h2>
+			<!-- 添加空格的两种方式  ''中间有一个空格-->
+			<h2>{{fistName + ' ' + lastName}}</h2>
+			<h2>{{fistName}} {{lastName}}</h2>
+			<!-- 乘法 200-->
+			<h2>{{counter * 2}}</h2>
+		</div>
+		
+		<script>
+			const app = new Vue({
+				el:'#app',
+				data:{
+					message:'你好！',
+					fistName:'Kobe',
+					lastName:'bryant',
+					counter:100
+				}
+			})
+		</script>
+	</body>
+</html>

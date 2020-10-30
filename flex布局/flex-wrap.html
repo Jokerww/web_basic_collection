@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.fa{
+				display: flex; /* 子元素会有inline-block相关的特性 */
+				flex-direction:row; /* 子元素不换行 宽度收缩 */
+				/* flex-wrap: wrap; /* 换行后就不会收缩宽度  */
+				flex-wrap: wrap-reverse; /* 同样是从左向右 第一行在下面 */
+				height: 400px;
+				width: 400px;
+				background-color: pink;
+			}
+			span{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				margin: 0 5px;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<!-- 
+		 flex-wrap：子元素是否换行；
+		 		nowrap 默认值，不换行，当容器一行装不下元素时不换行 
+		 				此时会同时收缩子元素的宽度 让容器将他们装下
+		 		wrap 换行 一行装不下元素时 子元素会到下一行显示
+		 		wrap-reverse：换行，第一行在下方
+		 -->
+		 
+		 <div class="fa">
+		 	<span>1</span>
+		 	<span>2</span>
+		 	<span>3</span>
+		 	<span>4</span>
+		 	<span>5</span>
+		 </div>
+	</body>
+</html>

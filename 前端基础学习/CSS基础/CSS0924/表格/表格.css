@@ -1,0 +1,32 @@
+#table1{
+	width: 25rem;
+	height: 18.75rem;
+	text-align: center; /* 文字居中 */
+	padding: 0.625rem;
+	border: 2px dashed blue;/* 可设置四周的样式border-right-style */
+	/* border-collapse: collapse; 折叠边框 双线变成单线 */
+}
+
+.tr1{
+	border: #0000FF; /* 可设置四周的颜色border-right-color */
+	background-color: #7FFFD4; 
+	
+}
+.th1{
+	padding: 1.25rem;
+}
+.td1{
+	border-style: outset;
+	border-width: thick;/* 可设置四周的宽度border-right-width */
+}
+
+.td2{
+	border-radius: 1.875rem 0.625rem;/* 圆角边框 可设置不同的四个值 让四边各不相同 */
+}
+.td3{
+	border-width: 2.125rem;
+	border-image: url(cat1.jpg) 35 round ;
+	/* 以图片填充边框（花边） 给出图片源 指定切出图片使用的边框线 
+	填充方式 
+	border的使用方式不是只能用在表格中  有边框的标签都能用 如div  等*/
+}

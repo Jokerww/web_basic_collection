@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!-- <script src="variable变量.js" type="text/javascript" charset="utf-8"></script> -->
+		<script type="text/javascript">
+			var color = prompt("输入颜色：");
+			// 调试用console.log() alert()是弹出警示框 限制太多
+			console.log("输入的颜色是：" ,color);
+			// console.log("输入的颜色是：" +color); 也行
+			var a1;   //  只声明不赋值的输出为:undefined
+			console.log(a1);
+			// 不声明直接输出会报错 除了name 
+			console.log(name) ;/* 什么都没输出但留了个位子 */
+			// console.log(a2) /* 报错后,后续的程序都运行不了 */
+			
+			// 交换两个变量的值 需要中间变量
+			var apple1 = "red apple";
+			var apple2 = "green apple";
+			var temp;
+			temp = apple1;
+			apple1 = apple2;
+			apple2 = temp;
+			console.log(apple1 , apple2)
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

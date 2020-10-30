@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Math内置对象</title>
+	</head>
+	<body>
+		<!-- Math对象  以下摘自MDN文档
+			1，Math 是一个内置对象， 它具有数学常数和函数的属性和方法。
+			   不是一个函数对象
+			2，与其他全局对象不同的是，Math 不是一个构造器，不需要new来创建。
+			   Math 的所有属性与方法都是静态的。
+			   引用圆周率的写法是 Math.PI，
+			   调用正余弦函数的写法是 Math.sin(x)，x 是要传入的参数。
+			   Math 的常量是使用 JavaScript 中的全精度浮点数来定义的。
+			-->
+			
+			<script type="text/javascript">
+				console.log(Math.PI); //返回常数π
+				/* Math.max()：返回一组数中的最大值，返回给定的一组数字中的最大值。
+				如果给定的参数中至少有一个参数无法被转换成数字，则会返回 NaN*/
+				console.log(Math.max(1,2,5,9));//返回最大值
+				console.log(Math.max());//值为空则返回-infinity
+				console.log(Math.max(1,4,5,'3'));//含有隐式转换 字符串被转换成数字
+				console.log(Math.max(1,4,5,'hha'));//不能转换成数字则输出NaN
+			</script>
+			
+			<!-- 案例：封装自己的数学对象 -->
+			<script type="text/javascript">
+				var math1 = {
+					// PI:Math.PI,
+					PI:3.141592654,
+					max:function () {
+						var max = arguments[0];
+						for (var i=1;i<arguments.length;i++) {
+							if (max<arguments[i]) {
+								max=arguments[i];
+							}
+						}
+						return max;
+					},
+					min:function () {
+						var min = arguments[0];
+						for (var i=1;i<arguments.length;i++) {
+							if (min>arguments[i]) {
+								min=arguments[i];
+							}
+						}
+							return min;
+					}
+				}
+			console.log(math1);//输出一个常数 两个求极值的函数
+			console.log(math1.max(2,4,591));
+			console.log(math1.min(2,4,591));
+			</script>
+			
+			
+			<!-- Math对象常用方法：其他见MDN文档Math对象
+					Math.abs()绝对值
+					Math.ceil()向上取整
+					Math.floor()向下取整
+					Math.round()四舍五入
+					Math.log()自然对数
+					Math.log2()2为底的对数
+					Math.sqrt()平方根  
+					Math.random()随机数-->
+		<script type="text/javascript">
+			// Math.abs()
+			console.log(Math.abs(1));//1
+			console.log(Math.abs(-1));//1
+			console.log(Math.abs("1"));//1 隐式转换
+			
+			// Math.ceil()  ceil天花板 向上取整 往大的数取 
+			console.log(Math.ceil(2.1));//3
+			console.log(Math.ceil(2.8));//3
+			console.log(Math.ceil(-1.2));//-1
+			console.log(Math.ceil(-1.6));//-1
+			console.log(Math.ceil(-1.5));//-1
+			
+			// Math.floor()往小的取
+			console.log(Math.floor(3.8));//3
+			console.log(Math.floor("3.2"));//3 隐式转换
+			console.log(Math.floor(-3.5));//-4 -4比-3小
+			
+			// Math.round()
+			console.log(Math.round(3.2));//3 向下取
+			console.log(Math.round(3.5));//4 向上取
+			console.log(Math.round(-3.5));//-3 向上取
+			
+			// Math.log10()
+			console.log(Math.log10(100));//2
+			
+			// Math.sqrt()
+			console.log(Math.sqrt(16));//4
+			// 包含两个属性  Math.SQRT2 2的平方根  Math.SQRT1_2 二分之一的平方根
+			console.log(Math.SQRT2);
+			
+			// Math.random() 不传参数 
+			// 返回一个浮点型伪随机数字，在0（包括0）和1（不包括）之间
+			console.log(Math.random());
+			
+			// 得到随机两个数之间的任意数
+			function getRandom (min,max) {
+				return min+Math.random()*(max-min);
+			}
+			console.log(getRandom(2,5));
+			
+			//得到随机两个数之间的任意整数 不包含最右端的值
+			function getRandomInt (min,max) {
+				min = Math.ceil(min); //给参数重新赋值 要整数 最小值也要整数
+				// max = Math.floor(max);  给这个赋值会导致最大的整数取不到的情况
+				return min+Math.floor(Math.random()*(max-min)); 
+			}
+			console.log(getRandomInt(2.5,9.1));//能取到3 但取不到9 不合理
+			
+			// 得到随机两个数之间的任意整数 包含最右端的值
+			function getRandomIntInclusive (min,max) {
+				min = Math.ceil(min);
+				// max=Math.floor(max); 感觉这句可有可无的亚子
+				return min+Math.floor(Math.random()*(max+1-min)); //加了1
+			}
+			console.log(getRandomIntInclusive(2.3,9)); //能取到9
+			
+			// 随机点名
+			var arr1=['张三','李四','王五','胖子','大黄'];
+			console.log(arr1[getRandomIntInclusive(0,arr1.length-1)]); //两边都能取到
+		</script>
+		
+		<!-- 案例：猜数字游戏 随机生成一个数字 让用户猜 -->
+		<script type="text/javascript">
+			function getRandomIntInclusive (min,max) {
+				min = Math.ceil(min);
+				// max=Math.floor(max); 感觉这句可有可无的亚子
+				return min+Math.floor(Math.random()*(max+1-min)); //加了1
+			}
+			var num1 = getRandomIntInclusive(1,100);
+			console.log(num1);
+			var i=1;
+			while (i<=10){ //死循环 猜对才退出
+				var str = '这是第'+i+'次尝试~';
+				if (i==10) {
+					var str = "这是最后一次尝试了！加油~";
+				} 
+				var num2 = prompt(str+'\n输入一个数字(0-100,)：\n只有10次机会哦')-0;
+				if (num2>num1) {
+					alert('你的数字太大了！');
+				} else if (num2<num1){
+					alert('你的数字太小了！');
+				}else{
+					alert('恭喜你 猜对了')
+					break;
+				}
+				i++;
+				
+			}
+		</script>
+</html>

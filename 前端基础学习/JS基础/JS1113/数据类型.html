@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>JS的一些基础知识</title>
+	</head>
+	<body>
+		
+		<!-- 简单数据类型又叫做基本数据类型或者值类型 复杂数据类型叫做引用类型
+		 1，值类型：在存储变量时存储的是值本身，因此叫做值类型 
+				存放在栈中(JS其实没有堆栈概念 便于理解)
+				number string boolean undefined null
+				null 的类型是对象 存的是空的对象
+		 2，引用类型：在存储变量是存储的仅仅是地址(引用)，因此叫做引用类型
+				地址存放在栈中 地址的内容存放在堆中
+				通过new 关键字创建的对象(Object Array Date)等
+		 -->
+		 
+		 <!-- 传输传递：
+			1，简单数据类型传参：直接把值给变量 或者改变变量指向的值
+			-->
+		<script type="text/javascript">
+			var x = 20; //直接开辟空间 存个20 然后x指向这个20
+			x = 22; //把刚刚x指向的这个空间里边的20改成22
+			
+			function fn(a){
+				a++;
+				console.log(a);
+			}
+			var b=10;
+			fn(b); //11 把b的值复制了一份数据空间 给了a 所以a与b无关
+			console.log(b);//10
+		</script>
+		
+		<!-- 复杂数据类型传参：
+			参数里边存放的地址，而地址指向的另一个地方才是真正的对象所在的地方
+			所以在传递参数时 传递的是地址 而不是对象的内容
+			如：var x = new Object(‘哈哈’); p=x; x把对象的地址复制一份给了p p与x指向的是同一个对象object('哈哈')
+		-->
+		<script type="text/javascript">
+		function Person (name) {
+			this.name = name;
+		}
+		
+		function f1(x) {
+			console.log(x.name); // 4,所以Person对象里边此时的名字是'刘德华'
+			x.name = '张学友'; //5,把x指向的对象里的name属性改了 改成了'张学友'
+			console.log(x.name);//6,此时的name就是'张学友'
+		}
+		var p = new Person('刘德华');//1,开辟一个空间 放了Person对象的地址 p指向这个空间
+		console.log(p.name);// 2,刘德华
+		f1(p);//3,把p给了x 也就是把Person对象的地址给了x 那么x最终指向Person对象
+		console.log(p.name);//7,p指向的对象与x指向的对象相同,而对象里边的值被x给改了 见5
+		                     //因此此时的name就是'张学友'
+		</script>
+		
+		<script type="text/javascript">
+			// 复杂数据类型复制再探讨
+			var x = new Object();
+			x.name = '小红';
+			x.age = 18;
+			console.log(x);
+			
+			var p = x;//复杂数据类型传参
+			console.log(p);//给的是地址 指向同一个空间 对象里边的内容都相同
+			p.height = 180;
+			console.log(p);//改变了p  看看x变了没有
+			console.log(x);//x也改变了 就验证上述的事实 x和p最终都只想同一个对象 同时发生改变
+		</script>
+	</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 对象的解构赋值 取出对象里边的值并存在一个变量里
+			const person = {
+				name:'小明',
+				age: 18,
+				height : 180,
+				social:{
+					bilibili : 123456,
+					youtube : '小明明'
+				}
+			}
+			1，原始的方法要一个一个的取值 解构赋值 {变量名1，变量名2...} = 要取出值的对象名
+				变量名一定要与对象里边的key名一样 否则不能取出 会报错
+				const {name,age,height} = person;
+			2, 对象是里边嵌套对象2 要取出对象2里的值 那么等号的右边需要将取值的范围改写到嵌套的对象里
+				const {bilibili,youtube} = person.social;
+			3,取出的值一部分在对象外层 一部分在嵌套对象里 就更改{}里的取值范围
+			   const {name ,social:{bilibili}} = person;
+			4,想给取得的值更改变量名 不想用原对象里的变量名  原变量名：新变量名
+				const {name:myName ,social:{bilibili:bili}} = person; 
+				console.log(myName.bili);使用时就使用新的变量名
+			5，若无法确认对象里是否有该变量名 可给改变两名夫一个默认值 没有时会输出默认值 而不会报错
+				const {name:myName ,social:{bilibili:bili=00000}} = person; 
+				
+			数组的解构赋值 [变量名1，变量名2...] = 要取出值的数组名
+			若对象里嵌套的是数组 加入变量范围后 用[]赋值
+			常用于取出字符串后 分割成数组 再存入变量
+			数组的解构赋值可用于变量交换 a b交换数值  [a,b] = [b,a]
+		 -->
+		 <script type="text/javascript">
+		 	const person = {
+		 		name:'小明',
+		 		age: 18,
+		 		height : 180,
+		 		social:{
+		 			// bilibili : 123456,
+		 			youtube : '小明明'
+		 		}
+		 	};
+			/* const {name,age,height} = person;
+			console.log(name,age,height); */
+			/* const {bilibili,youtube} = person.social;
+			console.log(bilibili,youtube); */
+			/* const {name:myName ,social:{bilibili:bili}} = person; 
+			console.log(myName,bili); */
+			const {name:myName ,social:{bilibili:bili= 4222}} = person; 
+			console.log(myName,bili);
+		 </script>
+	</body>
+</html>

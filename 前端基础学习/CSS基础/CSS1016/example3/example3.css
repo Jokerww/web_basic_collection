@@ -1,0 +1,10 @@
+.div1,.div2{
+	width: 200px;
+	height: 100px;
+	background-color: #7FD0D4;
+	margin: 5px 0px;
+}
+
+.div2{
+	padding: 10px;
+}

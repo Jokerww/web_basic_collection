@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript" src="JQuery_min.js"></script>
+
+	</head>
+	<body>
+		<!-- JQ拷贝对象
+			方法： $.extend([deep],target,obj1.[objN]);
+				[deep]: true为深拷贝 把拷贝对象里边的复杂数据类型（如对象）完完整整的拷贝给目标 同时为该复杂数据重新开辟空间
+						更改目标中的复杂数据类型的值不会改变原来对象里边相应的值 
+						拷贝时遇到同名的属性会覆盖掉原属性值 遇到原对象没有的属性就将其留下 二者取并集
+						false为浅拷贝 把拷贝对象里边的复杂数据类型的地址拷贝给目标 原对象与目标中的复杂数据类型数据共用一个地址空间存储复杂数据类型
+						更改目标中的复杂数据类型的值会改变原来对象里边相应的值
+						拷贝时遇到同名的属性会覆盖掉原属性值 遇到原对象没有的属性就将其留下 二者取并集
+
+				target：将内容拷贝给targrt
+				obj:   拷贝obj的内容 可以有多个
+		 -->
+		 <script type="text/javascript">
+			 var target = {
+				 name : '小王',
+				 height:180
+			 };
+		 	var obj = {
+				name:'小明',
+				age:18,
+				girl_friend:{
+					name:'小红',
+					age:20
+				}
+			};
+			/* // 浅拷贝
+			$.extend(target,obj);//相同的name属性被覆盖了 height还在
+			console.log(target);
+			target.girl_friend.name = '花花';
+			console.log(obj.girl_friend.name);//本来是小红 现在变成了花花 */
+			// 深拷贝
+			$.extend(true,target,obj);//相同的name属性被覆盖了 height还在
+			console.log(target);
+			target.girl_friend.name = '花花';
+			console.log(obj.girl_friend.name);//还是小红  
+		 </script>
+	</body>
+</html>

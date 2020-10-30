@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../vue.js"></script>
+	</head>
+	<body>
+		<!-- checkbox里边value的值默认是布尔值
+			radio里的value没有默认值 需要自己给定
+		 -->
+		<div id="app">
+			<label for="license">
+				<input type="checkbox" id="license" v-model="checked">同意协议
+			</label>
+			<br/>
+			<!-- 不同意协议就不能进行下一步 -->
+			<button type="button" :disabled="!checked">下一步</button>
+		</div>
+		<script type="text/javascript">
+			const app = new Vue({
+				el:'#app',
+				data:{
+					checked:false
+				}
+			})
+		</script>
+	</body>
+</html>

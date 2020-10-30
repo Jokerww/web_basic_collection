@@ -1,0 +1,12 @@
+#Pid{  /* 以标签的id为选择器指定样式 */
+	color: #0000FF; 
+	font-size: larger;
+}
+
+#did{
+	color: #FF0000;
+}
+
+#pid1 a{   /* 只给P标签里的a标签加样式 但是p标签里的其他内容没有样式 */
+	color: #8A2BE2;
+}
