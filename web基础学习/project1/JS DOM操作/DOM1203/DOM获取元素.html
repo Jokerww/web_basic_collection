@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 文档对象模型(Document Object Model):处理可扩展标记语言的标准编程接口
+				W3C已经定义了一系列的DOM接口 通过这些接口改变网页的内容、结构和样式
+				DOM树
+			文档：一个页面就是一个文档 document
+			元素：页面中所有的标签都是元素 element
+			节点：网页中所有的内容都是节点(标签、属性、文本、注释等) node
+			
+			web API 的学习与之前JS内置对象的学习方法相同：干什么的 输入什么参数 返回值是什么
+		 -->
+		<!-- DOM对网页进行操作时像CSS一样 要先获取网页元素 才能对其进行操作
+				获取页面元素的方式：
+					根据ID获取：ID一般是独一无二的
+					根据标签名获取
+					通过HTML5新增的方法获取
+					特殊元素获取
+					-->
+		<!-- 根据ID获取元素 getElementById(id) 驼峰命名法来给这些方法命名的
+				通过元素的ID获取当前文档的元素对象
+				参数时id名 id是大小写敏感的字符串，代表了所要查找的元素的唯一ID.
+				返回一个匹配到ID的DOM Element(标签/元素) 对象。若在当前Document下没有找到，则返回null
+				注：返回的是元素对象
+		 -->
+		<div id="time">2019-12-3</div>	
+		<script type="text/javascript">
+			// 文档是从上往下加载的 所以要先有标签 才能获取到他 所以script标签写在下面
+			// 输入参数是字符串 一定是字符串 所以要加引号 id名不是变量
+			var timer = document.getElementById("time");
+			// 返回的是具有"time"id的整个标签对象
+			console.log(timer);
+			console.log(typeof timer);
+			// console.dir()能返回标签的全部属性 方便了解元素
+			console.dir(timer);
+		</script>
+		
+		<!-- 根据标签名获取元素 getElementsByTagName(name) element后面有s
+			通过标签名获取文档中的所有给定标签名的元素的集合HTML collection
+				整个文件结构都会被搜索，包括根节点。返回的 HTML集合是动态的, 
+				意味着它可以自动更新自己来保持和 DOM 树的同步
+			参数是一个代表元素的名称的字符串。特殊字符 "*" 代表了所有元素。
+			返回指定元素的动态集合即伪数组(在WebKit内核的浏览器中返回一个 NodeList )
+			注：不管有没有元素 有几个元素 该方法的返回结果 都是一个集合 伪数组
+		-->
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+		</ul>
+		<ol id="ol">
+			<li>5</li>
+			<li>6</li>
+			<li>7</li>
+			<li>8</li>
+		</ol>
+		<ol>
+			<li>55</li>
+			<li>66</li>
+			<li>77</li>
+			<li>88</li>
+		</ol>
+		<script type="text/javascript">
+			var li = document.getElementsByTagName("li");
+			console.log(li);//得到的是包含页面中所有li元素对象的伪数组
+			// 想到得到里边的li对象 需要遍历
+			for (var i=0;i<li.length;i++) {
+				console.log(li[i]);//返回的就是单独某一个li标签对象
+			}
+			// 若页面中只有一个li标签 或者根本没有li标签 返回的依然是一个伪数组
+			// 只不过里边只有一个元素 或者为空
+			
+			/* 若是页面中有很多个li 但是我只想获得ol下面的li 可以通过给给定父元素
+			 的形式来找到想要的li  element.getElementsByTagName()
+			 注意：这里的element只能是一个对象 不能是数组集合 
+				得到的element是伪数组集合的话 一定要调出里边的某一个对象作为父元素
+			 */
+			// var element = document.getElementsByTagName('ol');
+			// console.log(element);//输出的是一个包含多个ol对象的伪数组
+			// console.log(element[0].getElementsByTagName('li'));//输出ol包含多个li对象的伪数组
+			
+			// 比较好的方法是先通过id获取父元素 在直接获取其子元素集合
+			var element = document.getElementById("ol");
+			console.log(element);//输出对象
+			console.log(element.getElementsByTagName('li'));//返回li集合
+		</script>
+		
+		<!-- HTML5新增方法 不兼容IE8及以下版本
+			1，通过类名获取元素 getElementsByClassName()
+				返回一个包含了所有指定类名元素的类数组对象
+					当在document对象上调用时，会搜索整个DOM文档，包含根节点
+					也可在任意元素上调用,将返回以当前元素为根节点，
+					所有指定类名的子元素 即element.getElementsByClassName()。
+				参数是一个字符串，表示要匹配的类名；多个类名通过空格分隔
+				返回的是一个实时集合，包含了找到的所有元素的伪数组
+			2，通过选择器获取元素 querySelector()返回指定选择器的第一个元素对象
+				返回文档中与指定选择器或选择器组匹配的第一个 html元素Element
+				参数包含一个或多个要匹配的选择器的 DOM字符串DOMString。 
+					该字符串必须是有效的CSS选择器字符串 .class #id div
+				返回文档中与指定的一组CSS选择器匹配的第一个元素的html元素Element对象。
+					如果需要与指定选择器匹配的所有元素的列表，则应该使用querySelectorAll() 
+				
+		 -->
+		 <div class="box">盒子1</div>
+		 <div id="box1">
+			 <p class="box">哈哈1</p>
+			 <p class="box">哈哈2</p>
+			 <p class="box">哈哈3</p>
+		 </div>
+		 <p class="box">盒子p</p>
+		 <script type="text/javascript">
+		 	var boxes = document.getElementsByClassName('box');
+			console.log(boxes);//返回类名为box的所有元素对象的集合
+			console.log(boxes[0]);//返回该伪数组的第一个元素对象
+			
+			// 可通过指定根节点来限定查找范围
+			box1 = document.getElementById('box1').getElementsByClassName('box');
+			console.log(box1);//返回id为box1为父元素的 类名为box 的元素的集合
+			
+			// 通过选择器获取对象
+			var selector = document.querySelector('.box');
+			var selector1 = document.querySelector('#box1');
+			var selector_all = document.querySelectorAll('.box')
+			var selector_part = document.getElementById('box1').querySelector('.box');
+			
+			 console.log(selector);//返回第一个.box的元素对象
+			 console.log(selector1);//返回第一个#box1的元素对象
+			 console.log(selector_all);//与getElementsByClassName()效果相同 返回伪数组
+			 console.log(selector_part);//返回id为box1元素下的第一个类为box的元素对象
+		 </script>
+		 
+		 <!-- 获取特殊的元素对象：
+		  1，获取body元素： document.body
+		  2,获取html元素：document.documentElement
+		  -->
+		  <script type="text/javascript">
+		  	console.log(document.body);
+			console.log(document.documentElement);
+		  </script>
+	</body>
+</html>

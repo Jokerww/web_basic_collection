@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>事件</title>
+	</head>
+	<body>
+		<!-- Javascript 用于创建动态页面 而事件是可以被JavaScript侦测到的行为
+			简单理解：触发---响应机制
+			网页中的每个元素都可以触发JS的事件 例如用户点击按钮执行某些操作
+		 -->
+		 
+		 <!-- 事件三要素：时间源 事件类型 事件处理程序
+				事件源：事件被触发的元素  是谁触发了这个事件
+				事件类型：如何触发？是什么行为触发的？鼠标点击(onclick)、鼠标经过 键盘按下等
+				事件处理程序：通过一个函数定义完成 
+		  -->
+		 <!-- 事件处理步骤：
+				1，获取事件源
+				2，注册事件(绑定事件)
+				3，添加事件程序(采用函数赋值形式)
+		  -->
+		  <!-- 常见的鼠标事件：
+				onclick：鼠标点击左键触发
+				onmouseover：鼠标经过触发
+				onmouseout：鼠标离开触发
+				onfocus:获得鼠标焦点触发
+				onblur:失去鼠标焦点触发
+				onmousemove:鼠标移动触发
+				onmouseup:鼠标弹起触发
+				onmousedown：鼠标按下触发
+		   -->
+		<button id="btn">点一下</button>
+		<script type="text/javascript">
+			// 首先要获取时间源
+			var btn = document.getElementById('btn');
+			// 注册事件 添加时间处理程序 绑定类型所调用的时间处理函数
+			btn.onclick = function(){
+				alert("点点~");
+			}
+		</script>
+	</body>
+</html>

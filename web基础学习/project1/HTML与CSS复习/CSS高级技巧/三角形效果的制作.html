@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>三角形效果的制作</title>
+		<!-- 1，一个盒子 没有大小 只有边框 那么他实际的宽和高就由边框的大小来决定
+			 2，如果给这个没有大小只有边框的盒子的四个边框四个不同的样色 就会发现
+				这四个边框就是四个颜色不一样的三角形
+			 3，只要一个三角形的话 就让其他的边框颜色变成透明就行啦
+			 4，三角形的大小 其实就是边框的粗细 
+		 -->
+		<style type="text/css">
+			.div1{
+				/* 没有大小 只有边框的盒子长啥样？ */	
+				width: 0;
+				height: 0;
+				border: 20px solid pink;
+			}
+			.div2{
+				/* 四个边框的颜色不一样呢？
+				 就是由四个三角形组成的一个框框  相邻边框连接处 就是三角形链接*/
+				width: 0;
+				height: 0;
+				border: 20px solid pink;
+				border-right-color: blue;
+				border-bottom-color: green;
+				border-left-color: red;
+				margin-top: 10px;
+			}
+			.div3{
+				/* 想要一个三角形 让其他的边框颜色为透明 */
+				width: 0;
+				height: 0;
+				/* 兼容性写了下边两行 */
+				line-height: 0;
+				font-size: 0;
+				/* 边框颜色设置为透明 再给自己要的边框加颜色 
+				三角形的大小 取决于边框的宽度*/
+				border: 50px solid transparent; 
+				border-left-color: blue;
+				margin-top: 10px;
+			}
+			
+			/* 制作京东小三角 
+			一个大矩形拼一个小三角 用绝对定位*/
+			.jd{
+				position: relative;
+				width: 200px;
+				height: 260px;
+				background-color: #7FD0D4;
+				margin: 20px auto;
+			}
+			.jd span{
+				width: 0;
+				height: 0;
+				line-height: 0;
+				font-size: 0;
+				border: 20px solid transparent;
+				border-bottom-color: #7FD0D4;
+				position: absolute;
+				right: 25px;
+				/* 虽然我们只看到了一个三角形 
+				但它真是的高度是个盒子的高度 是2倍的边框宽度 */
+				top: -40px;
+			}
+			
+			/* 小米 */
+			.xm{
+				position: relative;
+				width: 300px;
+				height: 150px;
+				background-color: #4169E1;
+				margin: 20px auto;
+			}
+			.xm span{
+				width: 0;
+				height: 0;
+				line-height: 0;
+				font-size: 0;
+				border: 20px solid transparent;
+				border-left-color: #4169E1;
+				position: absolute;
+				top: 30px;
+				/* 虽然我们只看到了一个三角形 
+				但它真是的高度是个盒子的高度 是2倍的边框宽度 */
+				right: -40px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="div1"></div>
+		<div class="div2"></div>
+		<div class="div3"></div>
+		<!-- 仿京东小三角 -->
+		<div class="jd">
+			<span></span>
+		</div>
+		
+		<!-- 仿小米做法 -->
+		<div class="xm"><span></span></div>
+	</body>
+</html>

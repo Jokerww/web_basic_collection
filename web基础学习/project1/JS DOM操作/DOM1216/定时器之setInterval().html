@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 定时器之setInterval(回调函数，[间隔的毫秒数]):
+		setInterval()方法重复调用回调函数 每隔设置的毫秒数调用一次
+		
+		注意：
+			1，方法前边的window可以省略 直接写setInterval();
+			2, 间隔的时间单位是毫秒 可以省略 默认为0  重复调用
+			3，调用函数可直接写函数 也可写函数名 或写'函数名()'(不推荐)
+			4，页面中可能有多个定时器，经常给定时器加上标志符(起名字),用以区分
+			
+			setTimeout()只在延迟时间后调用一次 然后结束定时器
+			而setInterval()在间隔时间后重复调用 
+		-->
+		<script type="text/javascript">
+			// 每隔1s调用一次函数
+			var i = 0;
+			setInterval(callback2,1000);
+			function callback2(){
+				console.log(i);
+				i ++;
+			}
+		</script>
+	</body>
+</html>

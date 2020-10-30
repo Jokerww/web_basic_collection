@@ -1,0 +1,25 @@
+/* 对齐的方式：
+  1，margin：有前后左右的外边距 当左右外边距为auto时 会自适应量变等宽 会得到居中的效果
+  2，position：位置属性也能实现对齐效果 当位置为absolute时，可调整left和right值来调整距左和右的距离
+  3, float: 根据float来调整left 或者right来调整居左或居右。
+  
+  */
+ *{
+	 margin: 0px;
+ }
+ 
+#div1{
+	width: 75%;
+	height: 1000px;
+	background-color: #A52A2A;
+	/* margin: 0px auto; */
+	/* margin-left: auto; */
+	/* margin-right: auto; */
+	
+	/* position: absolute; */
+	/* left: 0px;  居左*/
+	/* right: 0px; 居右*/
+	
+	/* float: left; 向左浮动 居左 */
+	float: right; /* 居右 */
+}

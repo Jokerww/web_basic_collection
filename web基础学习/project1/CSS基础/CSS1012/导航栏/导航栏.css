@@ -1,0 +1,35 @@
+body{
+	margin: 0px;
+}
+
+.ul1{
+	border: 1.5px solid burlywood;
+	border-radius: 5px;
+	/* background-color: #FAEBD7; */
+	margin: 0px auto;
+	list-style-type: none; /* 去掉点的效果 列表样式的type里边设置 */
+	padding: 0px; /* 设置内边距 更好看 */
+	float: left;  /*让内容撑满整个列表框 */
+	text-align: center;
+	
+}
+li{
+	
+}
+
+a:link, a:visited {
+	display: block;
+	padding: 3px;
+	width: 50px;
+	background-color: #FAEBD7;
+	text-decoration: none;
+	color: #5F9EA0; 
+	/* font-size: large;
+	font-weight: 700;  /* 加粗文字 */ 
+}
+
+a:hover, a:active{  /* 设置鼠标放上去的效果 */
+	background-color: #7FD0D4; /* 改变颜色 */
+	border-radius: 5px; /* 改变颜色部分的形状 */
+}
+

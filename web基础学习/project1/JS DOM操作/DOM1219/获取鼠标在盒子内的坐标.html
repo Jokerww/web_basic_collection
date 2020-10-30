@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.container{
+				width: 200px;
+				height: 200px;
+				background-color: pink;
+				margin: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 需求：在盒子内一点击鼠标就能获得鼠标在盒子内的坐标
+			1,给盒子添加鼠标点击事件 利用鼠标事件对象获得鼠标相对于页面的坐标x y
+			2，获得盒子相对于页面的坐标X Y
+			3，鼠标相对于盒子的坐标 x-X  y-Y
+		 -->
+		 
+		 <div class="container"></div>
+		 <script type="text/javascript">
+		 	var container = document.querySelector('.container');
+			container.addEventListener('click',function(e){
+				/* var x = e.pageX;//距离页面左边的距离
+				var y = e.pageY//距离页面上方的距离
+				console.log(x,y);
+				var X = this.offsetLeft;//盒子距离左边的距离
+				var Y = this.offsetTop;
+				console.log(X,Y); */
+				// 鼠标的位子
+				var x_re = e.pageX - this.offsetLeft;
+				var y_re = e.pageY - this.offsetTop;
+				console.log('鼠标的横坐标是'+x_re+'  纵坐标是'+y_re);
+			});
+		 </script>
+	</body>
+</html>

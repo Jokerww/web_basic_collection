@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			textarea{
+				/* 不能拖拽放大 */
+				resize: none;
+			}
+			li{
+				background-color: pink;
+				margin: 5px 0;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 发布内容的核心为动态创建元素：
+		 在文本域填写内容 点击发布按钮之后 就在下方的区域发布该内容
+		 核心思路：点击按钮之后就动态创建一个li 添加到ul里边 把文本域的内容给li
+		 -->
+		 
+		<textarea></textarea> <br/>
+		<button type="button">发布</button>
+		<ul>
+			<li>1</li>
+		</ul>
+		
+		<script type="text/javascript">
+			var textarea = document.querySelector('textarea');
+			var btn = document.querySelector('button');
+			var ul = document.querySelector('ul');
+			// 绑定事件
+			btn.onclick = function(){
+				var lii = document.createElement('li');
+				// textarea里边有内容才能添加
+				if (textarea.value) {
+					lii.innerHTML = textarea.value;
+					// ul.appendChild(lii);
+					ul.insertBefore(lii,ul.children[0]);
+					textarea.value = '';
+				}else{
+					alert('输入内容不能为空哦~')
+				}
+				
+			}
+		</script>
+	</body>
+</html>

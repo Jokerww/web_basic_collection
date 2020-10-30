@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>CSS新增选择器</title>
+			<!-- 
+			CSS新增选择器：
+			1，属性选择器：可以不使用类或者id选择器 在同类标签中筛选想要的标签很有用
+					(1)[att]  选择所有的具有att属性的标签
+					(2)E[att]  选择具有的att属性的E标签
+					(3)E[att="val"]  选择具有att属性且att="val"的E标签
+					(4)E[att^="val"]  具有att属性且以属性值以val开头的E标签
+					(5)E[att$="val"]  具有att属性且以属性值以val结尾的E标签
+					(6)E[att*="val"]  具有att属性且以属性值中含有val的E标签
+					
+			2，结构伪类选择器：根据文档结构来选择元素 常用于根据父级选择器里边的子元素 权重是10
+				(E省略就是整个F元素)
+				(1) F E:first-child 选择父元素F中的第一个子元素E 权重12
+				(2) F E:last-child 选择父元素F中最后一个E元素
+				(3) F E:nth-child(n) 选择父元素F中第n个子元素E 可以是一个也可以是多个
+						n可以是数字，关键字 或公式
+							n是数字：就是选择第n个子元素 数字从1开始
+							n是关键字：even第偶数元素 odd第奇数元素 轻松实现隔行变色
+							n是公式： 括号里的字母只能是n  并且此时n从0开始 逐次加1 
+									直至没有该元素或超过索引则忽略
+									括号里写n nth-child(n) 表示选中所有子元素
+									nth-child(2n) 选中第偶数孩子
+									nth-chile(2n+1) 选中第奇数孩子
+									nth-child(5n) 第5的倍数的孩子
+									nth-child(n+5) 第五个子元素开始 后边所有的 n从零开始递增
+									nth-child(-n+5) 前5个子元素 5-n  n从零递增
+						注意：nth-child(n)的执行规则是：先把F元素中所有的孩子排序 不管是不是E孩子 
+												都排序 序号从1开始 往后排
+								执行的时候：先执行F:nth-child(n)  找到F的第n个孩子
+											再看这第n个孩子 是不是E元素
+											如果是的 就选中 
+											如果不是 就不选 这句代码相当于没写
+								以child孩子为首要 先找孩子 再看孩子的标签是啥
+				(4) F E:first-of-type  指定类型E的第一个
+				(5) F E:last-of-type 指定类型E的最后一个
+				(6) F E:nth-of-type(n) 指定类型E的第n个
+						nth-of type(n)的n用法和nth-child相同 但是执行规则不同
+						执行规则：先执行子元素选择器 F:E 然后把所有的E元素从1开始排序
+								 再执行E：nth-of-type(n) 找到第n个E元素
+								 就算有其他的子元素 也不妨碍我找第n个E元素
+						注意：当父元素中只有一种子元素时 nth-child(n) 与nth-of-type(n)的执行效果相同 
+						无序列表中 nth-child(n)用的较多
+			3，伪元素选择器：为元素选择器可以帮助我们利用CSS创建新标签元素 而不需要HTML标签 简化HTML结构
+					element::before 在元素内部的前面添加元素
+					element::after 在元素内部的后面添加元素
+				注意：
+					(1) before 和 after 创建一个元素 但是属于行内元素
+					(2) 新创建元素在文档树中是找不到的 所以称为伪元素
+					(3) before after里边必须要有content属性 给他内容 可为空 不然就不起效果
+					(4) 伪元素选择器与元素选择器一样 权重为1
+			 -->
+		<style type="text/css">
+			@font-face {
+			  font-family: 'icomoon';
+			  src:  url('fonts/icomoon.eot?dm68g0');
+			  src:  url('fonts/icomoon.eot?dm68g0#iefix') format('embedded-opentype'),
+			    url('fonts/icomoon.ttf?dm68g0') format('truetype'),
+			    url('fonts/icomoon.woff?dm68g0') format('woff'),
+			    url('fonts/icomoon.svg?dm68g0#icomoon') format('svg');
+			  font-weight: normal;
+			  font-style: normal;
+			  font-display: block;
+			}
+			
+			/* 结构伪类选择器 child*/
+			ul p:first-child{ /* 第一个元素不是li 而是p */
+				background-color: pink;
+			}
+			ul li:last-child{
+				background-color: #0000FF;
+			}
+			ul li:nth-child(3n){ /* 因为第一个元素不是li 不是3 6 变色 */
+				background-color: #008000;
+			}
+			ul li:nth-child(4){ /* 没有用 第一个元素不是li */
+				background-color: #555555;
+			}
+			/* 结构伪类选择器 type */
+			ol li:first-of-type{ /* 不受前边p元素的影响 */
+				background-color: pink;
+			}
+			ol li:nth-of-type(3n){ /* 3和6变色 */
+				background-color: #008000;
+			}
+			ol li:nth-of-type(n){ /* 所有li元素 */
+				color: #0000FF;
+			}
+			
+			/* 伪元素选择器 */
+			/* 案例1：字体图标的使用 给框框后面加个字体图标 */
+			.div1{
+				position: relative;
+				width: 150px;
+				height: 22px;
+				border: 1px solid red;
+			}
+			.div1::after{
+				/* 创建一个伪元素 给他字体图标的内容(小框框或十六进制代码) */
+				content: '\e902';
+				font-family: 'icomoon';
+				/* 放后面 用定位 子绝父相 */
+				position:absolute;
+				color: red;
+				right: 5px;
+				top: 3px;
+			}
+			
+			/* 案例2 京东价格 */
+			.jdPrice{
+				width: 170px;
+				height: 24px;
+				border: 1.5px solid red;
+				margin-top: 10px;
+				text-align: center;
+				line-height: 24px;
+			}
+			.span1{
+				position: relative;
+				float: left;
+				width: 100px;
+				height: 24px;
+				background-color: red;
+				color: white;
+				font-weight: 700;
+				margin-right: 5px;
+			}
+			.span1::after{
+				content: '';
+				position: absolute;
+				width: 0;
+				height: 0;
+				border-color: transparent white transparent transparent;
+				border-style: solid;
+				border-width: 24px 10px 0 0;
+				right: 0;
+				top: 0;
+			}
+			.jdPrice span:last-child{
+				color: gray;
+				font-size: small;
+				text-decoration: line-through;
+			}
+			
+			/* 案例3 仿土豆黑罩 不单独加mask */
+			.tudou{
+				position: relative;
+				width: 444px;
+				height: 320px;
+				background-color: pink;
+				margin: 30px auto;
+			}
+			.tudou img{
+				/* 让图片与父元素同等大小 为了让元素自适应父元素的大小 用百分比来设计
+				 这样父容器的大小变化 图片大小就跟着变啦*/
+				width: 100%;
+				height: 100%;
+			}
+			.tudou::before{
+				/* 得到的元素是行内元素 */
+				content: '';
+				position: absolute;
+				display: none;
+				width: 100%;
+				height: 100%;
+				background: rgba(0,0,0,0.3) url(../images/arr.png) no-repeat center;;
+			}
+			.tudou:hover::before{
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<p>hahah</p>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+			<li>7</li>
+		</ul>
+		<ol>
+			<p>hahah</p>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+			<li>7</li>
+		</ol>
+		
+		<div class="div1">logo</div>
+		
+		<div class="jdPrice">
+			<span class="span1">￥479.00</span>
+			<span>￥499.00</span>
+		</div>
+		
+		<div class="tudou">
+			<img src="../images/tudou.jpg" />
+		</div>
+	</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			table{
+				margin: 50px auto;
+				/* background-color: pink; */
+				padding: 5px 5px;
+				text-align: center;
+				/* 单元格边框合并 */
+				/* border-collapse: collapse; */
+			}
+			
+			th,td{
+				padding: 5px 20px;
+			}
+			th{
+				background-color: lightblue;
+			}
+			td{
+				border-bottom: 1px solid #999999;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 表格相关属性：都要写到table标签里边 内联元素
+		 align: left/center/right 规定表格相对周围元素的对齐方式
+		 border:''/1 规定表格是否拥有边框 默认为''没有
+		 cellpadding 规定单元边沿与其内容之间的空白 默认1px
+		 cellspacing 规定单元格之间的空白 默认2px 
+		     注：css里设置border-collapse可实现边框合并
+		 width 像素或百分比 规定表格的宽度
+		 -->
+		<table cellspacing="0">
+			<thead>
+				<tr>
+					<th>代码</th>
+					<th>名称</th>
+					<th>最新公布净值</th>
+					<th>累积净值</th>
+					<th>前单位净值</th>
+					<th>净值增长率</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>003526</td>
+					<td>农银金穗3个月定期开放债券</td>
+					<td>1.075</td>
+					<td>1.079</td>
+					<td>1.074</td>
+					<td>+0.047%</td>
+				</tr><tr>
+					<td>003526</td>
+					<td>农银金穗3个月定期开放债券</td>
+					<td>1.075</td>
+					<td>1.079</td>
+					<td>1.074</td>
+					<td>+0.047%</td>
+				</tr><tr>
+					<td>003526</td>
+					<td>农银金穗3个月定期开放债券</td>
+					<td>1.075</td>
+					<td>1.079</td>
+					<td>1.074</td>
+					<td>+0.047%</td>
+				</tr><tr>
+					<td>003526</td>
+					<td>农银金穗3个月定期开放债券</td>
+					<td>1.075</td>
+					<td>1.079</td>
+					<td>1.074</td>
+					<td>+0.047%</td>
+				</tr><tr>
+					<td>003526</td>
+					<td>农银金穗3个月定期开放债券</td>
+					<td>1.075</td>
+					<td>1.079</td>
+					<td>1.074</td>
+					<td>+0.047%</td>
+				</tr><tr>
+					<td>003526</td>
+					<td>农银金穗3个月定期开放债券</td>
+					<td>1.075</td>
+					<td>1.079</td>
+					<td>1.074</td>
+					<td>+0.047%</td>
+				</tr>
+			</tbody>
+		</table>
+		<script type="text/javascript">
+			var tr = document.querySelectorAll('tr');
+			for (var i=1;i<tr.length;i++) {
+				tr[i].onmouseover = function(){
+					// 大多数的做法是添加一个类名 就算里边的样式非常少
+					this.style.backgroundColor = 'lightblue';
+				}
+				tr[i].onmouseleave = function(){
+					this.style.backgroundColor = 'transparent';
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="detail.css"/>
+		<!-- 引入JS -->
+		<script src="detail.js"> </script>
+	</head>
+	<body>
+		<!-- 放大镜效果：关于布局
+		1，鼠标放到商品框后之后 会出现遮罩层和放大了商品图片 鼠标离开就不显示
+		    则遮罩层和放大层都是定位的方式
+		 -->
+		 
+		<div class="pre_img">
+			<img src="upload/s3.png" >
+			<!-- 放入遮罩层 -->
+			<div class="mask"></div>
+			<!-- 放大层 -->
+			<div class="big">
+				<img src="upload/big.jpg" class="big_img">
+			</div>
+		</div>
+	</body>
+</html>

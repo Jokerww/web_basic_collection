@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 注册时间的两种方式：
+		1，传统的方法注册：
+			获取 事件源 事件类型 事件处理程序
+			时间源.时间类型 = function(){}; (事件处理程序)
+			特点：每个对象只能注册一个事件 当注册多个事件时 后一个会覆盖前一个事件
+		2，使用 添加事件监听函数 addEventListener()来注册：IE9 以后
+			事件源.addEventListener(事件类型，事件处理程序,useCapture);
+			事件源：触发事件的对象
+			事件类型：鼠标操作等 不加on 如click focus
+			useCapture:可选参数 布尔值 默认false
+						false:处于冒泡阶段 一层层冒泡上去 遇到谁注册了当前事件类型 就会执行
+						true:处于捕获阶段 一层层往下捕获 遇到谁注册了当前事件类型 就会执行
+						既是 虽然只是当前的元素在调用事件 但是如果冒泡过程中发现他的父元素也注册了
+						这个事件  就算没有触发他的事件  他也会执行 因为冒泡的过程中会监听到他
+		3，为确保2的兼容性 绑定事件函数 attachEvent 
+				ie9以前使用 非标准 不建议使用
+				IE独有 只有9以前支持
+				事件源.attachEvent(事件类型，事件处理程序); 事件类型加on
+		 -->
+		 
+		 <button type="button">传统注册事件</button>
+		 <button type="button">添加事件监听函数</button>
+		 <button type="button">IE9以下</button>
+		 
+		 <script type="text/javascript">
+		 	var btns = document.querySelectorAll('button');
+			// 传统方式
+			btns[0].onclick = function(){
+				alert('第一个事件');
+			}
+			// 覆盖了第一个
+			btns[0].onclick = function(){
+				alert('第二个事件');
+			}
+			
+			// 添加事件监听函数 以下事件顺序显示
+			btns[1].addEventListener('click',function(){
+				alert('第一个事件');
+			})
+			btns[1].addEventListener('click',function(){
+				alert('第二个事件');
+			})
+			
+			// IE9以前的函数
+			btns[2].attachEvent('onclick',function(){
+				alert('111')
+			})
+			btns[2].attachEvent('onclick',function(){
+				alert('222')
+			})
+		 </script>
+	</body>
+</html>

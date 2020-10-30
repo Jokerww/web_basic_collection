@@ -1,0 +1,323 @@
+/* 版心格式 */
+.w{
+	width: 1200px;
+	margin: 0px auto;
+	/* background-color: pink; */
+}
+/* 文字颜色 */
+.style_red{
+	color: #c81623;
+}
+/* 字体图标样式 */
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?h282d9');
+  src:  url('../fonts/icomoon.eot?h282d9#iefix') format('embedded-opentype'),
+    url('.../fonts/icomoon.ttf?h282d9') format('truetype'),
+    url('../fonts/icomoon.woff?h282d9') format('woff'),
+    url('../fonts/icomoon.svg?h282d9#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+/* 快捷导航栏 */
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+.shortcut{
+	width: 100%;
+	height: 31px;
+	line-height: 31px;
+	background-color: #f1f1f1;
+}
+.shortcut .w{
+	height: 31px;
+}
+.shortcut ul li{
+	float: left;
+	font-size: 12px;
+	color:#666666;
+}
+.shortcut .fl ul li{
+	margin-right: 12px;
+}
+.shortcut .fr ul li:nth-child(2n){
+	width: 1px;
+	height: 12px;
+	background-color: #666666;
+	margin: 9px 15px 0px;
+}
+.fr .arrow_icon::after{
+	content: "\e900";
+	font-family: 'icomoon';
+	margin-left: 10px;
+}
+/* 头部 header */
+.header{
+	/* 里边的内容用定位来布局 方便找位置 */
+	position: relative;
+	height: 106px;
+	/* background-color: pink; */
+}
+.logo{
+	position: absolute;
+	top: 27px;
+	left: 0px;
+	width: 176px;
+	height: 56px;
+}
+.logo a{
+	/* a是行内元素 要转换成块元素 
+	他的父元素h1没有给宽高 所以不能用100%来继承*/
+	display: block;
+	width: 176px;
+	height: 56px;
+	background: url(../images/logo.png) no-repeat top center;
+	/* font-size: 0px; */
+	text-indent: -9999px;
+	overflow: hidden;
+}
+.search{
+	position: absolute;
+	top: 26px;
+	left: 348px;
+	width: 538px;
+	height: 36px;
+	border: 2px solid #b1191a;
+}
+.search input,.search button{
+	float: left;
+	border: none;
+	outline: none;
+}
+.search input{
+	width: 454px;
+	height: 32px;
+	padding-left: 10px;
+}
+.search button{
+	width: 80px;
+	height: 32px;
+	background-color: #b1191a;
+	font-size: 16px;
+	color: #FFFFFF;
+}
+.hotwords{
+	position: absolute;
+	top: 66px;
+	left: 348px;
+	width: 538px;
+	height: 20px;
+	font-size: 12px;
+	color: #666666 ;
+	line-height: 20px;
+}
+.hotwords a{
+	float: left;
+	margin: 0px 12px;
+}
+.shopcar{
+	position: absolute;
+	top: 27px;
+	right: 64px;
+	width: 140px;
+	height: 36px;
+	background-color: #f7f7f7;
+	border: 1px solid #dfdfdf;
+	font-size: 12px;
+	color: #666666;
+	text-align: center;
+	line-height:36px ;
+}
+.shopcar::before{
+	content: "\e907";
+	font-family: "icomoon";
+	color: #e60012;
+	margin-right: 5px;
+}
+.shopcar::after{
+	content: "\e902";
+	font-family: "icomoon";
+	margin-left: 15px;
+}
+.shopcar .count{
+	position: absolute;
+	top: -5px;
+	/* 给left是为了数字增大时 数字往右走 而不是往左 */
+	left: 95px;
+	height: 14px;
+	padding: 0px 5px;
+	border-radius: 7px 7px 7px 0px;
+	background-color: #e60012;
+	line-height: 14px;
+	color: #FFFFFF;
+}
+/* 导航模块 */
+.nav{
+	height: 47px;
+	border-bottom: 2px solid #b1191a;
+}
+.nav .w{
+	height: 47px;
+}
+.nav .dropdown{
+	float: left;
+	width: 210px;
+	height: 45px;
+	background-color: #b1191a;
+}
+.dropdown .dt{
+	width: 210px;
+	height: 47px;
+	font-size: 16px;
+	color: #ffffff;
+	text-align: center;
+	line-height: 45px;
+}
+.dropdown .dd{
+	/* display: none; */
+	width: 210px;
+	height: 466px;
+	background-color: #c81623;
+}
+.dropdown .dd ul li{
+	position: relative;
+	margin-left: 2px;
+	line-height: 31px;
+	/* background-color: #00FFFF; */
+	padding-left: 10px;
+}
+.dd ul li a{
+	font-size: 14px;
+	color: #FFFFFF;
+}
+.dropdown .dd ul li:hover{
+	background-color: #FFFFFF;
+}
+.dd ul li:hover a{
+	color:#c81623 ;
+}
+.dd ul li:hover::after{
+	color:#c81623 ;
+}
+.dd ul li::after{
+	content: "\e902";
+	font-family: "icomoon";
+	position: absolute;
+	top:1px;
+	right: 10px;
+	color: #FFFFFF;
+}
+.nav .navitems{
+	float: left;
+	margin-left: 15px;
+}
+.navitems ul li{
+	float: left;
+	line-height: 45px;
+	text-align: center;
+	margin: 0px 25px;
+}
+.navitems ul li a{
+	font-size: 16px;
+	color: #333333;
+}
+/* 底部 footer */
+.footer{
+	height: 415px;
+	background-color: #f5f5f5;
+}
+.mod_service{
+	height: 110px;
+	padding: 30px 0px 30px 35px;
+	border-bottom: 1px solid #ededed;
+}
+.mod_service ul li{
+	float: left;
+	height: 50px;
+	width: 240px;
+}
+.mod_service ul li:last-child{
+	width: 205px;
+}
+.mod_service ul li h5{
+	float: left;
+	height: 50px;
+	width: 50px;
+	background:url(../images/icons.png) no-repeat -252px -2px ;
+	margin-right: 5px;
+}
+.mod_service ul li:nth-child(2) h5{
+	background-position: -255px -54px;
+}
+.mod_service ul li:nth-child(3) h5{
+	background-position: -256px -106px;
+}
+.mod_service ul li:nth-child(4) h5{
+	background-position: -257px -156px;
+}
+.mod_service ul li:nth-child(5) h5{
+	background-position: -256px -208px;
+}
+.mod_service .service_txt{
+	margin-top: 8px;
+}
+.service_txt h4{
+	font-size: 14px;
+	color: #333333;
+}
+.service_txt p{
+	font-size: 12px;
+	color: #666666;
+}
+.mod_help{
+	height: 188px;
+	/* background-color: #00FFFF; */
+	border-bottom: 1px solid #ededed;
+	padding: 20px 0px 0px 45px;
+}
+
+.mod_help dl{
+	float: left;
+	width: 195px;
+}
+.mod_help dl:last-child{
+	width: 180px;
+	text-align: center;
+}
+.mod_help dl dt{
+	font-size: 16px;
+	color: #cdcdcd;
+	margin-bottom: 10px;
+}
+.mod_help dl dd{
+	font-size: 12px;
+	line-height: 20px;
+	color: #666666;
+}
+.mod_copyright{
+	height: 117px;
+	padding-top: 20px;
+	text-align: center;
+}
+.mod_copyright .links{
+	/* 这里给margin-top会发生外边距塌陷的问题 所以建议给父盒子padding */
+	/* margin:20px 0px; */
+	height: 20px;
+	line-height: 20px;
+	margin-bottom: 20px;
+}
+.links a{
+	margin: 0px 15px;
+	font-size: 12px;
+	color: #666666;
+}
+.copyright{
+	/* 一个元素里的文字如果距离的太近 可以通过行高可以调行距  */
+	line-height: 20px;
+	font-size: 12px;
+	color: #666666;
+}

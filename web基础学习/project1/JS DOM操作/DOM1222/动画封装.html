@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.div1{
+				position: absolute;
+				top: 40px;
+				left: 0;
+				width: 100px;
+				height: 100px;
+				background-color: pink;
+			}
+			.div2{
+				position: absolute;
+				top: 170px;
+				left: 0;
+				width: 100px;
+				height: 100px;
+				background-color: #00A4FF;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 当多个元素都应用相同的动画时 就需要用到动画函数的封装
+		 然后用不同的元素来调用即可 
+		 因此需要传递两个参数：元素对象、移动的截至距离
+		 点击按钮让盒子移动：
+			问题来了 点击次数越多 蓝色盒子走的越快 
+			因为每点一下就开了一个定时器
+			解决办法就是 每次只要能有一个定时器存在 
+			则开始一个新的定时器前 先清除之前开启的定时器
+		 -->
+		 <button type="button">点击让蓝色盒子移动</button>
+		<div class="div1"></div>
+		<div class="div2"></div>
+		<script type="text/javascript">
+			// 先封装函数
+			function move(obj,distance){
+				// 为避免多个定时器同时开启 先清除之前开的定时器
+				// 这样重复点击按钮 蓝色盒子就不会加速了
+				clearInterval(obj.timer);
+				// 为避免不断开辟变量空间 
+				// 可用给对象添加属性的方式给定时器命名
+				 obj.timer = setInterval(function(){
+					 console.log(obj);
+					 if (obj.offsetLeft>= distance) {
+					 	clearInterval(obj.timer);
+					 } else{
+					 	obj.style.left = obj.offsetLeft + 1 + 'px';
+					 }
+					},50);
+			};
+			
+			var div1 = document.querySelector('.div1');
+			var div2 = document.querySelector('.div2');
+			move(div1,200);
+			// 点击按钮让蓝色盒子移动
+			// 问题来了 点击次数越多 蓝色盒子走的越快 因为每点一下就开了一个定时器
+			// 解决办法就是 每次只要能有一个定时器存在 则开始一个新的定时器前 先清除其它的定时器
+			var btn = document.querySelector('button');
+			btn.addEventListener('click',function(){
+				move(div2,400);
+			});
+		</script>
+	</body>
+</html>

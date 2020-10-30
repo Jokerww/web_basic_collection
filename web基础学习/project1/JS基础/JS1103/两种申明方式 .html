@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>函数的两种申明方式</title>
+	</head>
+	<body>
+		<!-- 方式1：利用function命名  调用 函数名()
+		 function 函数名(){
+			 函数体；
+		 }
+		 
+		 方式二：函数表达式：函数没有名字(匿名函数) 而是把它给了一个变量
+				调用 变量名() 也可传递参数
+			var 变量名 = function(){
+				函数体；
+			}
+		 -->
+		 <script type="text/javascript">
+		 	var name1 = function(your_name){
+				console.log(your_name);
+			}
+			name1('wulijiao');
+		 </script>
+	</body>
+</html>

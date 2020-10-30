@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- location对象有几个和location.href属性相近的方法：
+			1，location.assign(地址);跟href一样 可以跳转页面 重定向 可返回
+			2，location.replace(地址);跳转页面 不记录历史 不能回退
+			3，location.reload();重新加载页面 相当于按刷新会F5
+					括号里为true则为强制刷新 ctrl+F5从服务器重新获取页面
+		 -->
+		 
+		 <button>点击</button>
+		 <script type="text/javascript">
+		 	var btn = document.querySelector('button');
+			btn.addEventListener('click',function(){
+				// location.assign('http://www.baidu.com');
+				// location.replace('http://www.baidu.com');//后退按钮点不了
+				location.reload(true);
+				// F5刷新 有时会很快 因为页面部分内容已被缓存至本地
+				// ctrl+F5 就会强制从服务器获取所有的内容
+			});
+		 </script>
+	</body>
+</html>

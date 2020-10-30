@@ -1,0 +1,28 @@
+body{
+	/* background-color: aqua;  background-color:设置背景颜色 */ 
+	background-image: url(cat.jpg); /* 设置背景图片 url里边放置图片源地址
+									可通过逗号设置多重背景：URL（1），URL（2）*/
+	background-attachment: fixed;   /* 背景图片是否固定或随页面其余部分滚动
+														fixed: 背景固定 相对于屏幕固定 不随页面字体滚动而滚动
+														scroll: 背景滚动 相对于网页位置固定*/
+	background-position: 20px 100px;  /* 图片起始位置 有两个属性 前一个是距离左边 
+															第二个是距离上边的位置
+															也可直接用center top之类的表示*/
+	background-repeat: no-repeat;  /* 图片是否及如何重复 
+											no-repeat:不允许重复
+											repeat：重复  默认值
+											repeat-x:只重复x轴
+											repeat-y：之重复y轴*/
+	background-size: 1000px 1000px; /* 图片大小 */
+	background-origin: padding-box; /* 图片的定位区域 content-box：内容边框区域内、
+													padding-box：容器边框区域内  
+													border-box：与网页边框对齐的区域 */
+	background-clip: border-box;  /* 图片的绘制区域	 */										
+}
+
+#div4{
+	/* background-color: #00FFFF;  /* 容器背景颜色 */ 
+	background-image: url(bg.jpg);
+	width: 20rem;  /* 给容器增加宽度 让他不那么长 */
+	padding: 5rem;  /* 给一个内边距 让文字距离边框更远 比较好看 */
+}

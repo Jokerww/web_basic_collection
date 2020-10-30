@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>数据类型转换</title>
+	</head>
+	<body>
+		<!-- 通过表单、prompt获取到的数据都是字符串类型的 -->
+		<!-- 转换为字符串型 -->
+		<script type="text/javascript">
+			// var age = prompt("输入年龄：");
+			// console.log(typeof age);//字符串型
+			var age1 = 18;
+			console.log(typeof age1);
+			/* 1, toString() 2,String()强制转换 3,+号拼接 */
+			console.log(typeof toString(age1));//不推荐
+			console.log(typeof age1.toString());//toString()是属性
+			console.log(typeof String(age1)); //String()是函数
+			console.log(typeof (age1+""));//括起来 不然就是number 隐式转换
+			console.log(age1+'');//编程字符串了
+		</script>
+		
+		<!-- 转换成数字 -->
+		<script type="text/javascript">
+			str = '23.6';
+			/* 1,parseInt()函数 转换成整型 2，parseFloat()函数 转换成浮点型
+				3，Number()强制转换函数  4，js隐式转换 减- 乘* 除/ */
+			console.log(parseInt(str)); //整型 小数部分没了
+			console.log(parseInt("130px")); //会去掉单位 拿出整数 (第一个字符要是数值,否则输出NaN)
+			console.log(parseFloat(str));//浮点型
+			console.log(parseFloat("127.3px"));
+			console.log(Number(str));//强制
+			console.log(str-0);//运算符转换   + 会变成字符串
+			console.log('123'-'120');//先变成数字 再进行运算
+			var your_year = prompt("输入出生年份：");
+			var your_age = '2019'-your_year;
+			alert('您的年龄是：'+your_age+'岁');
+		</script>
+		
+		<script type="text/javascript">
+			var input_num1 = prompt("输入第一个数：");
+			var input_num2 = prompt("请输入第二个数：");
+			sum = parseFloat(input_num1)+parseFloat(input_num2);
+			alert("两个数字的和是："+sum)
+		</script>
+		
+		<!-- 转换成布尔型  Boolean()函数
+			代表空或否定的值 会转换为false 如：''、0、null、undefined、NaN
+			其他值会转换成true-->
+		<script type="text/javascript">
+			var x1;
+			var x2 =null;
+			var x3 = '';
+			var x4 = 0;
+			var x5 = NaN;
+			var x6 = "hhah";
+			var x7 = 20;
+			console.log(Boolean(x1))
+			console.log(Boolean(x2))
+			console.log(Boolean(x3))
+			console.log(Boolean(x4))
+			console.log(Boolean(x5))
+			console.log(Boolean(x6))
+			console.log(Boolean(x7))
+		</script>
+		
+		<script type="text/javascript">
+			var input_name = prompt("please input your name:");
+			var input_age = prompt("please input your age:")
+			var input_gender = prompt("please input your gender:")
+			alert('your name is:'+ input_name+';'
+			+'\nyour age is:'+input_age+';'
+			+'\nyour gender is:'+input_gender+';')  
+			// 转义字符放在括号内呀!!
+		</script>
+		
+	</body>
+</html>

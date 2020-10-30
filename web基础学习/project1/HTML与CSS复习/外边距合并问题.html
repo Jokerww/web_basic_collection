@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>外边距合并问题</title>
+		<style type="text/css">
+			div{
+				width: 400px;
+				height: 200px;
+				background-color: #5F9EA0;
+			}
+			.div1{
+				margin-bottom: 30px;
+			}
+			.div2{
+				/* 这个跟没设置似的 不起作用 */
+				margin-top: 20px;
+			}
+			.father{
+				/* 塌陷解决方法1: */
+				/* border-top: solid 1px red; */
+				
+				/* 塌陷解决方法2：此时不用给子元素设置外边距了 */
+				/* padding-top: 80px; */
+				
+				/* 塌陷解决方法3： */
+				overflow: hidden;
+				margin-top: 20px;
+				height: 300px;
+			}
+			.son{
+				background-color: lightgray;
+				width: 300px;
+				/* 不仅没距离上边80px 父元素还往下跑了 */
+				margin-top: 80px; 
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 外边距合并只会发生在垂直外边距上 水平的不会
+				1，上下相邻外边距的合并问题(取较大的值)
+					可以只给一个元素设置外边距来避免这种问题的发生
+				2，嵌套块元素的垂直外边距塌陷问题
+					对于两个嵌套关系的块元素 父元素有上外边距的同时子元素也有上外边距
+					子元素非但不会远离父元素的边距 父元素反而会塌陷较大的外边距
+					父元素会接着往上/下移动
+					因为把父元素和子元素的外边距合到一起 变成了父元素的外边距
+					解决方法：
+						(1)给父元素定义一个上边框border-top 
+						(2)给父元素定义内边距
+						(3)给父元素添加overflow:hidden；属性
+				-->
+					
+		<div class="div1"></div>
+		<div class="div2"></div>
+		
+		<div class="father">
+			<div class="son"></div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>JS三元表达式</title>
+	</head>
+	<body>
+		
+		<!-- 由三元运算符组成的式子成为三元运算符  ？：
+		     语法结构：条件表达式？ 表达式1 ： 表达式2
+			 执行思路：条件表达式为真则执行表达式1  为假则执行表达式2
+		 -->
+		 
+		 <script type="text/javascript">
+		 	var num = 20;
+			console.log(num>30 ? 'num很大' : 'num很小');
+			console.log(num>10 ? num++ : num--); //num++的返回值是20 num=21
+			console.log(num>10 ? ++num : --num); // num=21 自加后返回值为22 
+		 </script>
+		 
+		 <script type="text/javascript">
+		 	var num1 = prompt('输入数字(0-59):');
+			num2 = num1<10 ? '0'+num1 : num1; //三元表达式执行简单条件判断
+			console.log(num2);
+		 </script>
+	</body>
+</html>

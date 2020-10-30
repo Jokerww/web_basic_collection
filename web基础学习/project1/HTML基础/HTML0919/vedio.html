@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>vedio</title>
+	</head>
+	<body id="vedio">
+		<!--插入影音vedio:
+				src: 设置音乐文件名及路径 支持mp4 WEBM OGG 三种格式的音乐
+				autoplay:自动播放
+				controls:显示播放面板
+				loop：是否循环播放
+				preload:是否预加载
+						auto：打开网页就加载影音，当设置autoplay时，此值会被忽略
+						meta：只加载meta信息
+						none:网页打开时不加载
+				width/height:面板的高度和宽度 单位为像素
+				type：指定播放类型，不需要让浏览器去检测文件格式；type必须指定适当的类型
+					例如：MP4对应 type = "vedio/mp4",也可加入codecs属性，更加明确的
+					指定文件编码
+				muted:静音播放 谷歌浏览器会将自动播放的视频禁止播放来提高用户体验
+					  可通过添加静音播放来解决这个问题 添加了静音 就不禁了 但是音乐禁了用这个不管用
+				有些浏览器不支持某种格式的文件，建议用source（单一标签）标签多添加几种格式的影音
+				浏览器会按顺序播放格式支持的影音 但只会播放一个  
+				
+				通过embed 标签嵌入.swf的flash动画 <embed scr="">
+				-->
+		<video width="800" height="" controls="controls">
+			<source src="vedio/其实.mp4" type="video/mp4"/>
+			<source src="vedio/可不可以.mp4" type="video/mp4"/>
+			您的浏览器不支持次影音格式！
+		</video>
+		<br/>
+		
+		<video width="800" height="" controls="controls" >
+			<source src="vedio/可不可以.mp4" type="video/mp4"/>
+		</video>
+	</body>
+</html>

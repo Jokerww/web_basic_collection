@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>预解析</title>
+	</head>
+	<body>
+		<!-- JS引擎再执行代码时,分为两步进行: 预解析和代码执行
+			1,预解析:js引擎会把js代码里边所有的var 和 function提升到当前作用域的最前面
+			2，代码执行：按照代码书写的顺序从上往下执行
+			3，预解析分为：变量预解析和函数预解析
+				(1)变量预解析：把所有的变量声明提升到当前作用域的最前面 不提升复制操作
+				(2)函数预解析：把所有的函数声明提升到当前作用域的最前面 不调用函数
+		 -->
+		 
+		 <script type="text/javascript">
+		 	// console.log(num); //没有var 和function 错误
+		 </script>
+		 
+		 <script type="text/javascript">
+		 	console.log(num); //提升了var 但没给函数复制 在按顺序执行
+			var num=10;
+			/* 以上代码相当于：所以输出undefined
+			 var num ;
+			 console.log(num);
+			 num = 10;
+			 */
+		 </script>
+		 
+		 <script type="text/javascript">
+		 	fun(); //提升了function 的函数声明 能正常输出
+			function fun(){
+				console.log(20);
+			}
+			/* 以上代码相当于： 所以能正常执行
+			 function fun(){
+				 console.log(20);
+			 }
+			 fun();
+			 */
+		 </script>
+		 
+		 <script type="text/javascript">
+			fun2(); //先提升了 var 不赋值 而function是赋给fun2的值 所以并没有提升 允许错误
+		 	var fun2 = function(){
+				console.log(33);
+			}
+			/* 以上代码相当于：所以允许出错
+			 var fun2; //先提升
+			 fun2();//再执行 但并没有赋值
+			 fun2 = function(){ //function当成值赋给了fun2
+				 console.log(33);
+			 }
+			 */
+		 </script>
+		 
+		 <!-- 案例 预解析 -->
+		 <script type="text/javascript">
+		 	var a1 = 18;
+			f1();
+			function f1(){
+				var b=9;
+				console.log(a1);
+				console.log(b);
+				var a1 = '123';
+			}
+			
+			/* 预解析：
+			 var a;
+			 function f1(){
+			 	var b;
+				var a; //局部变量
+				b=9;
+			 	console.log(a);  //undefined
+			 	console.log(b);  //9
+			 	a = '123';
+			 }
+			 a = 18;
+			 f1();
+			 */
+		 </script>
+		 
+		 <!-- 案例：预解析 -->
+		 <script type="text/javascript">
+		 	f1();
+			console.log(c);
+			console.log(b);
+			console.log(a);
+			function f1(){
+				var a=b=c=9;
+				console.log(a);
+				console.log(b);
+				console.log(c);
+			}
+			/* 预解析：
+			function f1(){
+				//var a=b=c=9; //相当于var a=9;b=9;c=9; a是声明的局部变量 bc是全局变量
+				var a;
+				a=9;
+				b=9;
+				c=9;
+				console.log(a); //9
+				console.log(b);//9
+				console.log(c);//9
+			f1();
+			console.log(c);//9
+			console.log(b);//9
+			console.log(a);	//报错
+			 */
+		 </script>
+	</body>
+</html>

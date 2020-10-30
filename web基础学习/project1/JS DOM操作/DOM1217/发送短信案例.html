@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			
+		</style>
+		
+	</head>
+	<body>
+		<!-- 点击发送短信按钮后 过了60秒之后可再次点击发送短信
+		 1，点击按钮后 按钮被禁用 并弹出短信已发送
+		 2，按钮开始倒计时 倒计时结束后 按钮可再次点击
+		 -->
+		<input type="text" placeholder="输入手机号">
+		<button>点击发送短信</button>
+		
+		<script type="text/javascript">
+			var btn = document.querySelector('button');
+			var rest_time = 10;
+			var timer;
+			btn.addEventListener('click',function(){
+				btn.disabled = 'disabled';
+				// 开始倒计时
+				var timer = setInterval(function(){
+					if (rest_time == 0) {
+						clearInterval(timer);
+						btn.disabled = '';
+						btn.innerHTML = '点击发送短信';
+						rest_time = 10;
+					} else{
+						//剩余时间不为零 则改变里边的文字 然后计时器递减
+						btn.innerHTML = rest_time+'秒后点击';
+						rest_time --;
+					}
+				},1000);
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 
+		 获取元素属性值的方法：
+			1，element.属性名
+				他获取的是元素的内置属性 本来就有的属性 如id class 等
+			2，element.getAttribute('属性名')
+				主要获取元素的自定义属性(标准) 即程序猿给他自定义的属性
+				也可用于获取内置属性
+			自定义属性：
+				与我们在JS 里创建对象差不多 给他一个名字 给一个值 
+				就可以为它自定义一个属性 如index = '1'等
+				
+		设置元素属性值的方法：
+			1，element.属性名 = '值';
+				用于内置属性
+			2，element.setAttribute('属性名','值');
+				多用于自定义属性 直接放到一起
+				
+		移除元素的属性：
+			element.removeAttribute('属性名')
+		 -->
+		 <!-- id是内置属性 其他两个为自定义属性 -->
+		 <div id="demo" index = '1' data_list = 'id1'></div>
+		 <script type="text/javascript">
+		 	var div = document.querySelector('div');
+			console.log(div.id);
+			console.log(div.getAttribute('id'));
+			// 获取自定义属性
+			console.log(div.getAttribute('index'));
+			console.log(div.getAttribute('data_list'));
+			
+			// 设置元素的属性值
+			div.id = 'test';
+			div.setAttribute('index',6);/* 注意用法 */
+			div.setAttribute('id','test2');
+			// 设置class 直接写class就行 而不是 div.className = ''
+			div.setAttribute('class','class2');
+			
+			// 移除属性名
+			div.removeAttribute('class');
+			div.removeAttribute('index');
+			
+		 </script>
+	</body>
+</html>

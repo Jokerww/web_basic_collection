@@ -1,0 +1,38 @@
+/* 字体属性：
+	color:字体颜色
+	font-size：字号
+	font-family：字体样式
+	font-style：文字斜体
+	font-weight：粗体
+   段落属性：
+	text-align：文字水平对齐方式
+	text-indent：缩进
+	letter-spacing：字符间距
+	line-height：行高
+	word-wrap：是否换行（多少个字符换行） 一定要先设置行宽 不然不管用
+	vertical-align：垂直对齐（上标 下标 顶端对齐 垂直居中 底端对齐）
+	text-decoration：文字装饰样式 （下划线 删除线 上划线）
+	text-transform：转换字母大小写
+	text-shadow：增加阴影效果*/
+
+
+/* CSS字体定义文本的字体系列、大小、加粗、风格和变形等 */
+#pid1{
+	font-size: 1.875rem;  /* 设置字体尺寸 */
+	font-family: fantasy; /* 字体系列 字体也可自己引入下载好的字体
+								font-family: 自定义名字
+								src: url(自己字体的位置)*/
+	
+}
+
+#pid2{
+	font-style: italic; /* 设置字体风格 */
+}
+
+#pid3{
+	font-variant: all-small-caps; /* 字体的显示形式:小型大写 */
+}
+
+#pid4{
+	font-weight: 900;
+}

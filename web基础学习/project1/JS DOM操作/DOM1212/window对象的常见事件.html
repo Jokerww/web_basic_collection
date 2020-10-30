@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- window对象的事件之窗口(页面)加载事件类型：onload/load
+		 window.onload:当内容完全加载完成(包括图像、脚本文件、CSS文件等) 
+		 会触发该事件 调用处理函数
+		 window.onload = funstion(){};传统定义事件的当时只能写一个 后者会覆盖前者
+		 window.addEventListener('load',function(){}); 可以定义好几个 依次执行
+		 
+			以前的JS代码必须写在HTML代码后面 等相应的HTML加载完了 才能执行
+			现在可以将JS代码写在onload事件里 随便放页面哪里都无所谓 
+			因为只有页面内容全都加载完了 才会执行这些代码
+			
+		document中有一个与window.onload相似的事件 DOMContentLoaded事件：
+			仅当DOM加载完成(不包括样式表、图片、flash等) 才会触发该事件 IE9以上才执行
+			不同的是 不加载完图片样式表等就可执行 
+			当页面中图片较多时 网页加载较慢 window.onload要等到所有的都加载完才能执行JS交互效果
+			而DOMContentLoaded 只需要有了基本的文本和标签就能触发 并执行交互效果
+			因此 其执行速度比较快 会比window.onload先执行
+			document.addEventListener('DOMContentLoaded',function(){});
+			
+		 
+		 -->
+		 
+		<script type="text/javascript">
+			window.addEventListener('load',function(){
+				// 将页面的JS代码放在这里 就不用考虑加载顺序问题了
+				var btn = document.querySelector('button');
+				btn.onclick = function(){
+					// alert()是属于BOM的内置方法
+					alert('点击我');
+				}
+			})
+				
+			// window的优先加载方式
+			window.addEventListener('load',function(){
+					alert('22');
+				})
+				
+			// DOM的优先加载方式 先显示
+			document.addEventListener('DOMContentLoaded',function(){
+					alert('33');
+				})
+				
+		</script>
+		<button type="button">点击</button>
+	</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>精灵图的使用</title>
+		<!-- 精灵图：是指由几个小图片拼成的一张大图
+					精灵图多用于小的背景图片的使用
+			作用：有限的减少服务器接收和发送小图的次数 提高页面加载速度
+			精灵图的使用：
+				1，精灵技术主要针对于背景图片的使用，将多个小图整合到一张大图里
+				2，这个大图也称作sprites精灵图
+				3，将精灵图用作背景图片 移动背景图片的位置 显示我们需要的小图
+					此时用到background-position属性
+					backgroung-position:x,y; 
+					其中 x指的是相对于原来的位置横坐标移动的距离 右移为正 左移为负
+					 y指的是相对于原来的位置纵坐标移动的距离 下移为正 上移为负
+					 实际设置的时候一般都需要上移和左移 所以值基本都是负的
+			-->
+			
+	<!-- 制作王者荣耀精灵图案例 
+			1,先测量出所需图片的大小 以及其在精灵图中的位置偏移
+			2，制作一个与图片相同大小的盒子 然后将精灵图用作背景图片放进去
+			3,移动背景图片的位置 知道盒子显示出想要的图片-->
+	<style type="text/css">
+		div{
+			/* 所有的盒子背景图都是同一张精灵图 一起设置 */
+			background: url(images/sprites.png) no-repeat;
+		}
+		.pic1{
+			/* 先看看盒子在哪里 精灵图一般除了想要的图片其他地方都是透明度的 */
+			/* background-color: #7FD0D4; */
+			width: 60px;
+			height: 60px;
+			margin: 10px auto;
+			/* 移动精灵图的位置 */
+			background-position: -182px 0;
+		}
+		.pic2{
+			/* background-color: #0000FF; */
+			width: 27px;
+			height: 25px;
+			margin: 100px auto;
+			background-position: -155px -106px;
+		}
+	</style>
+	
+	</head>
+	<body>
+		<div class="pic1"></div>
+		<div class="pic2"></div>
+		<img src="images/sprites.png" >
+	</body>
+</html>

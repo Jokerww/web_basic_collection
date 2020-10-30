@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>元素的显示与隐藏</title>
+		<!-- 有三种方法可以让网页元素进行隐藏：
+		
+		1，display属性：display用于设置元素的显示模式 可用于元素的模式转换
+						同样也可用作元素的隐藏
+				dispaly:none;隐藏对象
+				display:block;除了将元素转换成块级元素之外 同时还有显示元素的意思
+				注：display:none;隐藏元素后 元素不再占有原来的位置 会影响其下边元素的布局
+					其在后面的应用相当的广泛，搭配JS制作网页特效
+					none和block二者的效果完全相反 一个没位置不显示 一个有位置显示 
+		
+		2，visibility属性：设置元素的可见与否
+				visibility:visible;元素可见
+				visibility:hidden;元素不可见
+				注：visibility:hidden;隐藏元素后 元素继续占有原来的位置
+		
+		3，overflow属性：设置溢出部分的显示情况 还可用于消除内边距合并(塌陷) 清除浮动
+				overflow:visible;溢出元素的内容继续显示 会印象后面元素的布局
+				overflow:hidden;溢出元素的内容隐藏
+				overflow:scroll;加滚动条显示 无论内容与否 都会给元素加滚动条
+				overflow:auto;自适应 溢出则加滚动条 不溢出就正常显示
+			注：overflow:hidden;在含有定位的元素中慎用 因为有时会做一些元素在
+								父元素之外的特效 用了这个 会被隐藏 达不到效果
+		 -->
+		<style type="text/css">
+			div{
+				height: 200px;
+				width: 200px;
+				background-color: pink;
+			}
+			.div1{
+				/* visibility1盒子看不到了 但他的位置还在  */
+				visibility: hidden;
+			}
+			.div3{
+				/* overflow: hidden; 溢出盒子的隐藏了 */
+				/* overflow: visible;溢出盒子的显示了 */
+				overflow: scroll;/* 加了滚动条  既能看见内容 又不影响其他元素*/
+			}
+			.div4{
+				/* 元素1不见了 位置也被元素2占了 */
+				display: none;
+				/* display: block; 可让隐藏的元素再显示出来 */
+			}
+		</style>
+	</head>
+	<body>
+		<div class="div1">visibility1</div>
+		<div class="div2">visibility2</div>
+		<div class="div3">哈哈哈啊哈哈哈哈哈哈哈哈啊哈哈哈哈哈哈
+		哈哈哈啊哈哈哈哈哈哈哈哈啊哈哈哈哈哈哈哈哈哈啊哈哈哈哈哈哈哈哈啊哈哈哈哈哈哈
+		哈哈哈啊哈哈哈哈哈哈哈哈啊哈哈哈哈哈哈哈哈哈啊哈哈哈哈哈哈哈哈啊哈哈哈哈哈哈
+		哈哈哈啊哈哈哈哈哈哈哈哈啊哈哈哈哈哈哈哈哈哈啊哈哈哈哈哈哈哈哈啊哈哈哈哈哈哈
+		</div>
+		
+		<div class="div4">display1</div>
+		<div class="div5">diaplay2</div>
+	</body>
+</html>	

@@ -1,0 +1,49 @@
+*{
+	margin: 0rem;
+	padding: 0rem;
+}
+
+#header{
+	width: 100%;
+	height:100px;
+	background-color: #A52A2A;
+}
+#header_content{
+	width: 75%;
+	height: 100%;
+	margin: 0px auto; /* 左右自适应可自动居中 */
+	background-color: #FAEBD7;
+}
+#body{
+	width: 75%;
+	height: 500px;
+	margin: 10px auto;
+	background-color: #7FFFD4;
+}
+#body_notification{
+	width: 100%; /* 充满整个上层组件 */
+	height: 50px;
+	background-color: #0000FF;
+}
+#body_content{
+	width: 100%;
+	height: 450px;
+	background-color: #008000;
+}
+#footer{
+	width: 75%;
+	height: 100px;
+	background-color: #5F9EA0;
+	margin: 0px auto;
+}
+
+#footer_content{
+	width: 100%;
+	height: 70px;
+	background-color: #8A2BE2;
+}
+#footer_nav{
+	width: 100%;
+	height: 30px;
+	background-color: black;
+}

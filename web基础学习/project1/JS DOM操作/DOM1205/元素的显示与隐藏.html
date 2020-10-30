@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.div1{
+				position: relative;
+				width: 100px;
+				height: 100px;
+				background-color: pink;
+				text-align: center;
+				line-height: 100px;
+			}
+			.div1 i{
+				/* content: ''; */
+				position: absolute;
+				top: 0px;
+				right: -20px;
+				height: 20px;
+				width: 20px;
+				cursor: pointer;
+				background-color: #0000FF;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 关闭二维码案例：鼠标点了小叉叉 二维码就不见了
+		 核心思路：利用样式的显示与隐藏 display:none; display:block;
+				 点击按钮 隐藏盒子就可以了
+		 -->
+		<div class="div1">
+			我是二维码~
+			<i></i>
+		</div>
+		<script type="text/javascript">
+			var div1 = document.querySelector('.div1');
+			var i = document.querySelector('i');
+			i.onclick=function(){
+				// 不显示 没有位置 也不显示
+				div1.style.display='none';
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- DOM与BOM的区别：
+		DOM：1，文档对象模型
+			 2，DOM是把文档当做一个对象来看待
+			 3，DOM的顶级对象是document
+			 4，DOM主要学习的是操作页面元素
+			 5，DOM是W3C标准
+		BOM：1，浏览器对象模型
+			 2，把浏览器当做一个对象来看待
+			 3，BOM的顶级对象是window
+			 4，BOM学习的是浏览器窗口交互的一些对象
+			 5，BOM是浏览器厂商在各自的浏览器窗口定义的 兼容性较差
+		BOM(Browser Object Model):即浏览器对象模型，提供独立于内容而与浏览器窗口
+				进行交互的对象 其核心对象是window
+		BOM由一系列相关的对象构成 并且为每个对象提供了很多方法与属性
+		BOM对象：document location navigation screen history
+		
+		BOM包含DOM 是浏览器的顶级对象 具有双重角色
+			1，是访问浏览器的接口
+			2，是一个全局对象。定义在全局作用域的变量、函数都会变成window对象的属性、方法
+			
+		DOM的完整写法是： window.document.方法/属性
+		 -->
+		 <script type="text/javascript">
+		 	var num = 10;
+			console.log(num);
+			console.log(window.num); //定义的变量变成了window的属性
+			
+			function fn(){
+				console.log(11);
+			}
+			fn();
+			window.fn(); //定义的函数变成了window的方法
+		 </script>
+		
+	</body>
+</html>

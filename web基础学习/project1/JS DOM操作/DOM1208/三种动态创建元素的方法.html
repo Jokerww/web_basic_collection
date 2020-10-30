@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<!-- 三种动态创建元素的方法：
+			1，document.write();向文档中写入节点 如 document.write('<div>123</div>');
+				特点：当文档加载完毕 或者文档流执行完毕 再去调用这个方法 会导致页面重绘
+					会在当前页面中也如创建的代码 但是之前文档中所有的东西都不见了
+			2，element.innerHTML;
+				element.innerHTML = '<a href = "#">百度</a>';
+				将内容写入DOM 节点 不会导致页面重绘
+				采用数组创建多个字符串 效率更高
+			3，document.createElement;
+				element1 = document.createElement;
+				parentNode.appendChild(element);
+				效率比数组创建字符串低一丢丢 但是结构更清晰
+				
+			2和3在创建单个元素的时候执行的效率相当 但是在创建多个元素时 
+			innerHTML采用拼接字符串的方式来进行 会相当的耗时 耗内存 
+			但是 可以先创建一个数组 往数组里面追加字符串 然后一次性将数组转换为字符串赋值给innerHTML 
+			这个效率会比createElement要高一些
+		 -->
+		 
+		 <div class="inner1"></div>
+		
+		 
+		 <script type="text/javascript">
+			inner1 = document.querySelector('.inner1');
+			
+			function fn(){
+				// 执行前的时间
+				var d1 = new Date();
+				var a_list = [];
+				for (var i=0;i<1000;i++) {
+					// 以innerHTML基本的方式创建元素 约3000ms 主要是字符串拼接耗时
+					// inner1.innerHTML += '<a href="#">创建标签</a>'; 
+					
+					// 以createElement的方式创建 约50ms
+					/* var a = document.createElement('a');
+					a.innerHTML = '<a href="#">创建标签</a>';
+					inner1.appendChild(a); */
+					
+					// 数组赋值的方式  约10ms
+					a_list.push('<a href="#">创建标签</a>'); //追加
+					}
+					inner1.innerHTML = a_list.join(''); //默认逗号隔开
+					// 执行后的时间
+				var d2 = new Date();
+				// 执行的总时间
+				console.log(d2-d1);
+			}
+			fn();
+			
+			
+		 </script>
+	</body>
+</html>

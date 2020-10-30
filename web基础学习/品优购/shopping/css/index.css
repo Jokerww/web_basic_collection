@@ -1,0 +1,327 @@
+/* 字体样式 */
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?h282d9');
+  src:  url('../fonts/icomoon.eot?h282d9#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?h282d9') format('truetype'),
+    url('../fonts/icomoon.woff?h282d9') format('woff'),
+    url('../fonts/icomoon.svg?h282d9#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+/* main主体样式 */
+.main{
+	width: 980px;
+	height: 455px;
+	margin:10px 0px 10px 220px;
+	/* background-color: pink; */
+}
+.focus{
+	float: left;
+	width: 723px;
+	height: 455px;
+	background-color: pink;
+}
+.focus ul li{
+	width: 723px;
+	height: 455px;
+}
+.focus ul li img{
+	width: 100%;
+	height: 100%;
+}
+.newsflash{
+	float: right;
+	width: 250px;
+	height: 455px;
+}
+.news{
+	width: 100%;
+	height: 165px;
+	border: 1px solid #e4e4e4;
+}
+.news_hd{
+	height: 33px;
+	padding: 0px 15px;
+	border-bottom: 1px dotted #e4e4e4;
+}
+.news_hd h5{
+	float: left;
+	line-height: 32px;
+	font-size: 14px;
+	color: #333333;
+	font-weight: 400;
+}
+.news_hd a{
+	float: right;
+	line-height: 32px;
+	font-size: 14px;
+	color: #666666;
+}
+.news_hd a::after{
+	content: "\e902";
+	font-family: "icomoon";
+	margin-left: 7px;
+}
+.news_bd ul li{
+	height: 24px;
+	padding:5px 15px 0px;
+	line-height: 24px;
+	/* 溢出隐藏并...显示 */
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	font-size: 13px;
+	color: #666666 ;
+}
+.lifeservice{
+	height: 210px;
+	border: 1px solid #e4e4e4;
+	border-top: transparent;
+	/* ul足够宽能放下四个li但是宽度会溢出 所以就让溢出的隐藏
+	 反正只有一丢丢溢出 没人会在乎 也没人能看出*/
+	overflow: hidden;
+}
+.lifeservice ul{
+	/* li太多 精确测量也没办法实现 不如把ul改的足够宽 一行放下四个li */
+	width: 254px;
+}
+.lifeservice ul li{
+	float: left;
+	width: 63px;
+	height: 71px;
+	border-right:1px solid #e4e4e4 ;
+	border-bottom:1px solid #e4e4e4 ;
+	text-align: center;
+}
+.lifeservice ul li i{
+	display: inline-block;
+	margin: 12px 0px 3px;
+	width: 21px;
+	height: 26px;
+	background: url(../images/icons.png) no-repeat -18px -15px;
+}
+.lifeservice ul li p{
+	font-size: 13px;
+	color: #666666;
+}
+ .bargin{
+	margin-top: 5px;
+	height: 75px;
+	width: 100%;
+}
+.bargin img{
+	width: 100%;
+	height: 100%;
+}
+/* recom今日推荐模块 */
+.recom{
+	height: 165px;
+	margin-bottom: 10px;
+}
+.recom_hd{
+	float: left;
+	width: 210px;
+	height: 100%;
+	background-color: #5c5251;
+	font-size: 18px;
+	color: #FFFFFF;
+	text-align: center;
+}
+.recom_hd::before{
+	content: "\e90b";
+	font-family: "icomoon";
+	display: block;
+	height: 80px;
+	font-size: 70px;
+	margin: 20px 0px 15px;
+}
+.recom_bd{
+	float: left;
+	width: 990px;
+	height: 100%;
+	padding: 10px 0px;
+	background-color: #ebebeb;
+}
+.recom_bd ul li{
+	float: left;
+	background-color: #ebebeb;
+	height: 145px;
+	width: 247px;
+	border-right: 1px solid #dddddd;
+}
+.recom_bd ul li:last-child{
+	border: none;
+}
+.recom_text{
+	float: left;
+	padding:15px 20px;
+}
+.recom_text h5{
+	margin-bottom: 5px;
+	font-size: 16px;
+	color:#333333;
+}
+.recom_text p:first-of-type{
+	padding: 0px 3px;
+	background-color: #00a0e8;
+	font-size: 14px;
+	color:#ffffff;
+}
+.recom_text p:last-child{
+	font-size: 12px;
+	color: #7c7c7c;
+	line-height: 25px;
+}
+.recom_bd img{
+	float: left;
+	width: 84px;
+	height: 115px;
+	margin: 15px 35px 0px 0px;
+}
+/* guess_like 猜你喜欢 */
+.guess_like{
+	height: 270px;
+	margin: 20px auto;
+}
+.guess_hd{
+	height: 30px;
+}
+.guess_hd h5{
+	float: left;
+	font-size: 18px;
+	color: #333333;
+	line-height: 30px;
+}
+.guess_hd a{
+	float: right;
+	font-size: 12px;
+	color: #666666;
+	line-height: 30px;
+	margin-right: 20px;
+}
+.guess_hd a::after{
+	content: "\e906";
+	font-family: "icomoon";
+	margin-left: 3px;
+}
+.guess_bd{
+	height: 240px;
+	width: 100%;
+	border: 1px solid #ededed;
+	padding: 10px 0px;
+	overflow: hidden;
+}
+.guess_bd ul{
+	width: 1202px;
+}
+.guess_bd ul li{
+	float: left;
+	height: 220px;
+	width: 200px;
+}
+.pic {
+	width: 160px;
+	height: 130px;
+	margin: 15px auto;
+}
+.pic img{
+	width: 100%;
+	height: 100%;
+}
+.guess_text{
+	margin-left: 30px;
+	font-size: 12px;
+	color: #666666;
+	border-right: 1px solid #ededed;
+}
+.guess_text p:last-child{
+	font-size: 18px;
+	color: #df3033;
+}
+/* 楼层区 floor 所有的楼层都包含在楼层区里 
+ 所以楼层不要给高度*/
+ /* 一楼家用电梯模块 */
+ .jiadian_hd{
+	 height: 30px;
+	 border-bottom: 2px solid #c81623;
+ }
+.jiadian_hd h5{
+	float: left;
+	font-size: 18px;
+	line-height: 30px;
+	color:#c81623 ;
+} 
+.jiadian_bd{
+	height: 440px;
+	margin-bottom: 20px;
+}
+.tab_list{
+	/* 跟着h5浮动 */
+	float: right;
+	/* 文字垂直居中 会继承 */
+	line-height: 30px;
+}
+.tab_list ul li{
+	float: left;
+	color:#999999 ;
+}
+.tab_list ul li a{
+	padding: 0px 13px;
+	font-size: 12px;
+}
+.tab_content{
+	height: 360px;
+	width: 100%;
+	margin-bottom: 20px;
+}
+.tab_list_item>div{
+	float: left;
+	height: 360px;
+}
+.wid_210{
+	width: 210px;
+}
+.wid_210 ul li{
+	float: left;
+	width: 81px;
+	height: 34px;
+	border-bottom: 1px solid #ededed;
+	margin: 0px 12px;
+	line-height: 34px;
+	text-align: center;
+}
+.wid_210 img{
+	margin-left: 12px;
+}
+.wid_330{
+	width: 330px;
+	background-color: #aed6d8;
+}
+.wid_330 img{
+	width: 100%;
+	height: 100%;
+}
+.wid_220{
+	width: 220px;
+	border-bottom: 1px solid #ededed;
+	border-right: 1px solid #ededed;
+}
+.tab_content .brands{
+	margin-top: 20px;
+	padding: 10px 0px;
+	height: 60px;
+	background-color:#f7f7f7;
+}
+.brands ul li{
+	float: left;
+	width: 120px;
+	height: 40px;
+	border-right: 1px dotted #ededed;
+	text-align: center;
+	line-height: 40px;
+}
+.brands ul li:last-child{
+	border: none;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>过渡效果</title>
+		<!-- 过渡效果： 
+			transition:要过渡的属性 过渡花费的时间 过渡曲线 开始时间；
+			属性：要过渡的属性：高度 宽度等 当有多个属性是可用all代替
+				 过渡花费的时间：动画持续多久
+				 过渡曲线：匀速linear 逐渐慢下来ease(默认) 加速ease-in 减速ease-out 
+							先加速后减速ease-in-out
+				 开始时间：等多久就开始
+			说做过渡给谁加这些值
+		 -->
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				background-color: #008000;
+				color: white;
+				/* transition: width 2s, height 2s,background-color 2s,-webkit-transform 2s; */
+				transition: all 2s; /* 和上一条语句相同效果 */
+				/* -webkit-transition: width 2s, height 2s, -webkit-transform 2s ; */
+				-webkit-transition: all 2s ;
+			}
+			
+			div:hover{ /* 当鼠标放上去的时候开始转换 转换后的效果 */
+				width: 200px;
+				height: 200px;
+				background-color: #00FFFF;
+				/* 旋转  平移*/
+				transform: rotate(306deg) translate(20px,30px);
+				-webkit-transform: rotate(360deg) translate(20px,30px) ;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+	</body>
+</html>

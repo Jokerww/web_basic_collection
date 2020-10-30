@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 复制节点(克隆/拷贝)：
+		1，节点拷贝：node.cloneNode();
+			node为需要被克隆的节点对象
+			()括号为空 或者false 为浅拷贝 只复制标签 不复制里边的内容
+			()括号里边为true 为深拷贝 复制标签和内容
+		2，节点的添加：
+			节点复制之后 需要给节点一个位置 把它放在某个地方 复制的节点才能正常显示
+			parentNode.appendChild(节点名) 为parentNode追加新的节点
+			parentNode.insertBefore(节点名，位置节点) 新节点放在位置节点前面
+		 -->
+		 
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+		</ul>
+		<script type="text/javascript">
+			var ul = document.querySelector('ul');
+			// 复制节点1 用一个变量存起来
+			// var li_copy = ul.children[0].cloneNode(); 只有节点 没有内容
+			var li_copy = ul.children[0].cloneNode(true);
+			// 添加节点
+			ul.appendChild(li_copy);
+			
+		</script>
+	</body>
+</html>

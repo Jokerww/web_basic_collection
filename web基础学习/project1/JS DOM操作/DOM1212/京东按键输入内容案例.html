@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.search{
+				width: 250px;
+				height: 30px;
+				margin: 50px auto;
+				border: 1px solid red;
+			}
+			.search input{
+				float: left;
+				width: 190px;
+				height: 30px;
+				font-size: 18px;
+				padding-left: 10px;
+				outline: none;
+				border: none;
+			}
+			.search button{
+				float: left;
+				width: 60px;
+				height: 31px;
+				background-color: red;
+				border: none;
+				outline: none;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 搜索框只需要按下s键就可以获得焦点 而不需要用鼠标点击去获得
+		 1，判断用户按下的键是不是s键 就用到键盘事件对象的keyCode属性获取
+			键盘按钮唯一的ASCII码值
+		2，若用户输入的是s键 则让输入框获得焦点 利用focus()方法
+		 -->
+		 
+		 <div class="search">
+			<input type="search" >
+			<button type="button">搜索</button>
+		 </div>
+		 
+		 <script type="text/javascript">
+		 	var search = document.querySelector('input');
+			// 用keydown是键盘按下时光标获得的焦点 弹起时字就打进去了
+			// 为避免s被打进搜索框 就用键盘弹起keyup事件 键按完再触发 这样就不会打进去了
+			document.addEventListener('keyup',function(e){
+				// console.log(e.keyCode);
+				if(e.keyCode === 83){
+					search.focus();
+				}
+			})
+		 </script>
+	</body>
+</html>

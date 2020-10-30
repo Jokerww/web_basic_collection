@@ -1,0 +1,22 @@
+body{  
+	color: red;
+}
+
+h1,a,h2{   /* 给a h1 h2标签定义相同的样式表 */
+	color: blue; /* 将h1标题的字体颜色改为蓝色 */
+	font-size: 25px; /* h1字体标题的大小 */
+	font-family: "ms sans serif" ; /* h1标题字体的样式 */
+}
+
+p{
+	color: aqua;
+}
+
+/* 派生选择器 */
+strong{
+	color: blueviolet;
+}
+
+li strong{  /* 给li的strong不同于strong标签的样式 */
+	color: brown;
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				position: absolute;
+				top: 50px;
+				left: 0;
+				height: 100px;
+				width: 100px;
+				background-color: #00A0E8;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 盒子的根据手指的位置更改:
+			1,盒子最终位置=盒子原来的位置+手指移动的位置
+			(盒子的位置=手指的位置-手指相对于盒子的位置)
+			2，手指移动的位置=移动中手指的位置-按下时手指的位置
+		 -->
+		 
+		<div></div>
+		<script type="text/javascript">
+				var div = document.querySelector('div');
+				var div_left = 0;
+				var div_top = 0;
+				var x0 = 0;
+				var y0 = 0;
+				div.addEventListener('touchstart',function(e){
+					div_left = div.offsetLeft;
+					div_top = div.offsetTop;
+					x0 = e.targetTouches[0].pageX;
+					y0 = e.targetTouches[0].pageY;
+					document.addEventListener('touchmove',func);
+					function func(e1){
+							var diff_x = e1.targetTouches[0].pageX - x0;
+							var diff_y = e1.targetTouches[0].pageY - y0;
+							div.style.left = div_left + diff_x + 'px';
+							div.style.top = div_top + diff_y + 'px';
+							// e1.preventDefault();//组织屏幕滚动的默认行为
+					};
+					document.addEventListener('touchend',function(e){
+						// 不然的话 手指一滑 div就动了 
+						document.removeEventListener('touchmove',func);
+						
+					})
+				});
+		</script>
+	</body>
+</html>

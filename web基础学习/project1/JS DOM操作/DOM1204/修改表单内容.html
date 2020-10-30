@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>修改form表单的内容</title>
+	</head>
+	<body>
+		<!-- 表单内容的修改与普通的元素内容的修改不一样 不能用innerText等属性 
+				1，表单里面的文字内容通过修改表单元素的value属性来实现
+				2，表单被禁用通过设置disabled属性来完成
+				3,通过修改表单的不同属性来改变表单的显示方式
+		
+		-->
+		<button type="button">按钮</button>
+		<input type="text" value="输入内容">
+		<script type="text/javascript">
+			// 点击按钮 input显示别的内容 点击后按钮被禁用
+			var btn = document.querySelector('button');
+			var input = document.querySelector('input');
+			btn.onclick = function(){
+				// input改变内容
+				input.value = '被点了一下~';
+				// 然后按钮被禁用
+				// btn.disabled = 'true';
+				// 函数里边 可使用this关键字 来指向函数的调用者
+				this.disabled = 'true';
+			}
+		</script>
+	</body>
+</html>

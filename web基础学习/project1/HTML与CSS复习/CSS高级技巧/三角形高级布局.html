@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+		<!-- 
+		三角形的高级使用技巧：
+			以前学到的三角形的使用方法得到的是等要三角形 那要是想得到直角三角形呢？
+			宽高都为0的盒子设置边框时 相邻边框连接处是三角形连接 
+			如果四个边中有一边没有边框 即边框宽度为零 则会形成我们想要的直角三角形
+			
+		构造京东价格布局技巧：
+			左边的倒梯形是由一个矩形被一个直角三角形遮住右边部分所构成
+			一个大盒子里放两个行内小盒子 里边写上价格 
+			前边的小盒子 里再加上一个盒子 把他变成直角三角形 然后定位到前边盒子的左上角
+			就可实现京东的效果
+			
+		 -->
+		<style type="text/css">
+			/* 构造直角三角形 */
+			.div1{
+				width: 0;
+				height: 0;
+				border: 20px solid;
+				border-color: red blue pink gray;
+				/* 去掉下面的一条边框  左右就变成了直角 等腰直角*/
+				border-bottom: 0px solid transparent;
+				/* 把左边框也去掉 上边框变宽点 
+				就变成只有上边框与右边框构成的两个直角三脚形了*/
+				border-left: 0px solid transparent;
+				border-top: 40px solid transparent ;
+			}
+			
+			.div2{
+				/* 上述简单写法 */
+				width: 0;
+				height: 0;
+				border-color: transparent red transparent transparent;
+				border-style: solid;
+				border-width: 40px 20px 0 0;
+				
+			}
+			
+			/* 实现京东盒子 */
+			.price{
+				width: 170px;
+				height: 24px;
+				border: 1.5px solid red;
+				margin: 10px auto;
+				/* 元素垂直居中 */
+				line-height: 24px;
+			}
+			.current{
+				/* 行内元素没有宽高  添加浮动 左右排布不给宽高 由内容撑开 */
+				float: left;
+				position: relative;
+				width: 100px;
+				height: 24px;
+				background-color: red;
+				text-align: center;
+				color: white;
+				font-weight: 700;
+			}
+			.current li{
+				position: absolute;
+				width: 0;
+				height:0;
+				/* 开始弄出三角形 */
+				border-color: transparent white transparent transparent;
+				border-style: solid;
+				border-width: 24px 10px 0 0;
+				/* 放位置 */
+				right: 0;
+				top: 0;
+				
+			}
+			.origin{
+				text-align: center;
+				color: gray;
+				font-weight: 700;
+				font-size: 12px;
+				text-decoration: line-through;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="div1"></div>
+		<div class="div2"></div>
+		<p>目标效果如下：</p>
+		<img src="images/jdPrice.png" >
+		<div class="price">
+			<span class="current">
+				￥479.00
+				<!-- 加个小三角形 -->
+				<li></li>
+			</span>
+			<span class="origin">￥990.00</span>
+		</div>
+	</body>
+</html>

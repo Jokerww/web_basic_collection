@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>边框圆角</title>
+		
+		<style type="text/css">
+			/* 圆角的原理：radius是半径的意思 后边的值就是圆形的半径 
+			半径越大，圆角就弯的越明显 半径可以是值 也可是百分比
+			不同角的圆角也可单独设置和修改：border-top-left-radius 等
+			*/
+			/* 1，圆形：圆形由正方形演变而来 半径设置为宽/高的一半就行 */
+			.div1{
+				height: 200px;
+				width: 200px;
+				background-color: pink;
+				/* border-radius: 100px; */
+				border-radius: 50%;
+			}
+			/* 2,圆角矩形：由长方形演变而来  半径是高度的一半 */
+			.div2{
+				height: 100px;
+				width: 300px;
+				background-color: red;
+				border-radius: 50px;
+			}
+			/* 3,不同角设置不同的圆角：可设置四个值 从左上角开始 顺时针 */
+			.div3{
+				height: 200px;
+				width: 200px;
+				background-color: pink;
+				border-radius: 10px 20px 30px 40px;
+			}
+			/* 4，设置两个值的圆角：给两个值 对角线设置 第一个值为左上和右下
+									第二个值为右上和左下*/
+			.div4{
+				height: 200px;
+				width: 200px;
+				background-color: pink;
+				border-radius: 10px 40px;
+			}
+			
+		/* 3,设置三个值：左上 对角线 右下 */
+		.div5{
+			height: 200px;
+			width: 200px;
+			background-color: pink;
+			border-radius: 10px 20px 40px;
+		}
+		</style>
+	</head>
+	<body>
+		
+	<div class="div1"></div> <br/>
+	<div class="div2"></div><br/>
+	<div class="div3"></div><br/>
+	<div class="div4"></div><br/>
+	<div class="div5"></div><br/>
+	</body>
+</html>

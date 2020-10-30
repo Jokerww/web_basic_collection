@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100px;
+				height: 100px;
+				background-color: pink;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 给动画添加回调函数就是等动画执行完了之后再执行这个回调函数
+		 就类似于点击事件 点击完了再执行这个函数 
+		 类似于定时事件 等时间过了再执行这个回调函数
+		 
+		 添加回调函数的方式：给之前封装的动画函数再增加一个形参
+			这个形参用于接收回调函数 所以传递的实参就是一个回调函数
+			也就是动画结束了之后要做的事情
+			
+		回调函数的调用时间：要等动画结束才去调用，动画结束就是定时器结束
+			所以回调函数的执行位置就是在定时器结束之后 就执行回调函数
+			
+		回调函数的传递与否根据实际情况而定 为了避免回调函数不传递
+			而导致函数错误 可先判断有无回调函数 再决定是否调用
+		 -->
+		 <div id="">
+		 	
+		 </div>
+		<script type="text/javascript">
+			function moveslow1(obj, distance ,callback){
+				// 先清除其他的定时器
+				clearInterval(obj.timer);
+				// 设置定时器
+				obj.timer = setInterval(function(){
+					var step = (distance - obj.offsetLeft) / 25;
+					step = step<0 ? Math.floor(step) : Math.ceil(step);
+					// console.log(step,obj.offsetLeft,distance);
+					
+					if (obj.offsetLeft == distance) {
+						clearInterval(obj.timer);
+						// 判断有无回调函数
+						if (callback) {
+							callback();
+						}
+					} else{
+						obj.style.left = obj.offsetLeft + step + 'px';
+					}
+				},50);
+			};
+			
+			// 动画一定要先给元素加定位呀 不然他动不了呀
+			var div = document.querySelector('div');
+			moveslow1(div, 500 ,function(){
+				alert('我到啦~');
+			});
+		</script>
+	</body>
+</html>

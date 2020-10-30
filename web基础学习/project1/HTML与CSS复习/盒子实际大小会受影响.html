@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>影响盒子实际大小的因素</title>
+		
+		<style type="text/css">
+			/* 	1,边框会影响盒子的实际大小
+				2，padding也会影响盒子的大小
+				3，盒子里边的图片太小了也会撑大盒子？
+					加了盒子高度就最好不要上下的padding 加了盒子宽度不要加左右padding
+					不要就要将实际大小减去padding来设置盒子的宽高
+					盒子不给宽高 他们的宽高就会被内容和padding撑开！！！
+				盒子的实际大小是外边框线以内的部分的大小 所以加边框 加padding都会让盒子变大 
+			   */
+			div{
+				width: 200px;
+				height: 200px;
+				background-color: pink;
+				/* 给盒子加边框后 盒子的实际大小会变大 为了不印象页面的布局
+				 有时候需要将盒子的大小减去边框的宽度*2 才是时基内容的大小
+				 或者量盒子的时候 不量边框 只量里边的内容框*/
+				border: 10px solid red;
+			}
+			.div2{
+				/* 跟上边那个加了边框的被撑大的盒子一样大 比实际设置的大了一圈 */
+				border: none;
+				padding:10px ;
+			}
+		</style>
+	</head>
+	<body>
+		<div ></div> <br/>
+		<div class="div2"></div>
+	</body>
+</html>

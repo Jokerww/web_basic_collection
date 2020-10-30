@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>JS逻辑运算符</title>
+	</head>
+	<body>
+		
+		<!-- 逻辑运算符是用来进行布尔运算的运算符 返回布尔值 多用于多个条件的判断 -->
+		<script type="text/javascript">
+			// 逻辑与'&&' and  多个条件同时成立才为true
+			console.log(3>=2 && 3<5); //true
+			console.log(3>=2 && 3<2); //false
+			
+			// 逻辑或'||' or 其中一个条件成立就为true
+			console.log(3>=2 || 3<2); //true
+			console.log(3<=2 || 3>5); //false
+			
+			// 逻辑非'！' not 取反
+			console.log(!(3>2)); //false
+			console.log(!(3<2)); //true
+		</script>
+		
+		<!-- 逻辑中断(面试考核点)：当有多个表达式(值)参与逻辑运算，
+		左边的表达式可以确定结果时 就不在继续运算右边的表达式的值 ！！！
+		而直接给出结果-->
+		<script type="text/javascript">
+			// 逻辑中断与: 表达式1 && 表达式2 1为真则返回2 1为假则返回1
+			// 与运算 1若为真则决定权在2手中 返回2；1为假则整个式子已经不可能真了 直接返回1
+			console.log('' && 222);//返回''
+			console.log(222 && 12);//返回12
+			
+			// 逻辑或中断:表达式1||表达式2 1为真返回1 1为假 返回2 和与中断相反
+			// 或运算 1若为真 整个式子已经确定为true 直接返回1； 1为假则决定权在于2 返回2
+			console.log('' || 222); //222
+			console.log(12 || 0);//12
+			console.log(12 || 22);//12
+			console.log('' || 0 ||3);//3 前面为假 一直往后找非假 除非是最后一个
+			console.log('' || 0 );//0
+		</script>
+		
+		 <!-- 逻辑中断会影响运算结果 -->
+		<script type="text/javascript">
+			var num2 = 0;
+			console.log(123 || num2++); //或中断 前面为真返回123 且不执行后边的表达式
+			console.log(num2);//num2++没有被执行过 因此num2的结果还是0
+			
+			//与中断 前面为真,取决于后面的 执行后面的运算并输出其返回值 0
+			//后置自增先返回原值再自增 因此表达式2的返回值是0 但num为1
+			console.log(123 && num2++);//0
+			console.log(num2);//后面被执行了 结果为1
+		</script>
+	</body>
+</html>

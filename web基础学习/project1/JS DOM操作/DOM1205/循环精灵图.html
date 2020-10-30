@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			ul{
+				width: 200px;
+				height: 200px;
+				list-style: none;
+			}
+			ul li{
+				float: left;
+				width: 24px;
+				height: 24px;
+				background-color: pink;
+				margin: 10px 10px;
+				background: url(images/sprite.png) no-repeat 0 0;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 精灵图小图标的制作 以前是一个一个位置的打上去的 现在可以利用JS循环直接
+		 一次性放上去
+		精灵图排放是有规律的才能利用循环来做 
+		每个改变每个盒子的背景图的坐标 backgroungPosition就可以了
+		-->
+		
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<script type="text/javascript">
+			var li_list = document.getElementsByTagName('li');
+			console.log(li_list);
+			for (var i=0;i<li_list.length;i++) {
+				// 位置是像素 要加单位的 别忘了 反正赋值的时候是给字符串 就把变量变成字符串型
+				// 根据规律 每个li的y坐标是索引号*44
+				// var position_y = -44*i + 'px';
+				var position_y = 44*i;
+				console.log(position_y);
+				// li_list[i].style.backgroundPositionY = position_y;
+				// 复制是赋给字符串 直接用字符串拼接就行啦 把负号和单位拼接上去
+				li_list[i].style.backgroundPositionY = '-'+ position_y +'px';
+			}
+		</script>
+	</body>
+</html>

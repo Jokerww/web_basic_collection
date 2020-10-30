@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>垂直对齐</title>
+		<!-- 
+		vertical-align的使用场景：行内元素默认与文字基线对齐 而不是底部对齐 图片下边可能会留白
+				经常用与设置图片或者表单(行内块元素)和文字对齐
+				用于设置一个元素的垂直对齐方式 但它只对行内元素或者行内块元素有效
+		vertical-align:baseline|bottom|middle|top;
+				baseline:英文的字母四线三格的倒数第二条线
+				bottom：行高的最底下的线
+				top：行高最上面的线
+				middle：行高正中间
+		去除图片底下留白：
+			1，用vertical-align改变对齐格式 不是基线对齐就行
+			2，将图片转换成块级元素 块级元素没有vertical-align属性 自然也不会有留白
+		 -->
+		<style type="text/css">
+			.img1{
+				width: 100px;
+				height: 50px;
+				/* 图片与文字居中对齐 行内块元素 */
+				vertical-align: middle;
+			}
+			textarea{
+				vertical-align: middle;
+			}
+			.div{
+				margin: 20px;
+				border: 2px solid red;
+			}
+			.div img{
+				/* 两种方式去底部留白 */
+				vertical-align: bottom;
+				/* display: block; */
+				width: 200px;
+				height: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<img class="img1" src="../../CSS基础/CSS0923/背景属性/bg.jpg" > pink哒哒
+		<!-- texearea的两个标签最好写在一行中间无空格
+		 不然鼠标点击时 光标就不会停在左上角-->
+		<textarea rows="" cols=""> </textarea> 填写
+		<div class="div">
+			<img src="../../CSS基础/CSS0923/背景属性/bg.jpg" >pink 
+		</div>
+	</body>
+</html>

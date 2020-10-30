@@ -1,0 +1,46 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+.pre_img{
+	position: relative;
+	width: 400px;
+	height: 400px;
+	margin-top: 100px;
+	margin-left: 20px;
+	border: 1px solid #ccc;
+}
+.pre_img>img{
+	width: 100%;
+	height: 100%;
+}
+.mask{
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 300px;
+	height: 300px;
+	cursor: move;
+	background: #F79100;
+	/* 半透明除了用 rgba() 还可以用opacity*/
+	opacity: 0.3;
+}
+.big{
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 410px;
+	z-index: 99;
+	overflow: hidden;
+	width: 500px;
+	height: 500px;
+	border: 1px solid #ccc;
+}
+.big_img{
+	/* 给图片定位 图片才能随便动 */
+	position: absolute;
+	top: 0;
+	left: 0;
+}

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>formenctype</title>
+	</head>
+	<body>
+		<form>	
+		<!--formentype属性有三种取值：
+				text/plain:将表单中的空格转变成加号，但不对表单中的特殊字符进行编码
+				multipart/form-data:不对字符进行编码，在使用包含文件上传空间的表单时，必须使用该值
+				application/x-www-form-urlencoded:在发送前编码所有字符，当方法为get时，就将表单数据变成一个字符。
+					-->
+			<input type="text" value="v1" formenctype="text/plain"/>
+			<input type="text" value="v1" formenctype="multipart/form-data"/>
+			<input type="text" value="v1" formenctype="application/x-www-form-urlencoded/>
+		</form>
+	</body>
+</html>

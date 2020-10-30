@@ -1,0 +1,98 @@
+<!DOCTYPE html> <html>
+	<head>
+		<meta charset="utf-8">
+		<title>清除浮动</title>
+		<style type="text/css">
+			/*清除浮动：清除浮动元素造成的影响 clear:属性值(left right both)
+						如果父盒子有高度 则不需要清除浮动
+						清除浮动之后，父盒子就会根据浮动的子盒子自动检测高度 
+						父盒子有了高度 就不影响下面的标准流量
+					因为浮动的元素不占用位置 而有的时候父级元素的高度无法给一个定值 
+					想让父级元素的高度随着子元素来变化 若不给定父元素的值 
+					而浮动子元素不占位置 则父元素的高度就会为0px 造成下面的元素往上跑 被子元素遮盖的情形
+				浮动影响：浮动的元素会影响其下方元素的位置 而不会影响其上方元素的位置 
+						因为它不占位置 所以他下方的元素会往上跑 占用它之前的位置
+						
+				清除浮动的方式：
+					(1)额外标签法也称隔墙法
+							在父元素内部的最后加一个额外的空的块元素 给这个块元素清除浮动
+							一定要是块元素 因为它能占一整行 行内元素不行
+							这个和貌似只能隔住 父元素无法检测高度
+					(2)父级添加overflow属性(缺点>优点  会切掉显示过多的部分)
+							给父元素添加overflow属性 该属性还能合并外边距
+					(3)父级添加:after为元素( 利用CSS加一个额外标签 常用)
+						.父元素类名:after{
+							content:"";
+							display:block;
+							height:0;
+							clear:both;
+							visibility:hidden;
+						}
+						.父元素类名{ 注释：IE6、7专有
+							*zoom:1;
+						}
+					(4)父级添加双伪元素(常用)
+						.父元素类名:before,.父元素类名:after{
+							content:"";
+							display:table;
+							table表示让元素一行显示时 可以一前一后 而不是上一行 下一行
+						}
+						.父元素类名:after{
+							clear:both;
+						}
+						.父元素类名{ 注释：IE6、7专有
+							*zoom:1;
+						}
+				*/
+			   
+			.box{
+				/* overflow: hidden; /* 消除了浮动 高度就不是0了 */ 
+				width: 800px;
+				margin: 0 auto;
+				border:solid #0000FF;
+			}
+			/* 以下为方式3 */
+			/* .clear:after{
+				content:"";
+				display:block;
+				height:0;
+				clear:both;
+				visibility:hidden;
+			}
+			.clear{ 
+				*zoom:1;
+			}
+			 */
+			
+			.box div{
+				float: left;
+				width: 350px;
+				height: 300px;
+				background-color: #D3D3D3;
+				margin-left: 10px;
+				margin-bottom: 10px;
+			}
+			
+			.div{
+				width: 800px;
+				height: 400px;
+				background-color: #4169E1;
+				margin: 10px auto;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box clear">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<!-- 隔墙法 -->
+			<p style="clear: both;"></p>
+		</div>
+		
+		<div class="div">
+			
+		</div>
+	</body>
+</html>

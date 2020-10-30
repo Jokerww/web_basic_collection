@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				background-color: pink;
+				margin: 10px 0px;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 例如 不希望每次点击都弹出对话框时 就可以在执行一次之后对事件解绑
+		1，传统的绑定事件的解绑： 事件源.事件类型 = null; 处理事件设置为空
+		2，addEventListener()的解绑：
+			事件源.removeEventListener(事件类型(click)，事件)
+		3,attachEvent()的解绑
+			事件源.detachEventListener(事件类型(onclick)，事件)
+		 -->
+		 
+		<div class="div1">1</div>
+		<div class="div2">2</div>
+		<div class="div3">3</div>
+		
+		<script type="text/javascript">
+			var divs = document.querySelectorAll('div');
+			// 基础方式
+			divs[0].onclick = function(){
+				alert(1);
+				// 点击一次之后 就不能再点击了
+				// this.onclick = null;
+				divs[0].onclick = null;
+			}
+			
+			// addEventListener()
+			divs[1].addEventListener('click',fn1); 
+			//移除时最好不用匿名函数 函数调用不用加括号
+			function fn1(){
+				alert(22);
+				divs[1].removeEventListener('click',fn1);
+			}
+			
+			// attachEvent()
+			divs[2].attachEvent('onclick',fn2);
+			function fn2(){
+				alert(33);
+				divs[2].detachEvent('onclick',fn2);
+			}
+		</script>
+	</body>
+</html>

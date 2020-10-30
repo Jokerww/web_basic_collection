@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>表单轮廓线</title>
+		<!-- 
+		1，取消表单元素获得焦点时的蓝色边框线 outline:0;或者outline:none;
+		2, 取消文本框的默认拖拽功能 resize:none;
+		 -->
+		<style type="text/css">
+			.in2{
+				/* 点击是没有边框线了 */
+				outline: none;
+				/* outline: red; */
+			}
+			.text2{
+				outline: none;
+				resize: none;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text" class="in1">
+		<input type="text" class="in2">
+		
+		<textarea name="" id="" cols="30" rows="10" class="text1"></textarea>
+		<textarea name="" id="" cols="30" rows="10" class="text2"></textarea>
+		
+	</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin:0;
+				padding:0;
+				box-sizing: border-box;
+			}
+			a{
+				text-decoration: none;
+			}
+			.tab{
+				width: 800px;
+				height: 200px;
+				margin: 0px auto;
+			}
+			.tab_list{
+				height: 40px;
+				background-color: lightgray;
+			}
+			.tab_list ul li{
+				float: left;
+				list-style: none;
+				padding: 0px 20px;
+				text-align: center;
+				line-height: 40px;
+				cursor: pointer		
+			}
+			.tab_list ul li a{
+				color: #000;
+			}
+			.tab_content{
+				background-color: pink;
+			}
+			.tab_content .item{
+				/* 都不显示 给第一个加上内置属性 让他默认显示 */
+				display: none;
+			}
+			.current{
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- tab栏切换：
+		布局上：上面为tab_list 下变为tab_content 一一对应
+		切换时：点击哪个list 就隐藏其它的content 显示当前的content
+		 -->
+		 
+		<div class="tab">
+			<div class="tab_list">
+				<ul>
+					<li class="current">商品详情</li>
+					<li>规格与包装</li>
+					<li>商品评价</li>
+					<li>售后保障</li>
+				</ul>
+			</div>
+			<div class="tab_content">
+				<!-- 每个li对应一个内容 一共有四块内容 -->
+				<!-- 第一个默认显示 -->
+				<div class="item" style="display: block;">商品详情内容</div>
+				<div class="item">规格与包装内容</div>
+				<div class="item">商品评价内容</div>
+				<div class="item">售后保障内容</div>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			// 获取元素
+			var tab_list = document.querySelector('.tab_list').querySelectorAll('li');
+			var tab_content = document.querySelector('.tab_content').querySelectorAll('.item');
+			
+			// 给每个li加一个序号 点哪个 就显示当前序号的item
+			// 不能放在for循环里边 i串号了 i=4
+			for (var i =0;i<tab_list.length;i++) {
+				tab_list[i].setAttribute('index',i);
+			}
+			
+			// 每个li都绑定事件 循环里边加事件
+			for(var i=0;i<tab_list.length;i++){
+				tab_list[i].onclick = function(){
+					// 先拿出索引
+					var index= this.getAttribute('index');
+					// 改变底色 先清除其他的 再显示自己的
+					for (var i=0;i<tab_list.length;i++) {
+						tab_list[i].className = '';
+					}
+					this.className = 'current';
+					// 改变了底色之后就开始改变item的显示情况
+					
+					// 先让所有的都不显示 然后当前的显示
+					for (var i=0;i<tab_content.length;i++) {
+						tab_content[i].style.display = 'none';
+					}
+					// console.log(i);  i始终是4 所以要给li另加index
+					tab_content[index].style.display = 'block';
+				}
+			}
+			
+		</script>
+	</body>
+</html>

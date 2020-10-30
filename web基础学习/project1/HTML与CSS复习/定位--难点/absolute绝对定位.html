@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>absolute绝对定位</title>
+		<!--绝对定位(绝对重要) :  position:absolute;
+				绝对定位在移动元素的时候，是相对于他的祖先元素来说的(拼爹型)
+			
+			特点：
+				(1),如果没有祖先元素或者祖先元素没有定位，则以浏览器为准来定位
+						既然是拼爹 那就要拼厉害的爹！！ 
+						如果父级元素没有定位 那就往上层找 直到找到有定位的祖先元素并为基准 来进行定位
+				(2),如果祖先元素有定位(绝对 相对 固定定位)，则以最近一级有定位的祖先元素为参考点移动位置
+				(3),决定定位不再占有原来的位置(脱标 像浮动一样)
+					脱标的元素是会印象他后面的元素的位置的
+		-->
+		<style type="text/css">
+			.yeye{
+				/* 给爷爷加了定位后 son盒子就以爷爷为参考位置 在爷爷盒子的右下角了 */
+				position: relative;
+				width: 500px;
+				height: 500px;
+				background-color: pink;
+			}
+			.father{
+				width: 300px;
+				height: 300px;
+				background-color: skyblue;
+			}
+			.son,.brother{
+				width: 100px;
+				height: 100px;
+				background-color: purple;
+				color: white;
+			}
+			.son{
+				position: absolute;
+				/* 绝对定位 右下角 看看他在谁的右下角 看看兄弟元素的位置变了没*/
+				left: 0px;
+				bottom: 0px;
+				background-color: #0000FF;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="yeye">我是爷爷元素 我有定位 
+			<div class="father"> 我是父亲元素 我没有定位
+				<div class="son">我是儿子元素 我有绝对定位</div>
+				<div class="brother">我是兄弟元素 没有定位 看看我在哪里？</div>
+			</div>
+		</div>
+	</body>
+</html>

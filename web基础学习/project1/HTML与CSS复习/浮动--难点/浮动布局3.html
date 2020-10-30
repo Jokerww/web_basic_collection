@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>浮动布局</title>
+		
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.box{
+				width: 1242px;
+				height: 400px;
+				background-color: lightgray;
+				margin: 0 auto;
+			}
+			.box li{
+				list-style: none;
+				width: 300px;
+				height: 400px;
+				background-color: #7FD0D4;
+				float: left;
+				margin-right: 14px; 
+				/* 最后一个框框没有外边距 但是给了 所以盒子装不下 就跑出去了
+				 要给最后一个盒子的外边距设为零*/
+			}
+			.box .last{ /* 此处若是直接给.last则不会有想要的效果 因为上面的
+					.box li的权重是0011 比.last的权重0010大 所以要考虑到权重的问题 */
+				margin-right: 0px;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 一个大盒子装四个小盒子 有外边距 -->
+		<div class="box">
+			<ul>
+				<li ></li>
+				<li ></li>
+				<li ></li>
+				<li class="last"></li>
+			</ul>
+		</div>
+	</body>
+</html>

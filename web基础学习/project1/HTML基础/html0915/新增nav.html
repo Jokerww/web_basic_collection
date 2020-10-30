@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>新增nav</title>
+	</head>
+	<body>
+		<!--nav元素是一个可以用作页面导航的连接组，其中的导航元素连接到其它页面
+		    或当前页面的其他部分。并不是所有的连接组都要被放进nav元素，只需将主要的、
+			基本的元素放进即可。
+			nav应用场景：
+				传统导航条
+				侧边栏导航
+				页内导航
+				翻页操作
+			不要用menu代替nav导航 menu用在用户程序中的交互性元素-->
+		<!--直接的导航-->
+		<nav>
+			<ul>
+				<li><a href="#"></a>主页</li>
+				<li><a href="#"></a>开发文档</li>
+			</ul>
+		</nav>
+		<!--嵌套导航-->
+		<article>
+			<!--article的头-->
+			<header >
+				<h1>HTML 与CSS的历史</h1>
+				<nav>
+					<ul>
+						<li><a href="#">HTML的历史</a></li>
+						<li><a href="#">CSS的历史</a></li>
+					</ul>
+				</nav>
+			</header>
+			<!--article的内容-->
+			<section>
+				<h2>HTML5的历史</h2>
+				<p>HTML5历史的内容</p>
+			</section>
+			<section>
+				<h2>CSS的历史</h2>
+				<p>CSS历史的内容</p>
+			</section>
+			<!--article的底部-->
+			<footer>
+				<a href="#">修改</a>
+				<a href="#">删除</a>
+			</footer>
+		</article>
+		<footer>
+			<p><small>版权声明：</small></p>
+		</footer>
+	</body>
+</html>

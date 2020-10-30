@@ -1,0 +1,16 @@
+
+
+.container{
+	column-width: 250px;
+	column-gap: 5px;
+	-webkit-column-width: 250px;
+	-webkit-column-gap: 5px;
+}
+
+.container div{
+	width: 250px; /* 给每一个div设置宽度 避免照片过大 */
+	margin:5px 0px; /*设置外边距的上下间距 */
+}
+.container img{
+	width: 250px;
+}

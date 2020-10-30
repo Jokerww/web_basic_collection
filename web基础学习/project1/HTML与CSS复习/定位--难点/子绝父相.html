@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>子绝父相定位</title>
+		
+		<!-- 
+			子绝父相的由来：子级要是用绝对定位的话 父亲用绝对定位
+			问题：浮动不会影响前边的元素位置 不能以想要的方式压住盒子 这是就用绝对定位
+					子绝：子元素用绝对定位 不占有位子 可以在父元素内随意移动 
+							不管元素插入的顺序 无所谓 随便动
+					父相：如果父元素没有定位 子元素就会超出父元素的范围 以浏览器为准
+							给父元素加定位 让他能约束子元素的移动范围 
+							而又不影响页面布局的其他元素的位置
+							所以就给父元素用相对定位 不脱标 
+		 -->
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.box{
+				position: relative;
+				width: 200px;
+				height: 250px;
+				background-color: skyblue;
+			}
+			.son1{
+				width: 200px;
+				height: 150px;
+				background-color: #A9A9A9;
+			}
+			.son2{
+				width: 200px;
+				height: 100px;
+				background-color: pink;
+			}
+			.move1,.move2{
+				width: 30px;
+				height: 30px;
+				background-color: #0000FF;
+			}
+			.move1{
+				position: absolute;
+				/* 靠左上下居中 
+				  上下居中：先距离上50%的距离 然后上移自身高度的一半 margin-top:-0.5h
+							用50%是因为 当容器的高度变化时 可以自适应的变化*/
+				left: 0px;
+				top: 50%;
+				margin-top: -15px;
+				border-top-right-radius: 15px;
+				border-bottom-right-radius: 15px;
+			}
+			.move2{
+				position: absolute;
+				right: 0px;
+				top: 50%;
+				margin-top: -15px;
+				border-top-left-radius: 15px;
+				border-bottom-left-radius: 15px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="son1"></div>
+			<div class="son2"></div>
+			<div class="move1"></div>
+			<div class="move2"></div>
+		</div>
+	</body>
+</html>

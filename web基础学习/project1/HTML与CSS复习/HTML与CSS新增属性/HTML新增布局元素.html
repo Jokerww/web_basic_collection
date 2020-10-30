@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>HTML新增布局元素</title>
+		
+		<style type="text/css">
+			*{
+				margin:0px;
+				padding: 0px;
+				text-align: center;
+				border-radius: 15px;
+			}
+			header,nav,footer{
+				width: 800px;
+				height: 50px;
+				background-color: pink;
+				margin: 10px auto;
+				line-height: 50px;
+			}
+			div{
+				width: 800px;
+				height: 300px;
+				margin: 10px auto;
+			}
+			/* 清除浮动 */
+			div:after{
+				/* 创建空元素 */
+				content:"";
+				/* 空元素创建默认为行内元素 转换为块元素 */
+				display:block;
+				/* 不占位置 高度为0 */
+				height:0;
+				/* 清除浮动 */
+				clear:both;
+				/* 创建的元素不可见 */
+				visibility:hidden;
+			}
+			div{ 注释：IE6、7专有
+				*zoom:1;
+			}
+			
+			article{
+				width: 500px;
+				height: 300px;
+				background-color: pink;
+				float: left;
+				margin-right: 20px;
+			}
+			section{
+				width: 300px;
+				height: 200px;
+				background-color: red;
+				line-height: 200px;
+			}
+			aside{
+				width: 280px;
+				height: 300px;
+				background-color: pink;
+				float: left;
+				line-height: 300px;
+			}
+			
+		</style>
+		
+	</head>
+	<body>
+		<!-- 以前的布局都是用的div 但是网页中使用大量的div对浏览器非常的不友好
+		 HTML新增了布局标签 
+			header nav article section aside footer
+		但这些标签都有兼容性要求 大多用于搜索引擎和移动端网页的布局
+			-->
+		<header>头部</header>
+		<nav>导航栏</nav>
+		<div>
+			<article>
+				<section>类似于大的div</section>
+			</article>
+		<aside>侧边栏</aside>
+		</div>
+		<footer>底部</footer>
+	</body>
+</html>

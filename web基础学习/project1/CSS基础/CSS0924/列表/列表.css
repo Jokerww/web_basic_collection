@@ -1,0 +1,7 @@
+#ul1{
+	list-style-type: decimal; /* 设置样式的效果 */
+	 /* list-style-image: url(../表格/cat1.jpg); */
+}
+#ul2{
+	list-style-position: inside; /* 列表的位置更往里边缘一些*/
+}

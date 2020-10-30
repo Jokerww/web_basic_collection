@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 键盘事件对象：键盘事件相关属性与方法的集合
+			keyCode:返回当前按键的ASCII码值 来判断用户按下了哪个键
+			
+			事件类型：keyup keydown在返回keyCode的ASCII码时不区分大小写 
+						例如 a和A都返回的是A的ASCII码 65
+					keypress返回ASCII时区分大小写 a是97   A是65
+					但是press不能识别功能键
+		 -->
+		 <script type="text/javascript">
+			 // keyup keydown在返回keyCode不区分大小写 a A都是65
+		 	document.addEventListener('keyup',function(e){
+				// e.key虽然能识别按下了哪个字母 但是兼容性不好 
+				console.log('up',e.key,e.keyCode); 
+			})
+			document.addEventListener('keydown',function(e){
+				console.log('down',e.key,e.keyCode); 
+			})
+			
+			// keypress返回ASCII时区分大小写 a是97   A是65
+			document.addEventListener('keypress',function(e){
+				console.log('press',e.key,e.keyCode); 
+			})
+		 </script>
+	</body>
+</html>

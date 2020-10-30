@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>行内块元素的布局</title>
+		<!-- 行内块元素可以在一行显示多个快 
+		 还可以给其父元素添加text-align让他们和文字一样居中显示
+		 -->
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.box{
+				text-align: center;
+			}
+			.box a{
+				display: inline-block;
+				width: 36px;
+				height: 36px;
+				background-color: #f7f7f7;
+				border: 1px solid #ccc;
+				text-decoration: none;
+				text-align: center;
+				line-height: 36px;
+				color: black;
+				font-size: small;
+			}
+			.box .prev,.box .next{
+				width: 80px;
+			}
+			.box .current,.box .eli{
+				background-color: transparent;
+				border: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<a class="prev" href="#">&lt;&lt;上一页</a>
+			<a class="current" href="#">2</a>
+			<a href="#">3</a>
+			<a href="#">4</a>
+			<a href="#">5</a>
+			<a class="eli" href="#">...</a>
+			<a class="next" href="#">下一页&gt;&gt;</a>
+		</div>
+	</body>
+</html>

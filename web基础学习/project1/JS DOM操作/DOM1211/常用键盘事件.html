@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 常用的键盘事件：
+		 onkeyup: 某个键盘按键被松开是触发
+		 onkeydown: 某个键盘按键被按下是触发 一直按一直触发 直到弹起
+		 onkeypress:某个键盘按键被按下是触发 一直按一直触发 直到弹起
+				但它不识别功能键 如shift 箭头等
+		使用addEventListener不加on		
+		当三个事件同时存在时 有执行顺序：keydown --keypress --keyup
+		 -->
+		 
+		 <script type="text/javascript">
+		 	document.addEventListener('keydown',function(e){
+				console.log('我按下啦~down');
+				console.log(e);
+			})
+		 	document.addEventListener('keyup',function(e){
+				console.log('我按下啦~up');
+			})
+			// 文字 数字 符号 enter能识别 功能键不识别
+		 	document.addEventListener('keypress',function(e){
+				console.log('我按下啦~press');
+			})
+		 </script>
+	</body>
+</html>

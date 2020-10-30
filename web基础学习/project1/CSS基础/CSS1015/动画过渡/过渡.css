@@ -1,0 +1,28 @@
+/* 动画效果的过渡：从一种样式转换成另一种样式的过程，
+					需要的内容是：动画效果的CSS 和  动画效果的时间
+	属性：transition设置四个过渡属性
+		 transition-property：过渡的名称
+		 transition-duration：过度效果花费的时间
+		 transition-timing-function：过渡效果的时间曲线
+		 transition-delay：过渡效果的延迟时间（多长时间后开始）
+					*/
+
+
+div{
+	width: 6.25rem;
+	height: 6.25rem;
+	background-color: #008000;
+	color: white;
+	transition: width 2s, height 2s,background-color 2s,                               -webkit-transform 2s;
+	/* -webkit-transition: width 2s, height 2s, -webkit-transform 2s ; */
+}
+
+div:hover{ /* 当鼠标放上去的时候开始转换 转换后的效果 */
+	width: 12.5rem;
+	height: 12.5rem;
+	background-color: #00FFFF;
+	transform: rotate(306deg) translate(20px,30px) ;
+	-webkit-transform: rotate(360deg) translate(20px,30px) ;
+	
+}
+

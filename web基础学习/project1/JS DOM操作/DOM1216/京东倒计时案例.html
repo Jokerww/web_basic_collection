@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 300px;
+				margin: 100px auto;
+			}
+			span{
+				display: inline-block;
+				width: 50px;
+				height: 50px;
+				background-color: #000000;
+				line-height: 50px;
+				text-align: center;
+				color: #FFFFFF;
+				font-size: 18px;
+				font-weight: 700;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="timer">
+			<span class="day">0</span>天
+			<span class="hour">1</span>时
+			<span class="mim">2</span>分
+			<span class="sec">3</span>秒
+		</div>
+		<script type="text/javascript">
+			var day = document.querySelector('.day');
+			var hour = document.querySelector('.hour');
+			var min = document.querySelector('.mim');
+			var sec = document.querySelector('.sec');
+			// 设置计时结束时间
+			var input_time = new Date('2020-01-01');
+			// 初始化时间 
+			countDown();
+			// 定时
+			setInterval(countDown,1000);
+			// 需要用到之前写过的倒计时的函数
+			function countDown(){
+				var current_time = new Date();
+				// 计算时间差 秒计算
+				var times = (input_time - current_time)/1000;
+				// 计算剩余天数
+				var d = parseInt(times/60/60/24);//取整就是剩余天数
+				d<10 ? '0'+d : d;
+				day.innerHTML = d;
+				// 计算剩余小时
+				var h = parseInt(times/60/60%24);//取余就是不够一天的小时数
+				 h<10 ? '0'+h :h;
+				 hour.innerHTML = h;
+				// 计算分钟数
+				var m = parseInt(times/60%60);//不够一小时的 就是剩余分钟数
+				m<10 ? '0'+m : m;
+				min.innerHTML = m;
+				// 计算剩余秒
+				var s = parseInt(times%60);//不够一分钟的 就是剩余的秒
+				s<10 ?  '0'+s :s;
+				sec.innerHTML = s;
+			}
+			console.log(countDown());
+		</script>
+	</body>
+</html>
+

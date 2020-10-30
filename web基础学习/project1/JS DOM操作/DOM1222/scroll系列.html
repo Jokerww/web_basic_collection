@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 200px;
+				height: 200px;
+				background-color: pink;
+				border: 10px solid red;
+				padding: 10px;
+				overflow: auto;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- scroll系列：
+		scroll 滚动 动态得到元素的大小与滚动距离等属性
+		element.scrollTop 返回元素被卷去的上侧距离
+		element.scrollLeft 返回元素被卷去的上侧距离
+		element.scrollWidth 返回自身的实际宽度 不包含边框padding+content 
+						即使内容超出了盒子大小 也依然是实际宽度
+		element.scrollHeight 返回自身的实际高度 不包含边框padding+content
+						即使内容超出了盒子大小 也依然是实际高度
+		 -->
+		 
+		<div>
+			好多的内容啊啊啊啊啊啊啊啊啊
+			好多的内容啊啊啊啊啊啊啊啊啊
+			好多的内容啊啊啊啊啊啊啊啊啊
+			好多的内容啊啊啊啊啊啊啊啊啊
+			好多的内容啊啊啊啊啊啊啊啊啊
+			好多的内容啊啊啊啊啊啊啊啊啊
+			好多的内容啊啊啊啊啊啊啊啊啊
+			好多的内容啊啊啊啊啊啊啊啊啊
+			好多的内容啊啊啊啊啊啊啊啊啊
+			好多的内容啊啊啊啊啊啊啊啊啊
+			好多的内容啊啊啊啊啊啊啊啊啊
+			好多的内容啊啊啊啊啊啊啊啊啊
+			好多的内容啊啊啊啊啊啊啊啊啊
+		</div>
+		<script type="text/javascript">
+			var div = document.querySelector('div');
+			console.log(div.scrollHeight);//并不是220 因为内容超了
+			console.log(div.scrollTop);//边框下沿到卷上去的文字顶部的高度
+			// 通过滚动事件来反应
+			div.addEventListener('scroll',function(){
+				console.log(div.scrollTop);//边框下沿到卷上去的文字顶部的高度
+			});
+		</script>
+	</body>
+</html>

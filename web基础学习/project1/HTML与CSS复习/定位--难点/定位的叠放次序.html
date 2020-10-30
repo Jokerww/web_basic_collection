@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>定位的叠放次序</title>
+		<!-- 定位的叠放次序：z-index (标准流没有叠放次序 从上往下 自己有位置)
+				使用布局的时候 可能会出现盒子重叠的情况
+				此时可使用a-index来控制盒子的前后次序 
+				语法：z-index:值;值可以是正整数 负整数 0 默认是auto
+				     值越大 越靠前
+					 默认情况下 写在后面的就靠前 层层覆盖
+		 -->
+		 <style type="text/css">
+		 	div{
+				position: absolute;
+				width: 200px;
+				height: 200px;
+				background-color: pink;
+			}
+			.one{
+				z-index: 1;
+			}
+			.two{
+				top: 50px;
+				left: 50px;
+				background-color: #0000FF;
+				z-index: 2;
+			}
+			.three{
+				top: 100px;
+				left: 100px;
+				background-color: #008000;
+				z-index: 0;
+			}
+		 </style>
+	</head>
+	<body>
+		<div class="one"></div>
+		<div class="two"></div>
+		<div class="three"></div>
+	</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>选择组件</title>
+	</head>
+	<body>
+		<form >
+			<!--单选框radio:
+					单选组件，必须有相同的name值才能绑定为一组
+					value：表单被提交时会保存选中单元的value值
+					checked：为组件设置已选中状态
+					-->
+			选择性别：<br>
+			<input type="radio" name="sex" id="" value="男" checked="checked"/>男
+			<input type="radio" name="sex" id="" value="女" />女
+			<input type="radio" name="sex" id="" value="其他" />其他
+			
+			<!--复选框checkbox:
+					复选组件，有相同的name值能被绑定为一组
+					value：表单被提交时会保存选中单元的value值
+					checked：为组件设置已选中状态
+					-->
+			<br/>
+			选择兴趣爱好：<br/>
+			<input type="checkbox" name="interest" id="" value="看电影" />看电影
+			<input type="checkbox" name="interest" id="" value="打球" />打球
+			<input type="checkbox" name="interest" id="" value="看书" />看书
+			<input type="checkbox" name="interest" id="" value="书法" />书法
+		</form>
+	</body>
+</html>

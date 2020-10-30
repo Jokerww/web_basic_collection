@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>continue和break</title>
+	</head>
+	<body>
+		
+		<!-- continue退出当前这次循环 不再运行本次循环内剩下的代码 进行下一次循环
+			 break直接退出整个循环 不再进行循环了 往下执行代码-->
+			 
+			 <!-- continue -->
+		<script type="text/javascript">
+			for (var i=1;i<=5;i++) {
+				if (i ==3) {
+					continue; //不运行剩下的代码 进行下一次循环
+				}
+				console.log('我正在吃第'+i+'个苹果');
+			}
+		</script>
+		
+		<script type="text/javascript">
+			var sum =0;
+			for (var i=0; i<=100;i++) {
+				if (i%7==0) {
+					continue;
+				}
+				sum +=i;//100以内的除了能被7整除以外的数的求和
+			}
+			console.log(sum);
+		</script>
+		
+		<script type="text/javascript">
+			var sum = 0;
+			for (var i = 1; i<=100;i++) {
+				if (i%10 ==3) {//略过个位数为3的数 然后求和
+					continue;
+				}
+				sum +=i;
+			}
+			console.log(sum);
+		</script>
+		
+		<!-- break -->
+		<script type="text/javascript">
+			for (var i=1;i<=5;i++) {
+				if (i ==3) {
+					break;//直接跳出了循环 所在循环结束
+				}
+				console.log('我正在吃第'+i+'个苹果');
+			}
+		</script>
+	</body>
+</html>

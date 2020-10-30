@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 以前通过DOM提供的方式获取节点 当需要获取底层元素时比较繁琐
+			利用节点的层级关系获取节点 可以比较简单快捷
+				利用父子兄节点关系获取元素 获取某节点的兄弟节点等
+				
+		DOM中的节点用node 表示 节点的属性有：
+			nodeType 节点类型 元素节点为1 属性节点为2 文本节点(空格和换行)为3
+			nodeName 节点名称
+			nodeValue 节点值
+			
+			实际开发中 多操作的是元素节点
+		 -->
+		 <!-- 父子兄节点操作：
+			1,父节点的获取： element.parentNode
+				获取的是离该元素最近的父节点 如果没有 则返回null
+			2，子节点的获取：
+				(1) 标准方法：element.childNodes
+					获取的是所有的子节点 包括子元素节点 和子文本节点(空格 换行)
+					而我们一般只需要子元素节点就行
+				(2) 非标准方法 element.children 常用
+					获取元素的所有子元素节点  兼容性很好
+				(3) 获取第一个子节点和最后一个子节点: element.firstChild element.lastChild
+					这个方法与(1)一样 得到的包含文本节点在内的子节点 不是我们需要的结果
+				(4) 另一种获取子元素节点的方法：
+					element.firstElementChild  element.lastElementChild  
+					虽然能准确的获取第一个和最后一个子元素节点 但是有兼容性问题
+				(5) 利用element.children[]索引来获取第一个和最后一个子元素
+					第一个 element.children[0]
+					最后一个 element.children[element.children.length-1]
+			3，兄弟节点的获取：
+				(1)上/下一个兄弟节点  element.previousSibling element.nextSibling
+					得到的包含文本节点的兄弟节点
+				(2)上/下一个元素节点
+					element.previousElementSibling element.nextElementSibling
+					但是有兼容性的问题
+				(3) 解决兼容性方法：封装一个函数
+					function getNextElementSilbing(element){
+						var el = element;
+						while(el = el.nextSibling){
+							if(el.type ==1){
+								return el;
+							}
+						}
+						return null;
+					}
+		  -->
+		 
+		 
+		<div class="div" > 哈哈</div>
+		<script type="text/javascript">
+			var div = document.querySelector('.div');
+			console.dir(div);
+		</script>
+		
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+		</ul>
+		<div class="div2">
+			<span></span>
+		</div>
+		
+		<script type="text/javascript">
+			var span = document.querySelector('span');
+			// 得到父节点
+			console.log(span.parentNode);
+			// 子节点的获取
+			var ul = document.querySelector('ul');
+			console.log(ul.childNodes);//很多个子节点 输出列表 包括文本节点
+			console.log(ul.children);//就只有子元素节点
+			console.log(ul.firstChild);//第一个是文本节点
+			console.log(ul.firstElementChild);//第一个元素节点
+			console.log(ul.children[ul.children.length-1]);//最后一个元素节点
+		</script>
+		
+		<p>hhha</p>
+		<a href="#">hah</a>
+		<i>duud</i>
+		<script type="text/javascript">
+			var a = document.querySelector('a');
+			console.log(a.nextSibling);//文本
+			console.log(a.nextElementSibling);//元素节点
+		</script>
+	</body>
+</html>

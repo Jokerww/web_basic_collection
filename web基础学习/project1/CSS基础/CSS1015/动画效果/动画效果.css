@@ -1,0 +1,47 @@
+/* 通过CSS创建动画 动画就是指定目标变化的过程 而不仅仅是从一个样式过渡到另一个样式
+	CSS动画需要遵循 @keyframes规则 即动画每个过程的规则
+	利用animation属性来指定动画的名称和时长
+	
+	创建动画序列，需要使用animation属性或其子属性，该属性允许配置动画时间、时长
+	以及其他动画细节，但该属性不能配置动画的实际表现，动画的实际表现是由 @keyframes规则
+	实现.
+	animation的子属性有:
+	animation-delay:设置延时，即从元素加载完成之后到动画序列开始执行的这段时间。
+	animation-direction:设置动画在每次运行完后是反向运行还是重新回到开始位置重复运行。
+	animation-duration:设置动画一个周期的时长。
+	animation-iteration-count:设置动画重复次数， 可以指定infinite无限次重复动画
+	animation-name:指定由@keyframes描述的关键帧名称。
+	animation-play-state:允许暂停和恢复动画。
+	animation-timing-function:设置动画速度， 即通过建立加速度曲线，设置动画在关键帧之间是如何变化。
+	animation-fill-mode:指定动画执行前后如何为目标元素应用样式。*/
+
+*{
+	margin: 0px;
+}
+div{
+	width: 100px;
+	height: 100px;
+	background-color: #7FD0D4;
+	/* animation指定动画的名称和每一轮动画执行的时间 infinite为一直执行 alternate下一次反向*/
+	/* 用animation规定动画的名称和时长 然后在@keyframes规则中为该名称的动画制定规则 */
+	animation: flash 4s infinite alternate; 
+	/* animation-iteration-count: 4; */
+	-webkit-animation: flash 4s infinite alternate;
+	/* -webkit-animation-iteration-count:4 ; */
+}
+
+@keyframes flash{
+	0%{background-color: #7FD0D4; margin-left: 0px; margin-top: 0px;}
+	25%{background-color: #00FFFF; margin-left: 100px; margin-top: 0px;}
+	50%{background-color: #8A2BE2; margin-left: 100px; margin-top: 100px;}
+	75%{background-color: #A52A2A; margin-left: 0px; margin-top: 100px;}
+	100%{background-color:#DEB887 ; margin-left: 0px; margin-top: 0px;}
+}
+
+@-webkit-keyframes flash{
+	0%{background-color: #7FD0D4; margin-left: 0px; margin-top: 0px;}
+	25%{background-color: #00FFFF; margin-left: 100px; margin-top: 0px;}
+	50%{background-color: #8A2BE2; margin-left: 100px; margin-top: 100px;}
+	75%{background-color: #A52A2A; margin-left: 0px; margin-top: 100px;}
+	100%{background-color: #DEB887; margin-left: 0px; margin-top: 0px;}
+}

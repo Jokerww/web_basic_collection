@@ -1,0 +1,35 @@
+
+h2{
+	color: #008000; /* 文本颜色 */
+	text-align: center; /* 文本对齐方式：居中*/
+	
+}
+
+p{
+	padding-left: 5rem; /* 所有的p标签都距离左边框4rem */
+}
+
+#pid1{
+	text-indent: -2rem; /* 第一行向左缩进2rem */
+}
+
+#pid3{
+	text-indent: 2rem; /* 第三行向右时缩进2rem */
+	width: 100px;   /* 规定了宽度才能换行 */
+	text-wrap: 80px;  /* 每80px换行  normal:自动换行*/
+}
+
+#pid4{
+	text-transform: uppercase; /* 文本中的字母样式：全部大写 */
+}
+
+span{
+	vertical-align: super /* 上标super 下标sub 居中middle 顶端对齐top baseline一般位置 */
+}
+
+b{
+	text-shadow: 5px 5px 0.3125rem red; /* 相对于原文字 距左5 距上5 清晰度5 颜色红色  */
+	text-decoration: line-through;
+	text-decoration-style: wavy;
+	text-decoration-color: blue;
+}

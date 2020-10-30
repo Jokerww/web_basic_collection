@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.slidebar{
+				position: absolute;
+				left: 200px;
+				top: 100px;
+				background-color: pink;
+				text-align: center;
+				line-height: 40px;
+			}
+			span{
+				position: absolute;
+				top: 0;
+				left: 0px;
+				width: 40px;
+				height: 40px;
+				z-index: 99;
+				background-color: red;
+			}
+			.con{
+				position: absolute;
+				left: 0;
+				top: 0;
+				height: 40px;
+				width: 200px;
+				background-color: #00A4FF;
+			}
+		</style>
+		<script src="moveslow1.js"></script>
+	</head>
+	<body>
+		<!-- 侧边栏的按钮：
+		 鼠标放上去时 慢慢出来一个小框框 然后箭头变成向右(缩回去)
+		 鼠标拿走时  小框框慢慢收缩 箭头变成向左(出来)
+		 -->
+		 <div class="slidebar"> 
+			 <span>←</span>
+			 <div class="con">问题反馈</div>
+		 </div>
+		 <script type="text/javascript">
+		 	var slidebar = document.querySelector('.slidebar');
+			var con = document.querySelector('.con');
+			
+			slidebar.addEventListener('mouseenter',function(){
+				moveslow1(con,-160, function(){
+					slidebar.children[0].innerHTML = '→';
+				})
+			});
+			slidebar.addEventListener('mouseleave',function(){
+				moveslow1(con,0,function(){
+					slidebar.children[0].innerHTML = '←';
+				})
+			});
+		 </script>
+	</body>
+</html>

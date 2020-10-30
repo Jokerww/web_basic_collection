@@ -1,0 +1,16 @@
+/* Emmet语法：快速生成CSS语法
+	采取简写形式就可以：
+		w200 按下tab 可生成：width:200px;
+		lh26 按下tab 可生成：ling-height:26px;
+	*/
+
+.p1{
+	width: 200px; /* w2 */
+	height: 30px;/* h3 */
+	line-height: 26px;/* lh26 */
+	text-indent: 20px;/* ti20 */
+}
+
+p{
+	
+}

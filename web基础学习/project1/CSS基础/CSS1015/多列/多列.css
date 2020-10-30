@@ -1,0 +1,13 @@
+
+/* 使用多列对文本或者区域进行布局：
+		column-count:列的个数
+		column-gap:列之间的距离
+		column-rule：每一列间隔的线 及线的颜色*/
+#container{
+	column-count: 3;
+	column-gap: 10px;
+	column-rule: outset #7FD0D4;
+	-webkit-column-count: 3;
+	-webkit-column-gap: 20px;
+	-webkit-column-rule: outset #7FD0D4;
+}

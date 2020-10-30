@@ -1,0 +1,31 @@
+/* 链接的样式主要是链接字体的颜色 和下划线
+ a:link 普通的、未被访问的链接
+ a:visited 用户已经访问的链接
+ a:hover 鼠标位于链接的上方
+ a:active 链接被点击的时刻
+ text-decoration 是否显示下划线
+ backgroung-color 背景*/
+ 
+ a{
+	 border-color: #00FFFF;
+	 border-width: 3px;
+	 border-style: dashed;
+	 cursor: move; /* 鼠标样式  可通过url（相对路径）引入一个自定义的图标 光标文件必须是.cur文件或png文件 或都不支持*/
+ }
+ 
+a:link{
+	color: red;   /* 删除浏览器中历史标签就会变成未访问状态 */
+	text-decoration: none;
+	background-color: #008000;
+}
+
+a:visited{
+	color: green;
+}
+
+a:hover{
+	color: blue;
+}
+a:active{
+	color: #8A2BE2;
+}

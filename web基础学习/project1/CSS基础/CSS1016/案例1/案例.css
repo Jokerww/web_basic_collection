@@ -1,0 +1,115 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+body{
+	background-color:aliceblue;
+}
+
+.container{
+	width: 1000px;
+	height: 1000px;
+	margin: 0px auto;
+	background-color: #FAEBD7;
+}
+
+.wrapper{
+	width: 100%;
+	height: 950px;
+}
+.heading{
+	width: 100%;
+	height: 100px;
+	background-color: aliceblue;
+}
+
+.heading_title h2{
+	color: #DEB887;
+	font-family: "book antiqua";
+	font-size: 40px;
+	margin: 40px 0px;
+	float: left;
+	/* overflow: hidden; */
+}
+
+.heading_nav ul{
+	list-style-type: none;
+	padding: 10px;
+	margin: 40px 20px;
+	/* overflow: hidden; */
+}
+
+.heading_nav li{
+	display: inline;
+	float: left;
+	padding: 0px 5px;
+	margin-top: 70px;
+	margin-left: 10px;
+	position: relative;
+	/* overflow: hidden; */
+}
+
+a:link,a:visited{
+	color: gray;
+	text-decoration: none;
+	font-weight: bold;
+	/* padding-left: 10px; */
+}
+
+a:hover,a:active{
+	color: #000000;
+	/* font-size: large; */
+}
+
+
+.heading_login input{
+	/* display: inline; */
+	border-radius: 30px;
+	width: 200px;
+	height: 30px;
+}
+
+.img img{
+	/* display: inline; */
+	width: 40px;
+	height: 40px;
+	border-radius: 30px;
+	float: right;
+	margin: 0px 0px;
+	/* overflow: hisdden; */
+	position: relative;
+	top: -127px;
+}
+
+
+.body_title h2{
+	color: #7FD0D4;
+	padding-left: 10px;
+	position: relative;
+	left: -450px;
+	
+}
+
+.body p{
+	position: relative;
+	left: -150px;
+	top: 10px;
+	margin-bottom: 10px;
+}
+
+
+.footer{
+	width: 100%;
+	height: 50px;
+	background-color: #808080;
+	text-align: center;
+	/* position: absolute; */
+	}
+
+.footer p{
+	position: relative;
+	/* margin-top: 40px; */
+	margin-bottom: 0px;
+	top: 30px;
+}

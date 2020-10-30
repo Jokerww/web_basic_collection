@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>全局属性</title>
+	</head>
+	<body>
+		<!--允许用户编辑内容-->
+		<ul contenteditable="true">
+			<li>1,</li>
+			<li>2,</li>
+			<li>3,</li>
+			
+		<!--hidden使得元素不可见-->	
+		</ul>
+		<ol hidden="hidden">
+			<li>哈哈哈</li>
+			<li>嘻嘻嘻</li>
+		</ol>
+		
+		<!--spellcheck检查用户输入的内容 为什么不检查呢？-->
+		输入内容：<input type="text" id="" value="" spellcheck=" "/><br/><br/>
+		<textarea rows="20" cols="20" spellcheck=" ">
+			写个错的单词 看是否会检查
+		</textarea><br/>
+		
+		<!--按tab会进行索引-->
+		<a href="" tabindex="1">链接1</a>
+		<a href="" tabindex="3">链接2</a>
+		<ul tabindex="2">
+			<li>222</li>
+			<li>3333</li>
+		</ul>
+		
+	</body>
+</html>

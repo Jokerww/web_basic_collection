@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100px;
+				height: 100px;
+				background-color: pink;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 动画函数的原理
+		 核心原理：通过定时器setInterval()不断移动盒子的位置 
+		          实现动画效果
+		注意：通过style.left改变元素的位置 元素一定要有定位
+		 -->
+		 
+		<div></div>
+		<script type="text/javascript">
+			var div = document.querySelector('div');
+			// 用定时器来实现动画
+			var timer = setInterval(function(){
+				console.log(div.offsetLeft);
+				if (div.offsetLeft > 400) {
+					// 移动到相应距离就停止
+					clearInterval(timer);
+				} else{
+					div.style.left = div.offsetLeft + 1 +'px';
+				}
+			},50);
+			
+		</script>
+	</body>
+</html>

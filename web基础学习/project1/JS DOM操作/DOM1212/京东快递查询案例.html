@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			.find{
+				position: relative;
+				height: 25px;
+				width: 200px;
+				margin: 100px auto;
+			}
+			.find input{
+				height: 25px;
+				width: 200px;
+			}
+			.cont{
+				display: none;
+				position: absolute;
+				top:-50px;
+				left: 5px;
+				box-shadow: 1px 1px 3px #666666;
+				padding: 5px;
+				font-size: 18px;
+			}
+			.cont::after{
+				content: '';
+				position: absolute;
+				top: 33px;
+				left: 10px;
+				width: 0;
+				height: 0;
+				border-width: 7px;
+				border-style: solid;
+				border-color: #fff transparent transparent transparent; 
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 京东快递查询案例：
+			在快递查询栏里输入单号时 会有一个大大的盒子出来 大号字体显示输入的内容
+			
+			1，在布局的时候 输入框上方肯定是有个盒子的 输入内容时显示 没有内容时隐藏
+				所以输入框为空时  上边的大框框 display:none;
+			2,输入框输入内容时 大盒子显示display:block; 并且将输入的内容给大框框
+				此时检测文本框输入的事件为键盘事件 肯定要等到内容输进去了才显示
+				因此使用键盘按键弹起事件keyup 
+				如果用keydown 键盘按下才触发 则当前按下的数字并不会显示 因为只是按下
+				字并没有打上去就触发了 所以不会显示当前正在打的字 当然也不会显示输进去的第一个字
+				keydown与keypress都是文字还没打出来的时候触发 触发时当前文字并不在文本框里 所以不显示
+			3，当文本框失去焦点时 也隐藏大盒子
+			-->
+			
+			<div class="find">
+				<div class="cont">哈哈</div>
+				<input type="text">
+			</div>
+			<script type="text/javascript">
+				var input = document.querySelector('input');
+				var cont = document.querySelector('.cont');
+				input.addEventListener('keyup',function(e){
+					// 先检测输入框里有没有东西
+					if (this.value !== '') {
+						cont.style.display = 'block';
+						cont.innerHTML = this.value;
+					}else{
+						cont.style.display = 'none';
+					}
+				})
+					// 失去焦点 不显示大盒子
+				input.addEventListener('blur',function(){
+					cont.style.display = 'none';
+				})
+				// 获得焦点 当里边由内容才显示
+				input.addEventListener('focus',function(){
+					if (this.value !== '') {
+						cont.style.display = 'block';
+					}
+				})
+			</script>
+	</body>
+</html>

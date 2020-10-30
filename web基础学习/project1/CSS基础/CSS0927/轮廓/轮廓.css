@@ -1,0 +1,22 @@
+#div1{
+	/* background: -webkit-linear-gradient(-45deg,#c42300 0%, #22cc00 33% */
+				/* #00c9c6 69%, #0300bf 100%); */
+	background-color: #FAEBD7;
+	height: 25rem;
+}
+p{
+	width: 30rem; /* p标签的宽度 */
+	outline-style: double;
+	outline-color: #0000FF;
+	outline-width: 0.625rem;
+	/* outline-offset: 0.125rem; */
+}
+
+h1{
+	text-shadow: 2rem 0.625rem 0.25rem red;
+	/* text-shadow: h-shadow v-shadow blur color
+					h-shadow: 距离原字体边的距离 单位
+					v-shadow：距离原字体右边的距离 单位
+					blur:模糊淡化程度 数值越大越模糊 有单位
+					color：阴影的颜色*/
+}

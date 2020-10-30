@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			input{
+				color: #999;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<!-- 表单新的事件：
+		 获得焦点：onfocus
+		 失去焦点：onblur
+		 -->
+		<!-- 京东搜索案例：
+			搜索框里有手机两个字 表单获得焦点 字就不见了 
+			表单失去焦点 若果里边没有字 那手机又回来了
+		 -->
+		 <input type="search" value="手机">
+		 <script type="text/javascript">
+		 	var text = document.querySelector('input');
+			// 获得焦点 字就不见了
+			text.onfocus=function(){
+				console.log('获得了焦点');
+				// 里面是手机 就清空 否则就不变
+				if (this.value === '手机') {
+				this.value = '';
+				}
+				// 不管清不清空内容 颜色都变深色
+				this.style.color = '#000';	
+			}
+			text.onblur=function(){
+				console.log('失去了焦点');
+			// 失去了焦点 如果没有字 手机就又回来了 有字就不变
+				if(this.value ===''){
+					this.value = '手机';
+				}
+				// 失去焦点 颜色变浅
+				this.style.color = '#999';
+			}
+		 </script>
+	</body>
+</html>
