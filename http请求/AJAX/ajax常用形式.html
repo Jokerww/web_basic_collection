@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 
+			向服务器发起请求 当服务器的准备态发生改变时 就会触发readystatechange事件
+			当触发了准备状态改变事件 我们才能知道服务器什么时候能够给我们发送响应报文
+			JS是单线程编程  如果服务器发送报文过大 会导致等待报文时间过长 会引起程序阻塞在onreadystatechange事件
+			因此 ajax的异步特性很好的解决了这个问题  异步由open(method,url,async);中的async控制 为true即为异步
+			
+			当readyState为4  状态为200时  表示交易成功 请求报文已经完全发送了
+			
+			readyState:存有 XMLHttpRequest 的状态。从 0 到 4 发生变化。
+				0: 请求未初始化
+				1: 服务器连接已建立
+				2: 请求已接收
+				3: 请求处理中
+				4: 请求已完成，且响应已就绪
+		 -->
+		 <script type="text/javascript">
+		 	var xhr = new XMLHttpRequest();
+			xhr.addEventListener('readystatechange',function(){
+				if(this.readyState ==4 && this.status == 200){
+					console.log(this.responseText);
+					//执行响应的报文内容操作
+				}
+			});
+			xhr.open('GET',url);//async默认为true  url后面可用问号查询/发送数据
+			xhr.send();
+			
+			/* POST形式发送表单数据 一定要更改报文头中的contenttype属性
+			xhr.open("POST","/try/ajax/demo_post2.php",true);
+			xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+			xhr.send("fname=Henry&lname=Ford");
+			 */
+			
+			/* 
+			 如果您希望通过 GET 方法发送信息，请向 URL 添加信息：
+			xhr.open("GET","/try/ajax/demo_get2.php?fname=Henry&lname=Ford",true);
+			xhr.send();
+			 */
+			
+			/* 
+			 为了避免得到的是缓存结果，请向 URL 添加一个唯一的 ID：
+			xhr.open("GET","/try/ajax/demo_get.php?t=" + Math.random(),true);
+			xhr.send();
+			 */
+		 </script>
+	</body>
+</html>
