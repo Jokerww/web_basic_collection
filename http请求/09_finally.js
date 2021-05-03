@@ -9,3 +9,19 @@ new Promise((resolve,reject)=>{
 }).then(msg=>console.log(msg))
 .catch(err=>console.log(err))
 .finally(()=>console.log('我执行了'))
+
+
+/* 
+Promise.resolve()和Promise.reject()可以用来改变promise的状态 在then函数里边使用 
+*/
+
+new Promise((resolve,reject)=>{
+    resolve('成功1111')
+})
+.then(
+    val=>{
+        console.log(val);
+        Promise.reject('失败1111')
+    },
+    err=>console.log(err)
+).catch(err=>console.log(err))
