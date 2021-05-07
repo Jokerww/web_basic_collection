@@ -13,24 +13,35 @@
 									若数字集合里面有该数据便会删除成功 然后返回true 
 									若没有该数据 就是返回false
 					判断数集里边有无某个数字has:numberSet.has(3);有数字3则返回true 没有则返回false
-					获得数集的长度size:numberSet.size() 输出数集的长度 即里边有几个数字
+					获得数集的长度属性size:numberSet.size输出数集的长度 即里边有几个数字
+					清空数集方法clear :numberSet.clear()
 					遍历数集： numberSet.forEach(number => console.log(number);)
+					从Set中导出数组  Array.from(numberSet)
 					
 			Map() 构造函数用于存储对象
 				const map = new Map();
-					增加数据：map.set(key,value); key是简单数据类型（数字、字符串），value可是所有数据类型
+					增加数据：map.set(key,value); key可有多种数据类型（数字、字符串、对象），value可是所有数据类型
 					修改数据：map.set(key1,value2);直接重新设置key1的值就行
 					删除数据：map.delete(key);有且删除成功返回true 没有该值则返回false
-					map长度 size : map.size()
+					map长度 size : map.size
+					获取值get(): map.get('key')得到key对应的value
 					清空map:map.clear()
 					遍历：for...of... 
 						遍历对象一般用for in  可以直接得到对象的key
 						其余遍历用for of  直接得到元素内容
 			 */
 			
-			const numberSet = new Set();
+			const numberSet = new Set(); //创建方式1
 			numberSet.add(3);
+			numberSet.add(4)
 			console.log(numberSet);//其他操作直接在网页控制板进行
+			console.log(...numberSet);//输出3，4两个数
+			console.log([...numberSet]);//输出[3,4]
+			console.log(Array.from(numberSet));//输出[3,4]
+
+			// 创建方式2 可直接传入一个可迭代数据
+			const set1 = new Set(['a','b','c','d','b'])
+			// console.log(set1.entries());
 			
 			const map = new Map();
 			map.set('name','小明');
