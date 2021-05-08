@@ -23,6 +23,6 @@ Promise.allSettled([promise1,promise2,promise3]) //处理多个独立的promise�
 
 //只返回成功的=结果
 Promise.allSettled([promise1,promise2,promise3]) //处理多个独立的promise时 需要将其放入列表中传入
-.then(val=>{ //val是一个对象 里面有每一个promise的状态 值/理由
+.then(val=>{ //val是一个可迭代对象 里面有每一个promise的状态 值/理由
     let users = val.filter(item => item.status === 'fulfilled')
     console.log(users)})

@@ -19,6 +19,6 @@ const promise2 = new Promise((resolve,reject)=>{
     // reject('失败2222')
 });
 
-Promise.all([promise1,promise2]) //处理多个独立的promise时 需要将其放入列表中传入
+Promise.all([promise1,promise2]) //处理多个独立的promise时 需要将其放入数组中传入
 .then(val=>console.log(val))
 .catch(err=>console.log(err))

@@ -10,6 +10,7 @@
             这是因为生成的 Symbol 是一个原始类型的值，不是对象。
             也就是说，由于 Symbol 值不是对象，所以不能添加属性。
             基本上，它是一种类似于字符串的数据类型
+            通过Symbol.prototype.description属性获取这个说明参数  s.description
 
         Symbol的内置属性都是Symbol属性的固定写法 Symbol.InstanceOf
         而这个内置属性的整体 可用作对象的属性 以在特定场景中对对象进行控制
@@ -26,6 +27,7 @@ let s3 = Symbol('foo');
 console.log(s2===s3);//false
 console.log(s===s1);//false
 console.log(typeof s); //Symbol
+console.log(s3.description);//foo
 
 // 通过Symbol.for("des")创建的Symbol变量 可以通过传入的参数‘des’得到唯一的值 也即是相同的参数值相同
 // 他的实质并不是创建了一个相同的Symbol值 而是Symbol.for()在创建值的时候会对这个值进行全局登记 

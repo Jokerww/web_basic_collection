@@ -82,3 +82,6 @@ for (const [key,value] of map) { //此处的map 和map.entries()结果一样
 }
 map.forEach(item=>console.log(item)) //直接返回属性值
 map.forEach((value,key)=>console.log(key,value)) //分别返回键和值 注意值在前面 键在后面
+console.log(...map); //啊哈~  可以扩展耶
+const map111 =[...map]
+console.log(map111);
