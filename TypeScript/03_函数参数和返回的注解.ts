@@ -14,7 +14,7 @@ function func2(num1:number,num2:number):void{
     // return "" 写了return就报错 因为void不需要传参
 }
 
-// 3，单独传参 返回值为never 表示函数执行不完（抛出一场或陷入死循环）
+// 3，单独传参 返回值为never 表示函数执行不完（抛出异常或陷入死循环）
 function func3(num1:number,num2:number):never{
     throw new Error
     console.log(num1+num2) 
@@ -24,7 +24,7 @@ function func4(num1:number,num2:number):never{
     console.log(num1+num2) 
 }
 
-//4，对象传参 对返回值有要求 需要整体的对对象定义类型 不能直接在形参里边给参数定义类型
+//4，对象传参 对返回值有要求 需要整体的给对象定义类型 不能直接在形参里边给参数定义类型
 //因为是对象 ：表示赋值 直接定义类型的话 会将类型当成变量值直接赋值给形参
 function func5({num1,num2}:{num1:number,num2:number}):number{
     return num1+num2

@@ -17,7 +17,7 @@ let arr:string[] = ['1','2','3']
 arr.push('4') //元素只能是string类型
 console.log(arr)
 
-let arr2:number[]=[1,2,3]
+let arr2:number[]=[1,2,3] //元素只能是number类型 
 arr2.push(4)
 console.log(arr2)
 

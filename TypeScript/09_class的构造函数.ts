@@ -1,4 +1,4 @@
-//当字类中写constructor函数时 必须调用super()方法
+//当子类中写constructor函数时 必须调用super()方法
 class Person1{
     constructor(public name:string){
         this.name = name

@@ -1,3 +1,16 @@
+/* 
+类及类成员的修饰符：
+        public：类内部 子类内部 实例 均可用
+        protected: 类内部 子类内部  可用
+        private:  类内部可用
+
+        static: 类及其子类本身调用 class.staticProp
+
+        abstract:抽象类  抽象类不能被实例化 必须由子类继承 
+                抽象类成员不能被直接访问 且其子类必须实现其抽象类成员
+
+*/
+
 //类的继承 实现 与重写
 class Girl{
     content:String = '你好呀，我是父类的属性'
