@@ -5,9 +5,11 @@ class Girl22{
     constructor(private _age:number){
 
     }
+     //@ts-ignore
     get age(){
         return this._age + 10
     }
+    //@ts-ignore
     set age(age:number){ //setter不能返回值
          this._age = age + 15
     }

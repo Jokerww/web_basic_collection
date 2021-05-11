@@ -1,0 +1,13 @@
+{
+     /* 只创建了这个文件 里边啥都没写 运行tsc可以直接编译所有的ts文件为js文件
+    'includes' 指定需要被编译的目录  **任意目录 *任意文件 
+    "exculde"指定不需要被编译的文件
+    */
+    "include": [
+        "ts_conf/*"
+    ],
+    "exclude": [
+        "ts_conf/config_test1.ts"
+    ]
+    
+}
