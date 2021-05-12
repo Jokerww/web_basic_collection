@@ -1,0 +1,7 @@
+{
+    "compilerOptions": {
+        "target": "ES2015", //目标文件和编译器都用ES6
+        "module": "ES2015",
+        "strict": true, //打开严格模式
+    }
+}
