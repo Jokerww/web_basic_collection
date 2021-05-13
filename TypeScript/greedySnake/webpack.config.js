@@ -7,7 +7,7 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin') //引入自动清�
 // webpack所有的配置文件都应该写在这里
 module.exports={
     
-    entry:'./src/index.ts',//指定入口文件 即项目从哪里开始执行
+    entry:['babel-polyfill','./src/index.ts'],//指定入口文件 即项目从哪里开始执行
 
     // 指定打包后文件所在目录
     output:{
@@ -15,7 +15,8 @@ module.exports={
         filename:'boundle.js', //指定打包后的文件名
 
         environment:{ //配置webpack 的环境 因为打包的时候一直会有箭头函数 低版本的ie根本无法兼容
-            "arrowFunction":false,
+            arrowFunction:false,
+            const:false,
         }
     },
     mode:"development",
