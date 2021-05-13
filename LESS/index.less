@@ -1,0 +1,84 @@
+/* 
+1，变量：变量的定义使用@来完成 并使用：完成对变量的值的分配  @变量名：变量值
+        变量也可以用于其他位置，例如选择器名称，属性名称， URL 和 @import 语句
+        在延迟加载中，即使它们尚未声明，也可以使用变量
+        变量范围指的是变量的可用范围 将从本地作用域搜索，如果它们不可用，则编译器将从父作用域搜索
+2,函数：LESS 映射具有值操作的 JavaScript 代码，并使用预定义的函数来操纵样式表中的 HTML 元素。
+         它提供了操作颜色的几个功能，如圆函数，floor 函数，ceil 函数，百分比函数percentage()等
+
+3,导入：使用@import在less或JS/TS文件中导入less文件 里边的变量可以直接使用、
+
+4，使用extend()扩展其他选择器的样式 
+
+5，混合：可以直接在一个样式.class1中使用另一个样式.class2 并利用.class2()使得.class2在编译后不输出
+        混合样式可以带参数 参数中只有逗号时会依次传入各个参数
+        参数中既有逗号又有分号时 分号会将参数分割 分号前的将传给同一个参数
+6,判断条件时 使用的时.count(@val)when(@val的条件){}
+7，循环 .cout(@val)when(@val>0){ //判断条件
+            .cout(@val-1){//更新规则
+                font-size:15px * @val； //具体的样式
+            } 
+        }
+
+*/
+
+// 导入文件
+@import "body.less";
+// 定义一个变量 可接受参数
+.class1 {
+    .class2 {
+      .val(@param) { //函数带参数 
+        font-size: @param;
+        color:green;
+      }
+    }
+  }
+  
+
+@width:200px; //变量
+@perw:0.5; // 设置一个比例 相同的变量下边的会覆盖上面的 不管在哪里用 都是使用最下面的那个值
+@color:#FF8000;
+.container{
+    width: percentage(@perw); //该函数将小数转化成百分比
+    height: @width+100; //运算 单位以左边的为准
+    background-color: ~'gray'; //转义 ~后的会被显式转换成“”里的内容
+    color:@color;
+    #p_demo{ //层叠
+        color:rgb(32, 32, 151)
+    };
+    p{
+        .class1>.class2>.val(40px) //利用上面定义的变量并传值
+    }
+}
+
+// 测试变量范围
+@val:@a;
+@a:15px;
+.container1{
+    font-size: @val; //编译的结果是 20px 优先使用本地作用域的值
+    @a:20px;
+    color: @color;
+}
+
+// 扩展
+.p_demo2{
+    color: deeppink;
+}
+.container2{
+    &:extend(.p_demo2);
+    width: @width;
+    height: @width - 100;
+}
+
+// 混合
+.mixin(){ //并没有在css文件里输出
+    font-style: italic;
+}
+.border(@width; @style; @color) {
+    border: @width @style @color;
+}
+.container3{
+    .mixin();
+    .border(1px,solid,#fff);
+    color:#ff0000
+}
