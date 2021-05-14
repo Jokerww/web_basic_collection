@@ -17,7 +17,7 @@ export default class Food{
 
     // 蛇与食物重合时 蛇改变位置
     changePosition(){
-        // 位置随机 蛇每次移动10px 食物的位置需要时10的整数
+        // 位置随机 蛇每次移动10px 食物的位置需要时10的整数 让食物不出界
         let left = Math.round(Math.random()*29)*10; //0-29的整数乘以10
         let top = Math.round(Math.random()*29)*10; //0-29的整数乘以10
         this.element.style.left = left + 'px';

@@ -9,7 +9,7 @@ export default class ScorePanel{
     maxLevel:number; //最大的等级限制
     upLevelScore:number; //多少分可以升级
 
-    constructor(maxLevel:number=20,upLevelScore:number=10){
+    constructor(maxLevel:number=10,upLevelScore:number=10){
         this.scoreEle = document.getElementById('score')!;
         this.levelEle = document.getElementById('level')!;
         this.maxLevel = maxLevel;
